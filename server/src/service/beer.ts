@@ -14,8 +14,9 @@ export class BeerService {
         if(!beerToReview) {
             return undefined;
         }
+        const oldRating = beerToReview.rating*beerToReview.reviewer;
         beerToReview.reviewer++;
-        beerToReview.rating = (beerToReview.rating + rating) / beerToReview.reviewer;
+        beerToReview.rating = (oldRating + rating) / beerToReview.reviewer;
         return JSON.parse(JSON.stringify(beerToReview));
     }
 }
