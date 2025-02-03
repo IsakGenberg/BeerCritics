@@ -23,8 +23,17 @@ test("Adding a review increases number of reviewers", async () => {
     }
 })
 
+test("Adding a review to a non-existant beer should fail", async () => {
+    const beerService = new BeerService();
+    const beers = await beerService.getBeers();
+    const coronaBeer = beers.find((b) => b.name === "Royal");
+    if (coronaBeer != undefined){
+        expect(beers.find((beer) => (beer.name == "Royal"))).toBeFalsy();
+      
+    }
+})
+
 test("Trying to add a rating over 5 gives 400 error", async() => {
-    const res1 = await request.patch("/").send({rating: 6});
-    console.log(res1);
+    const res1 = await request.patch("/beer/Corona").send({rating: 6});
     expect(res1.statusCode).toEqual(400);
 })

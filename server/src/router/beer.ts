@@ -16,18 +16,19 @@ beerRouter.get('/', async (req: Request, res: Response) => {
 
 });
 
-beerRouter.patch("/", async (
-    req: Request<{}, {}, {rating: number}>, 
+beerRouter.patch('/:name', async (
+    req: Request<{name: string}, {}, {rating: number}>, 
     res: Response) => {
         try{
-            const beer = "Royal"
+            const beer = req.params.name;
             const rating = req.body.rating;
             if (rating > 5){
-                res.status(400).send("Rating can't be larger than 5")
+                res.status(400).send("Rating can't be larger than 5");
+                return;
             }
             const updatedBeer = await beerService.addReview(beer, rating);
             if(!updatedBeer){
-                res.status(200).send('Beer not found');
+                res.status(404).send('Beer not found');
             }else{
                 res.status(200).send(updatedBeer);
             }
