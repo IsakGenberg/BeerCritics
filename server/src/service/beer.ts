@@ -9,12 +9,13 @@ export class BeerService {
     async getBeers(): Promise<Beer[]> {
         return JSON.parse(JSON.stringify(this.beers));
     }
-    async addReview(beer: Beer, rating: number): Promise<void> {
-        const beerToReview = this.beers.find((b) => b.name === beer.name);
+    async addReview(name: string, rating: number): Promise<Beer | undefined> {
+        const beerToReview = this.beers.find((b) => b.name === name);
         if(!beerToReview) {
-            throw new Error('Beer not found');
+            return undefined;
         }
         beerToReview.reviewer++;
         beerToReview.rating = (beerToReview.rating + rating) / beerToReview.reviewer;
+        return JSON.parse(JSON.stringify(beerToReview));
     }
 }
