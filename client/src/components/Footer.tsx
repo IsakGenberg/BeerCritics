@@ -1,11 +1,11 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import "../styles/Footer.css";
+import "../styles/footer.css";
 
 function Footer() {
   return (
-    <Container>
-      <Row className="Footer">
-        <Col>
+    <Container fluid className = "Footer">
+      <Row className="Footer-row">
+        <Col xs={7}>
           <h1>BeerCritics</h1>
           <p>We critique beer</p>
         </Col>
