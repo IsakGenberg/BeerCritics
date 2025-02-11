@@ -6,10 +6,11 @@ import "bootstrap/dist/css/bootstrap.min.css";
 interface ReviewProps {
   rating: number;
   author: string;
-  comment: string;
+  comment?: string;
+  date: Date;
 }
 
-const Review: React.FC<ReviewProps> = ({ rating, author, comment }) => {
+const Review: React.FC<ReviewProps> = ({ rating, author, comment, date}) => {
   const renderStars = (rating: number) => {
     return "★".repeat(rating) + "☆".repeat(5 - rating);
   };
@@ -21,6 +22,7 @@ const Review: React.FC<ReviewProps> = ({ rating, author, comment }) => {
           <Card.Title id="Rating">{renderStars(rating)}</Card.Title>
           <Card.Subtitle id="Author">{author}</Card.Subtitle>
           <Card.Text id="Comment">{comment}</Card.Text>
+          <Card.Text id="Date">{date.toLocaleDateString()}</Card.Text>
         </Card.Body>
       </Card>
     </StrictMode>
