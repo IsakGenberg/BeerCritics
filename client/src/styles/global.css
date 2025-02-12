@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -12,6 +14,7 @@
   --background-color: #f3ecda;
   --logo-color: #624712;
   --text-color: #212529;
+  --brand-font: "Anton", sans-serif;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
