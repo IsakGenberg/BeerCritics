@@ -9,4 +9,10 @@ describe("Searchbar tests", () => {
     fireEvent.change(searchbar, { target: { value: "Test input" } });
     expect(searchbar).toHaveValue("Test input");
   });
+
+  it("renders on the screen", () => {
+    render(<SearchBar />);
+    const searchbar = screen.getByRole("textbox");
+    expect(searchbar).toBeInTheDocument;
+  });
 });
