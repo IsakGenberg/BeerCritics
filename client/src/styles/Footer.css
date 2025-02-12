@@ -4,6 +4,7 @@
   padding-bottom: 2rem;
 }
 
+/*Should maybe be in the root file?*/
 .Footer {
   position: fixed;
   width: 100%;
