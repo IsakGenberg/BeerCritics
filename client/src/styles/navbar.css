@@ -1,0 +1,28 @@
+.navbar {
+  background-color: var(--background-color);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+
+  box-shadow: 0 4px 8px var(--logo-color);
+  padding: 0.7rem 8rem;
+}
+
+.navbar-brand {
+  font-size: 2.5rem;
+  font-weight: bold;
+  font-family: var(--brand-font);
+  color: var(--logo-color);
+  letter-spacing: 1px;
+}
+
+.nav-link {
+  color: var(--text-color);
+  padding: 0.5rem 1rem;
+  font-weight: 400;
+}
+
+.nav-link:hover {
+  text-decoration: underline;
+}

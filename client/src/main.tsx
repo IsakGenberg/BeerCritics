@@ -1,10 +1,12 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
+import { StrictMode } from "react";
+import { createRoot } from "react-dom/client";
+import "./styles/global.css";
+import "bootstrap/dist/css/bootstrap.min.css";
+import MyNavbar from "./components/Navbar";
+// import "./styles/navbar.css";
 
-createRoot(document.getElementById('root')!).render(
+createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <App />
-  </StrictMode>,
-)
+    <MyNavbar />
+  </StrictMode>
+);
