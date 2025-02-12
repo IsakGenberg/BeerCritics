@@ -12,6 +12,6 @@ createRoot(document.getElementById("root")!).render(
     <MyNavbar />
     <SearchBar />
     <Review rating={4} author="John Doe" comment="Great beer!" date={new Date("2023-10-01")} />
-    <BeerCard name="Beer Name" brewery="Brewery Name" style="Beer Style" abv={5.5} rating={4} description="Beer Description" />
+    <BeerCard imagePath="birramoretti.png"name="Beer Name" brewery="Brewery Name" style="Beer Style" abv={5.5} rating={4} description="Beer Description" />
   </StrictMode>
 );

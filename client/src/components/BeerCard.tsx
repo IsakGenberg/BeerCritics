@@ -5,6 +5,7 @@ import "../styles/BeerCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 interface BeerCardProps {
+    imagePath: string;
     name: string;
     brewery: string;
     style: string;
@@ -13,13 +14,14 @@ interface BeerCardProps {
     description?: string;
     }
 
-const BeerCard: React.FC<BeerCardProps> = ({ name, brewery, style, abv, rating, description }) => {
+const BeerCard: React.FC<BeerCardProps> = ({imagePath, name, brewery, style, abv, rating, description }) => {
 
     return (
         <StrictMode>
             <Card id="BeerCard">
                 <Card.Body>
                     <Card.Title>{name}</Card.Title>
+                    <Card.Img id="Image" src={imagePath} />
                     <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
                     <Card.Subtitle id="Style">{style}</Card.Subtitle>
                     <Card.Subtitle id="ABV">{abv}</Card.Subtitle>
