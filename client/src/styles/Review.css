@@ -7,6 +7,9 @@
   width: 50vw;
   box-sizing: border-box;
 }
+#Rating {
+    color:chocolate
+}
 
 #Comment {
   text-wrap: wrap;
