@@ -11,11 +11,15 @@ interface LayoutProps {
 export function Layout({ children }: LayoutProps) {
   return (
     <>
-    <div className="layout">
-      <MyNavbar />
-      <main className="content">{children}</main>
-      <Footer />
-    </div>
+      <div className="layout">
+        <header className="layout-header">
+          <MyNavbar />
+        </header>
+        <main className="content">{children}</main>
+        <footer className="layout-footer">
+          <Footer />
+        </footer>
+      </div>
     </>
   );
 }
