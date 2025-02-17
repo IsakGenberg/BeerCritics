@@ -13,9 +13,9 @@ const AddReviewButton: React.FC = () => {
     setShowModal(false);
   };
 
-  const handleSave = (name: string, rating: number, comment: string) => {
-    // Handle the save logic here
-    console.log("Review saved:", { name, rating, comment });
+  const handleSave = (rating: number, author: string, comment: string, date: Date) => {
+    //TODO - save review to database
+    console.log("Review saved:", { rating, author, comment, date });
   };
 
   return (

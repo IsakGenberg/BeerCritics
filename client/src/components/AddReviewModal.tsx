@@ -1,24 +1,32 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "../styles/AddReviewModal.css";
+import StarRating from "./StarRating";
 
 interface AddReviewModalProps {
   show: boolean;
   handleClose: () => void;
-  handleSave: (name: string, rating: number, comment: string) => void;
+  handleSave: (
+    rating: number,
+    author: string,
+    comment: string,
+    date: Date
+  ) => void;
 }
-
+// TODO - Connect review to a specific beer
 const AddReviewModal: React.FC<AddReviewModalProps> = ({
   show,
   handleClose,
   handleSave,
 }) => {
-  const [name, setName] = useState("");
   const [rating, setRating] = useState(0);
+  // TODO - get author from user authentication
+  const [author] = useState("");
   const [comment, setComment] = useState("");
+  const [date] = useState(new Date());
 
   const handleSubmit = () => {
-    handleSave(name, rating, comment);
+    handleSave(rating, author, comment, date);
     handleClose();
   };
 
@@ -29,24 +37,12 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
       </Modal.Header>
       <Modal.Body>
         <Form>
-          <Form.Group controlId="formBeerName">
-            <Form.Label>Beer Name</Form.Label>
-            <Form.Control
-              type="text"
-              placeholder="Enter beer name"
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-            />
-          </Form.Group>
           <Form.Group controlId="formRating">
-            <Form.Label>Rating</Form.Label>
-            <Form.Control
-              type="number"
-              placeholder="Enter rating"
-              value={rating}
-              onChange={(e) => setRating(Number(e.target.value))}
-              min={0}
-              max={5}
+            <Form.Label>Rating </Form.Label>
+            <StarRating
+              rating={rating}
+              onRatingChange={(newRating) => setRating(newRating)}
+              isClickable={true}
             />
           </Form.Group>
           <Form.Group controlId="formComment">
@@ -66,7 +62,7 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
           Close
         </Button>
         <Button variant="primary" onClick={handleSubmit}>
-          Save Changes
+          Submit Review
         </Button>
       </Modal.Footer>
     </Modal>
