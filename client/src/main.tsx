@@ -16,6 +16,7 @@ createRoot(document.getElementById("root")!).render(
     <Routes>
       <Route path="/beer/:name" element={<BeerPage />} />
     </Routes>
+    <Footer/>
   </BrowserRouter>
 </StrictMode>
 )
