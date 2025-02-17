@@ -11,27 +11,27 @@ interface BeerCardProps {
     style: string;
     abv: number;
     rating: number;
-    description?: string;
+    numReviewers: number;
     }
 
-const BeerCard: React.FC<BeerCardProps> = ({imagePath, name, brewery, style, abv, rating, description }) => {
+const BeerCard: React.FC<BeerCardProps> = ({imagePath, name, brewery, style, abv, rating, numReviewers}) => {
 
     return (
-        <StrictMode>
-            <Card id="BeerCard">
-                <Card.Body>
-                    <Card.Title>{name}</Card.Title>
-                    <Card.Img id="Image" src={imagePath} />
-                    <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
-                    <Card.Subtitle id="Style">{style}</Card.Subtitle>
-                    <Card.Subtitle id="ABV">{abv}</Card.Subtitle>
-                    <Card.Subtitle id="Rating">
-                        <StarRating rating={rating} />
-                    </Card.Subtitle>
-                    <Card.Text id="Description">{description}</Card.Text>
-                </Card.Body>
-            </Card>
-        </StrictMode>
+      <StrictMode>
+        <Card id="BeerCard">
+          <Card.Body>
+            <Card.Title>{name}</Card.Title>
+            <Card.Img id="Image" src={imagePath} />
+            <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
+            <Card.Subtitle id="Style">{style}</Card.Subtitle>
+            <Card.Subtitle id="ABV">{abv}%</Card.Subtitle>
+            <Card.Subtitle id="Rating">
+              <StarRating rating={rating} />
+              <span className="numReviewers">({numReviewers})</span>
+            </Card.Subtitle>
+          </Card.Body>
+        </Card>
+      </StrictMode>
     );
 }
 export default BeerCard;
