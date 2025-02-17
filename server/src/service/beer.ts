@@ -6,9 +6,16 @@ export class BeerService {
         { name: 'Guinness', rating: 4, reviewer: 2 },
         { name: 'Corona', rating: 3, reviewer: 3 },
     ];
-    async getBeers(): Promise<Beer[]> {
+
+    async getAllBeers(): Promise<Beer[]> {
         return JSON.parse(JSON.stringify(this.beers));
     }
+
+    async getBeer(beer: string): Promise<Beer | undefined> {
+        return this.beers.find(b => b.name === beer);
+    }
+    
+
     async addReview(name: string, rating: number): Promise<Beer | undefined> {
         const beerToReview = this.beers.find((b) => b.name === name);
         if(!beerToReview) {
