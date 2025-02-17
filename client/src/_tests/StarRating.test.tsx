@@ -5,13 +5,15 @@ import StarRating from "../components/StarRating";
 describe("StarRating component", () => {
   test("A rating of 4 should render four filled stars and one empty star", () => {
     render(<StarRating rating={4} />);
-    const ratingElement = screen.getByText("★★★★☆");
-    expect(ratingElement).toBeInTheDocument();
+    const filledStars = screen.getAllByText("★");
+    const emptyStars = screen.getAllByText("☆");
+    expect(filledStars).toHaveLength(4);
+    expect(emptyStars).toHaveLength(1);
   });
 
   test("A rating of 0 should render five empty stars", () => {
     render(<StarRating rating={0} />);
-    const ratingElement = screen.getByText("☆☆☆☆☆");
-    expect(ratingElement).toBeInTheDocument();
+    const emptyStars = screen.getAllByText("☆");
+    expect(emptyStars).toHaveLength(5);
   });
 });
