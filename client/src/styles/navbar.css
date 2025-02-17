@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--background-color);
-  position: relative;
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;

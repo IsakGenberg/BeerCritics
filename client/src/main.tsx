@@ -4,8 +4,8 @@ import "./styles/global.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import MyNavbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar.tsx";
-import Footer from './components/Footer.tsx'
-import 'bootstrap/dist/css/bootstrap.min.css'
+import Footer from "./components/Footer.tsx";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import BeerPage from './pages/BeerPage'
 import { Layout } from "./components/Layout.tsx";
