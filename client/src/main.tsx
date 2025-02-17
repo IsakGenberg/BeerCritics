@@ -6,7 +6,7 @@ import MyNavbar from "./components/Navbar";
 import SearchBar from "./components/SearchBar.tsx";
 import Footer from './components/Footer.tsx'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import { Layout } from "./components/LayOut.tsx";
+import { Layout } from "./components/Layout.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
