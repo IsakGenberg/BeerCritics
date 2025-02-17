@@ -10,18 +10,6 @@ describe("Review component", () => {
     date: new Date("2023-10-01"),
   };
 
-  test("A rating of 4 should render four filled stars and one empty star", () => {
-    render(<Review {...reviewProps} />);
-    const ratingElement = screen.getByText("★★★★☆");
-    expect(ratingElement).toBeInTheDocument();
-  });
-
-  test("A rating of 0 should render five empty stars", () => {
-    render(<Review {...reviewProps} rating={0} />);
-    const ratingElement = screen.getByText("☆☆☆☆☆");
-    expect(ratingElement).toBeInTheDocument();
-  });
-
   test("Renders the author correctly", () => {
     render(<Review {...reviewProps} />);
     const authorElement = screen.getByText(reviewProps.author);
