@@ -1,0 +1,13 @@
+.Footer-row {
+  background:var(--background-color);
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+/*Should maybe be in the root file?*/
+.Footer {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  bottom: 0;
+}
