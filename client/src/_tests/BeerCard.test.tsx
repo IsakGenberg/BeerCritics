@@ -1,7 +1,6 @@
-
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import BeerCard from "../components/BeerCard";
+import BeerCard from "../components/beerCard/BeerCard";
 
 describe("BeerCard component", () => {
   const beerCardProps = {

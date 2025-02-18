@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import "../styles/AddReviewModal.css";
+import "./AddReviewModal.css";
 import StarRating from "./StarRating";
 
 interface AddReviewModalProps {

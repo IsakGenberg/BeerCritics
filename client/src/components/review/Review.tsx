@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
-import "../styles/Review.css";
+import "./Review.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 interface ReviewProps {

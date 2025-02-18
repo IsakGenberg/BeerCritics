@@ -1,7 +1,7 @@
-import MyNavbar from "./Navbar";
-import Footer from "./Footer";
+import MyNavbar from "../navbar/Navbar";
+import Footer from "../footer/Footer";
 import { ReactNode } from "react";
-import "../styles/Layout.css";
+import "./Layout.css";
 
 interface LayoutProps {
   children: ReactNode;
