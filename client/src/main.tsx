@@ -9,6 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout.tsx";
 import BeerPage from "./pages/BeerPage";
+import StarRating from "./components/StarRating.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
