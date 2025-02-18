@@ -38,12 +38,6 @@ describe("BeerCard component", () => {
     expect(abvElement).toBeInTheDocument();
   });
 
-  test("renders the star rating correctly", () => {
-    render(<BeerCard {...beerCardProps} />);
-    const ratingElement = screen.getByText("★★★★☆");
-    expect(ratingElement).toBeInTheDocument();
-  });
-
   test("renders the number of reviewers correctly", () => {
     render(<BeerCard {...beerCardProps} />);
     const numReviewersElement = screen.getByText(

@@ -1,3 +1,6 @@
 #Rating {
-    color:chocolate
+  color: chocolate;
+}
+.clickable {
+  cursor: pointer;
 }

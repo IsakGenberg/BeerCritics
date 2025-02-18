@@ -9,6 +9,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { Layout } from "./components/Layout.tsx";
 import BeerPage from "./pages/BeerPage";
 import HomePage from "./components/HomePage.tsx";
+import StarRating from "./components/StarRating.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
