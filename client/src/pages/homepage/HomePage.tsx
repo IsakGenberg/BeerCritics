@@ -35,6 +35,86 @@ const beers = [
     rating: 4.5,
     numReviewers: 150,
   },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
+  {
+    id: 3,
+    name: "Corona",
+    imagePath: "corona.png",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
+    rating: 4.5,
+    numReviewers: 150,
+  },
 ];
 
 const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
@@ -47,7 +127,7 @@ function HomePage() {
       <h2 className="text-beer2">Your top rated beers:</h2>
       <Row>
         {sortedBeers.map((beer) => (
-          <Col key={beer.id} xs={12} md={6} lg={4} className="mb-4">
+          <Col key={beer.id} xs={12} md={6} lg={3} className="mb-4">
             <BeerCard
               imagePath={beer.imagePath}
               name={beer.name}

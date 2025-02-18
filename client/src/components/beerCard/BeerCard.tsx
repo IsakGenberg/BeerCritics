@@ -4,6 +4,7 @@ import StarRating from "../review/StarRating";
 import "./BeerCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
+import { Col, Row } from "react-bootstrap";
 
 interface BeerCardProps {
   imagePath: string;
@@ -33,15 +34,21 @@ const BeerCard: React.FC<BeerCardProps> = ({
     <StrictMode>
       <Card id="BeerCard" onClick={() => handleClick(name)}>
         <Card.Body>
-          <Card.Title>{name}</Card.Title>
-          <Card.Img id="Image" src={imagePath} />
-          <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
-          <Card.Subtitle id="Style">{style}</Card.Subtitle>
-          <Card.Subtitle id="ABV">{abv}%</Card.Subtitle>
-          <Card.Subtitle id="Rating">
-            <StarRating rating={rating} />
-            <span className="numReviewers">({numReviewers})</span>
-          </Card.Subtitle>
+          <Row>
+            <Col xs={4}>
+              <Card.Img id="Image" src={imagePath} />
+            </Col>
+            <Col xs={8}>
+              <Card.Title>{name}</Card.Title>
+              <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
+              <Card.Subtitle id="Style">{style}</Card.Subtitle>
+              <Card.Subtitle id="ABV">{abv}%</Card.Subtitle>
+              <Card.Subtitle id="Rating">
+                <StarRating rating={rating} />
+                <span className="numReviewers">({numReviewers})</span>
+              </Card.Subtitle>
+            </Col>
+          </Row>
         </Card.Body>
       </Card>
     </StrictMode>
