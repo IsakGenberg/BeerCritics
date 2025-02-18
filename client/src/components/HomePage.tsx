@@ -1,7 +1,7 @@
 import { Container, Row, Col } from "react-bootstrap";
 import SearchBar from "./SearchBar";
 import React from "react";
-import BeerCard from "../components/BeerCard";
+import BeerCard from "./beerCard/BeerCard";
 import "../styles/homepage.css";
 //mock data
 const beers = [
