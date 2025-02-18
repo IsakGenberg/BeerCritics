@@ -1,9 +1,9 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
-import "../styles/footer.css";
+import "../styles/Footer.css";
 
 function Footer() {
   return (
-    <Container fluid className = "Footer">
+    <Container fluid className="Footer">
       <Row className="Footer-row">
         <Col xs={7}>
           <h1 className="footer-logo">BeerCritics</h1>
