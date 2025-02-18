@@ -54,7 +54,7 @@ function HomePage() {
     <Container className="homepage">
       <h1 className="text-beer1">Find the best beers here!🍺</h1>
       <SearchBar />
-      <h2 className="text-beer2">Top rated beers:</h2>
+      <h2 className="text-beer2">Your top rated beers:</h2>
       <Row>
         {sortedBeers.map((beer) => (
           <Col key={beer.id} xs={12} md={6} lg={4} className="mb-4">
