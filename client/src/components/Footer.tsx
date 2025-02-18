@@ -6,8 +6,8 @@ function Footer() {
     <Container fluid className="Footer">
       <Row className="Footer-row">
         <Col xs={7}>
-          <h1>BeerCritics</h1>
-          <p>We critique beer</p>
+          <h1 className="footer-logo">BeerCritics</h1>
+          <p className="footer-logo-subtext">We critique beer</p>
         </Col>
         <Col>
           <Nav className="flex-column">
