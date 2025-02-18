@@ -6,10 +6,10 @@ import "bootstrap/dist/css/bootstrap.min.css";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { Layout } from "./components/Layout.tsx";
+import { Layout } from "./components/layout/Layout.tsx";
 import BeerPage from "./pages/BeerPage";
-import HomePage from "./components/HomePage.tsx";
-import StarRating from "./components/StarRating.tsx";
+import HomePage from "./pages/homepage/HomePage.tsx";
+import StarRating from "./components/review/StarRating.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>

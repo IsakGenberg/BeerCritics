@@ -1,5 +1,5 @@
 import { Container, Row, Col } from "react-bootstrap";
-import SearchBar from "./SearchBar";
+import SearchBar from "../../components/searchbar/SearchBar";
 import React from "react";
 import BeerCard from "../components/BeerCard";
 import "../styles/homepage.css";

@@ -1,6 +1,6 @@
 import { screen, render, fireEvent } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import SearchBar from "../components/SearchBar";
+import SearchBar from "../components/searchbar/SearchBar";
 
 describe("Searchbar tests", () => {
   it("stores the user input in the searchbar", () => {
