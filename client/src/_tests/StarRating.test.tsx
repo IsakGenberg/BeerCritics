@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import StarRating from "../components/StarRating";
+import StarRating from "../components/review/StarRating";
 
 describe("StarRating component", () => {
   test("A rating of 4 should render four filled stars and one empty star", () => {
