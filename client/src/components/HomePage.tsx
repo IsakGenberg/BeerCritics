@@ -1,57 +1,72 @@
 import { Container, Row, Col } from "react-bootstrap";
 import SearchBar from "./SearchBar";
-//import Cards när Irre är klar
-
-// Mock beer data (Replace with API data later)
+import React from "react";
+import BeerCard from "../components/BeerCard";
+import "../styles/homepage.css";
+//mock data
 const beers = [
   {
     id: 1,
     name: "Golden Ale",
-    image: "https://source.unsplash.com/200x200/?beer",
+    imagePath: "https://source.unsplash.com/200x200/?beer",
+    brewery: "Sunrise Brewing",
+    style: "Golden Ale",
+    abv: 5.2,
     rating: 4.8,
-    description: "A smooth golden ale with hints of citrus and hops.",
+    numReviewers: 120,
   },
   {
     id: 2,
     name: "Dark Stout",
-    image: "https://source.unsplash.com/200x200/?stout",
+    imagePath: "https://source.unsplash.com/200x200/?stout",
+    brewery: "Midnight Brewery",
+    style: "Stout",
+    abv: 6.5,
     rating: 4.6,
-    description: "A rich and creamy stout with notes of coffee and chocolate.",
+    numReviewers: 98,
   },
   {
     id: 3,
     name: "Hoppy IPA",
-    image: "https://source.unsplash.com/200x200/?ipa",
+    imagePath: "https://source.unsplash.com/200x200/?ipa",
+    brewery: "Hop Valley",
+    style: "IPA",
+    abv: 7.0,
     rating: 4.5,
-    description: "A bold IPA with a strong hoppy flavor and citrusy finish.",
+    numReviewers: 150,
   },
   {
     id: 4,
     name: "Amber Lager",
-    image: "https://source.unsplash.com/200x200/?lager",
+    imagePath: "https://source.unsplash.com/200x200/?lager",
+    brewery: "Classic Brews",
+    style: "Lager",
+    abv: 5.0,
     rating: 4.4,
-    description: "A crisp amber lager with a smooth malt finish.",
+    numReviewers: 85,
   },
 ];
 
-// Sort beers by rating (highest first)
 const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
 
 function HomePage() {
   return (
     <Container className="homepage">
-      <h1 className="text-center my-4">Find the best beers here!🍺</h1>
-
-      {/* Search Bar, ingen funktionalitet än */}
+      <h1 className="text-beer1">Find the best beers here!🍺</h1>
       <SearchBar />
-
-      {/* Top Beers */}
-      <h2 className="text-center my-4">Top rated beers:</h2>
+      <h2 className="text-beer2">Top rated beers:</h2>
       <Row>
         {sortedBeers.map((beer) => (
           <Col key={beer.id} xs={12} md={6} lg={4} className="mb-4">
-            {/* <BeerCard beer={beer} />{" "} */}
-            {/* Using predefined BeerCard component */}
+            <BeerCard
+              imagePath={beer.imagePath}
+              name={beer.name}
+              brewery={beer.brewery}
+              style={beer.style}
+              abv={beer.abv}
+              rating={beer.rating}
+              numReviewers={beer.numReviewers}
+            />
           </Col>
         ))}
       </Row>
