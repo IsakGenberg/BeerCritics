@@ -1,8 +1,8 @@
 import { Container, Row, Col } from "react-bootstrap";
 import SearchBar from "../../components/searchbar/SearchBar";
 import React from "react";
-import BeerCard from "../components/BeerCard";
-import "../styles/homepage.css";
+import BeerCard from "../../components/beerCard/BeerCard";
+import "./homepage.css";
 //mock data
 const beers = [
   {

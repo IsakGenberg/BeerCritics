@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AddReviewModal from "./AddReviewModal";
-import "../styles/AddReviewButton.css";
+import "./AddReviewButton.css";
 
 const AddReviewButton: React.FC = () => {
   const [showModal, setShowModal] = useState(false);
@@ -13,7 +13,12 @@ const AddReviewButton: React.FC = () => {
     setShowModal(false);
   };
 
-  const handleSave = (rating: number, author: string, comment: string, date: Date) => {
+  const handleSave = (
+    rating: number,
+    author: string,
+    comment: string,
+    date: Date
+  ) => {
     //TODO - save review to database
     console.log("Review saved:", { rating, author, comment, date });
   };
