@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/StarRating.css";
+import "./StarRating.css";
 
 interface StarRatingProps {
   rating: number;

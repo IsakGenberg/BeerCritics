@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AddReviewButton from "../components/AddReviewButton";
-import Review from "../components/Review";
+import AddReviewButton from "../../components/review/AddReviewButton";
+import Review from "../../components/review/Review";
 
 interface Beer {
   name: string;

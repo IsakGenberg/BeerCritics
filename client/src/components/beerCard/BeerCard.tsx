@@ -1,10 +1,10 @@
 import React, { StrictMode } from "react";
 import Card from "react-bootstrap/Card";
-import StarRating from "../StarRating";
-import "../styles/BeerCard.css";
+import StarRating from "../review/StarRating";
+import "./BeerCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from "react-router-dom";
-import { Row, Col } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 
 interface BeerCardProps {
   imagePath: string;
@@ -30,7 +30,6 @@ const BeerCard: React.FC<BeerCardProps> = ({
   const handleClick = (name: string) => {
     navigate(`/beer/${encodeURIComponent(name)}`);
   };
-
   return (
     <StrictMode>
       <Card id="BeerCard" onClick={() => handleClick(name)}>
@@ -55,5 +54,4 @@ const BeerCard: React.FC<BeerCardProps> = ({
     </StrictMode>
   );
 };
-
 export default BeerCard;
