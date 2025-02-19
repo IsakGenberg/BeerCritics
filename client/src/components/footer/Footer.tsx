@@ -12,7 +12,7 @@ function Footer() {
         <Col>
           <Nav className="flex-column">
             <h4>Useful links</h4>
-            <Nav.Link>Home</Nav.Link>
+            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link>All Beers</Nav.Link>
             <Nav.Link>Account page</Nav.Link>
             <Nav.Link>About us</Nav.Link>
