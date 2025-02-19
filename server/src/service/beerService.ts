@@ -8,15 +8,15 @@ export class BeerService {
       brewery: "Stockholm brewery",
       style: "Lager",
       abv: 5,
-      imagePath: "../../../client/public/heineken.png",
+      imagePath: "/heineken.png",
     },
     {
       name: "Corona",
       rating: 3,
       brewery: "Stockholm brewery",
-      style: "Lager",
+      style: "Mexian Beer",
       abv: 2,
-      imagePath: "../../../client/public/corona.png",
+      imagePath: "/corona.png",
     },
     {
       name: "Guinness",
@@ -24,7 +24,7 @@ export class BeerService {
       brewery: "Ireland brewery",
       style: "Stout",
       abv: 5,
-      imagePath: "../../../client/public/guinness.png",
+      imagePath: "/guinness.png",
     },
   ];
 
