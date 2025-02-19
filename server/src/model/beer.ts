@@ -1,8 +1,8 @@
 export interface Beer {
-  imagePath: string;
   name: string;
+  rating: number;
   brewery: string;
   style: string;
   abv: number;
-  rating: number;
+  imagePath: string;
 }
