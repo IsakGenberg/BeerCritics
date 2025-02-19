@@ -1,5 +1,8 @@
 export interface Beer {
-    name: string;
-    rating: number;
-    reviewer: number;
-    }
+  imagePath: string;
+  name: string;
+  brewery: string;
+  style: string;
+  abv: number;
+  rating: number;
+}
