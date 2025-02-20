@@ -1,0 +1,35 @@
+.product-page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.product-info {
+  display: flex;
+  width: 100%;
+  max-width: 800px;
+  height: auto;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.product-image,
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-image img {
+  display: block;
+  margin: auto;
+  max-width: 100%;
+  height: auto;
+  max-height: 50%;
+  object-fit: cover;
+}
+
+.review-list {
+  width: 100%;
+}
