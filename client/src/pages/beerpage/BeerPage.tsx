@@ -2,12 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
 import Review from "../../components/review/Review";
+import { Beer } from "../../interfaces/beer";
 
-interface Beer {
-  name: string;
-  rating: number;
-  reviewer: number;
-}
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
