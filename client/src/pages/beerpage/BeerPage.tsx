@@ -48,6 +48,7 @@ const BeerPage: React.FC = () => {
       <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col id="review-list">
+          <div className="reviews">
           <Review
             rating={beer.rating}
             author="beerlover1337"
@@ -60,7 +61,8 @@ const BeerPage: React.FC = () => {
             comment={`I think ${beer.name} is terrible!`}
             date={new Date()}
           />
-          <AddReviewButton />
+          </div>
+          <AddReviewButton/>
         </Col>
       </Row>
     </div>
