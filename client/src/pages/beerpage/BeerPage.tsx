@@ -26,11 +26,12 @@ const BeerPage: React.FC = () => {
     <div className="product-page">
       <Row className="product-info">
         <Col className="product-image">
+        <div className="image-container">
           <img src={beer.imagePath} alt={`${beer.name} image`} />
+        </div>
         </Col>
         <Col className="product-details">
           <h1>{beer.name}</h1>
-          <p>Rating: </p>
           <StarRating rating={beer.rating} />
           <p>Brewery: {beer.brewery}</p>
           <p>Style: {beer.style}</p>
