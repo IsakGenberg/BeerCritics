@@ -28,4 +28,17 @@ beerRouter.get(
   }
 );
 
+beerRouter.post(
+  "/",
+  async (req: Request, res: Response) => {
+    try {
+      const { beer } = req.body; 
+      await beerService.addBeer(beer);
+      res.status(201).send(`Added beer: ${beer}`);
+    } catch (e: any) {
+      res.status(500).send(e.message);
+    }
+  }
+);
+
 
