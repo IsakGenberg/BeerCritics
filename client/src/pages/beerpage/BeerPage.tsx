@@ -3,6 +3,9 @@ import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
 import Review from "../../components/review/Review";
 import { Beer } from "../../../../server/src/model/beer";
+import StarRating from "../../components/review/StarRating";
+import { Col, Row } from "react-bootstrap";
+import "./BeerPage.css";
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -21,19 +24,31 @@ const BeerPage: React.FC = () => {
 
   return (
     <div className="product-page">
-      <h1>{beer.name}</h1>
-      <p>Rating: {beer.rating}</p>
-      <p>Brewery: {beer.brewery}</p>
-      <p>Style: {beer.style}</p>
-      <p>Alcohol Perc: {beer.abv} %</p>
-      <img src={beer.imagePath} alt={`${beer.name} image`} />
-      <Review
-        rating={beer.rating}
-        author="beerlover1337"
-        comment={`I think ${beer.name} is the best beer I've ever had!`}
-        date={new Date()}
-      />
-      <AddReviewButton />
+      <Row className="product-info">
+        <Col className="product-image">
+          <img src={beer.imagePath} alt={`${beer.name} image`} />
+        </Col>
+        <Col className="product-details">
+          <h1>{beer.name}</h1>
+          <p>Rating: </p>
+          <StarRating rating={beer.rating} />
+          <p>Brewery: {beer.brewery}</p>
+          <p>Style: {beer.style}</p>
+          <p>Alcohol Perc: {beer.abv} %</p>
+        </Col>
+      </Row>
+      <Row>
+        <h2>Reviews</h2>
+        <Col className="review-list">
+        <Review
+          rating={beer.rating}
+          author="beerlover1337"
+          comment={`I think ${beer.name} is the best beer I've ever had!`}
+          date={new Date()}
+        />
+        <AddReviewButton />
+        </Col>
+      </Row>
     </div>
   );
 };
