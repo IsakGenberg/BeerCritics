@@ -34,7 +34,7 @@ beerRouter.post(
     try {
       const { beer } = req.body; 
       await beerService.addBeer(beer);
-      res.status(201).send(`Added beer: ${beer}`);
+      res.status(201).send(`Added beer: ${beer.name}`);
     } catch (e: any) {
       res.status(500).send(e.message);
     }

@@ -27,12 +27,8 @@ export class UserService {
       password: "12345",
     },
   ];
-
-  
-  
-
-  
-async registerUser(username: string, password: string): Promise<void> {
+ 
+async registerUser(user: User): Promise<void> {
       const filePath = process.env.USERS_JSON_PATH;
   
       if (!filePath) {
@@ -40,8 +36,6 @@ async registerUser(username: string, password: string): Promise<void> {
       }
   
       const absolutePath = path.resolve(filePath); 
-  
-      let user = { username, password };
   
       try {
           let data = fs.readFileSync(absolutePath, "utf-8");
