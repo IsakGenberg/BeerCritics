@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import AddReviewModal from "../components/AddReviewModal";
+import AddReviewModal from "../components/review/AddReviewModal";
 
 describe("AddReviewModal component", () => {
     test("renders the modal correctly", () => {
