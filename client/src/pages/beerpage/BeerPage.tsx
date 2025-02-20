@@ -2,12 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
 import Review from "../../components/review/Review";
-
-interface Beer {
-  name: string;
-  rating: number;
-  reviewer: number;
-}
+import { Beer } from "../../../../server/src/model/beer";
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
@@ -28,7 +23,10 @@ const BeerPage: React.FC = () => {
     <div className="product-page">
       <h1>{beer.name}</h1>
       <p>Rating: {beer.rating}</p>
-      <p>Reviewer ID: {beer.reviewer}</p>
+      <p>Brewery: {beer.brewery}</p>
+      <p>Style: {beer.style}</p>
+      <p>Alcohol Perc: {beer.abv} %</p>
+      <img src={beer.imagePath} alt={`${beer.name} image`} />
       <Review
         rating={beer.rating}
         author="beerlover1337"

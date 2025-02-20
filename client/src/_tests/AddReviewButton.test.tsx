@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import AddReviewButton from "../components/AddReviewButton";
+import AddReviewButton from "../components/review/AddReviewButton";
 import { act } from "react";
 
 describe("AddReviewButton component", () => {
