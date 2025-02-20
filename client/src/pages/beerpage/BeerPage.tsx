@@ -38,7 +38,7 @@ const BeerPage: React.FC = () => {
           <p>Alcohol Perc: {beer.abv} %</p>
         </Col>
       </Row>
-      <Row>
+      <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col className="review-list">
         <Review
