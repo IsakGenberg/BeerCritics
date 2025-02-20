@@ -32,6 +32,18 @@
   margin-bottom: 5%;
 }
 
+.beer-brewery {
+  font-size: 1.5rem;
+  font-weight: semi-bold;
+  color: #939393;
+}
+
+.beer-rating {
+  font-size: 15rem;
+  font-weight: semi-bold;
+  color: #939393;
+}
+
 .review-list {
   width: 100%;
 }

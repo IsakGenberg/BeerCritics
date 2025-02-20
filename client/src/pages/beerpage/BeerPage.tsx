@@ -26,28 +26,28 @@ const BeerPage: React.FC = () => {
     <div className="product-page">
       <Row className="product-info">
         <Col className="product-image">
-        <div className="image-container">
-          <img src={beer.imagePath} alt={`${beer.name} image`} />
-        </div>
+          <div className="image-container">
+            <img src={beer.imagePath} alt={`${beer.name} image`} />
+          </div>
         </Col>
         <Col className="product-details">
-          <h1>{beer.name}</h1>
-          <StarRating rating={beer.rating} />
-          <p>Brewery: {beer.brewery}</p>
-          <p>Style: {beer.style}</p>
-          <p>Alcohol Perc: {beer.abv} %</p>
+          <h1 className="beer-name">{beer.name}</h1>
+          <p className="beer-brewery">{beer.brewery}</p>
+          <p className="beer-style">{beer.style}</p>
+          <p className="beer-abv">{beer.abv} % vol</p>
+          <StarRating rating={beer.rating} className="beer-rating" />
         </Col>
       </Row>
       <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col className="review-list">
-        <Review
-          rating={beer.rating}
-          author="beerlover1337"
-          comment={`I think ${beer.name} is the best beer I've ever had!`}
-          date={new Date()}
-        />
-        <AddReviewButton />
+          <Review
+            rating={beer.rating}
+            author="beerlover1337"
+            comment={`I think ${beer.name} is the best beer I've ever had!`}
+            date={new Date()}
+          />
+          <AddReviewButton />
         </Col>
       </Row>
     </div>
