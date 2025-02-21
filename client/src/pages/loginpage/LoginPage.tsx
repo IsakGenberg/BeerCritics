@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import "./loginPage.css";
+import { useNavigate } from "react-router";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -9,6 +10,7 @@ function LoginPage() {
     username?: string;
     password?: string;
   }>({});
+  const navigate = useNavigate();
 
   const checkUserLogin = () => {
     const newErrors: { username?: string; password?: string } = {};
@@ -22,17 +24,50 @@ function LoginPage() {
     return newErrors;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    console.log("Login attempted with:", { username, password });
+    navigate("/");
+  };
+
+  /*setErrors({});
+
     const formErrors = checkUserLogin();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-    } else {
-      setErrors({});
-      console.log("Login attempted with:", { username, password });
-      // Here you would typically send a request to your server
+      return;
+    }
+    try {
+      const response = await fetch("http://localhost:8080/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      const data = await response.json();
+
+      if (!response.ok) {
+        throw new Error(data.message || "Login failed");
+      }
+
+      console.log("Login successful:", data);
+      localStorage.setItem("authToken", data.token);
+      window.location.href = "/";
+    } catch (error: any) {
+      setErrors({
+        username: "Invalid credentials",
+        password: "Invalid credentials",
+      });
     }
   };
+  
+ <Form.Control.Feedback type="invalid">
+              {errors.password}
+            </Form.Control.Feedback>
+          </Form.Group>
+            */
   return (
     <div className="login-wrapper">
       <div className="login-container">
@@ -47,9 +82,6 @@ function LoginPage() {
               onChange={(e) => setUsername(e.target.value)}
               isInvalid={!!errors.username}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.username}
-            </Form.Control.Feedback>
           </Form.Group>
 
           <Form.Group className="password" controlId="formBasicPassword">
@@ -61,9 +93,6 @@ function LoginPage() {
               onChange={(e) => setPassword(e.target.value)}
               isInvalid={!!errors.password}
             />
-            <Form.Control.Feedback type="invalid">
-              {errors.password}
-            </Form.Control.Feedback>
           </Form.Group>
 
           <Button variant="primary" type="submit" className="login-button">
