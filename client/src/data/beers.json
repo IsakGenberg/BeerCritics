@@ -38,5 +38,53 @@
     "style": "Lager",
     "abv": 5,
     "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
+  },
+  {
+    "name": "Heineken",
+    "rating": 4,
+    "brewery": "Stockholm brewery",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "/heineken.png"
   }
 ]
