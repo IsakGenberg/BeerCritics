@@ -2,17 +2,22 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
 import Review from "../../components/review/Review";
-import { Beer } from "../../../../server/src/model/beer";
+import { Beer } from "../../interfaces/beer";
+import { getBeer } from "../../api";
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
 
+  async function loadBeer(name: string) {
+    const b = await getBeer(name);
+    setBeer(b);
+  }
+  
   useEffect(() => {
-    fetch(`http://localhost:8080/beer/${name}`)
-      .then((res) => res.json())
-      .then((data) => setBeer(data))
-      .catch((error) => console.error("Error fetching beer data:", error));
+    if (name) {
+      loadBeer(name);
+    }
   }, [name]);
 
   if (!beer) {

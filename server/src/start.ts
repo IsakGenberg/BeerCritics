@@ -27,4 +27,4 @@ app.use(
   })
 );
 app.use("/beer", beerRouter);
-app.use("/users", userRouter);
+app.use("/user", userRouter);
