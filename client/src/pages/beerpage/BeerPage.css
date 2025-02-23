@@ -1,0 +1,62 @@
+.product-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 60vw;
+  margin-top: 5vh;
+}
+
+.product-info {
+  display: flex;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  height: 50%;
+  border-radius: 10px;
+}
+
+.image-container {
+}
+
+.product-image,
+.product-details {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.product-image img {
+  display: block;
+  margin: auto;
+  width: 50%;
+  height: inherit;
+  object-fit: cover;
+  padding: 10%;
+  margin-top: 5%;
+  margin-bottom: 5%;
+}
+
+.beer-brewery {
+  font-size: 1.5rem;
+  font-weight: semi-bold;
+  color: #939393;
+}
+
+.beer-rating {
+  display: flex;
+  flex-wrap: nowrap;
+}
+
+#num-reviews {
+  color: #939393;
+}
+
+.review-list {
+  width: 100%;
+}
+
+.reviews-section {
+  margin-top: 5vh;
+}
+
+.reviews{
+    margin-bottom: 1vw;
+}

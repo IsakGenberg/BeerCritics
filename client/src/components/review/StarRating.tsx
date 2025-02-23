@@ -5,12 +5,14 @@ interface StarRatingProps {
   rating: number;
   onRatingChange?: (newRating: number) => void;
   isClickable?: boolean;
+  className?: string;
 }
 
 const StarRating: React.FC<StarRatingProps> = ({
   rating,
   onRatingChange,
   isClickable = false,
+  className,
 }) => {
   const handleClick = (newRating: number) => {
     if (isClickable && onRatingChange) {
@@ -19,7 +21,7 @@ const StarRating: React.FC<StarRatingProps> = ({
   };
 
   return (
-    <span id="Rating">
+    <span id="Rating" className={className}>
       {Array.from({ length: 5 }, (_, index) => (
         <span
           key={index}
