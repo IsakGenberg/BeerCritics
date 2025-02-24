@@ -35,14 +35,37 @@ function RegisterPage() {
     return newErrors;
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const formErrors = checkValidForm();
+
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
-    } else {
-      console.log("User registered with:", { username, password });
-      navigate("/login");
+      return;
+    }
+
+    try {
+      const response = await fetch("/user", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ username, password }),
+      });
+
+      if (response.status === 201) {
+        console.log("User registered successfully");
+        navigate("/login");
+      } else if (response.status === 400) {
+        setErrors({ username: "Invalid username or password" });
+      } else if (response.status === 409) {
+        setErrors({ username: "Username already exists" });
+      } else {
+        setErrors({ username: "Unexpected error. Please try again" });
+      }
+    } catch (error) {
+      console.error("Error registering user:", error);
+      setErrors({ username: "Server error. Please try again later." });
     }
   };
 
