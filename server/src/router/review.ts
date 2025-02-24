@@ -39,8 +39,12 @@ reviewRouter.get(
   }
 );
 
-reviewRouter.post("/", async (req: Request, res: Response) => {
+reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
   try {
+    if (!req.session.username) {
+      res.status(401).send("Not logged in");
+      return;
+    }
     const review: Review = req.body;
     await reviewService.addReview(review);
     res.status(201).send("Review added");
