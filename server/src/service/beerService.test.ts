@@ -1,27 +1,44 @@
 import { BeerService } from "./beerService";
-import * as SuperTest from "supertest";
-import { app } from "../start";
-import { mock } from "node:test";
+import { Beer } from "../model/beer";
 
-const request = SuperTest.default(app);
+describe("BeerService", () => {
+  let beerService: BeerService;
 
-test("Calling getBeer with a non-existant beer returns undefined", async () => {
-  const beerService = new BeerService();
-  const beer = await beerService.getBeer("Royal");
-  expect(beer == undefined);
-});
+  beforeEach(() => {
+    beerService = new BeerService();
+  });
 
-test("addBeer is called with correct beer", async () => {
-  const beerService = new BeerService();
-  const addBeerSpy = jest.spyOn(beerService, "addBeer");
-  const beer = {
-    name: "Heineken",
-    rating: 4,
-    brewery: "Stockholm brewery",
-    style: "Lager",
-    abv: 5,
-    imagePath: "/heineken.png",
-  };
-  await beerService.addBeer(beer);
-  expect(addBeerSpy).toHaveBeenCalledWith(beer);
+  test("should add a new beer", async () => {
+    const newBeer: Beer = {
+      name: "Budweiser",
+      rating: 4.0,
+      brewery: "Bud Brewing Co.",
+      style: "Lager",
+      abv: 5.0,
+      imagePath: "budweiser.png",
+    };
+
+    await beerService.addBeer(newBeer);
+
+    const beers = await beerService.getAllBeers();
+    expect(beers).toContainEqual(newBeer);
+  });
+
+  test("should return all beers", async () => {
+    const beers = await beerService.getAllBeers();
+    expect(beers.length).toBe(5);
+  });
+
+  test("should return the correct beer when searched by name", async () => {
+    const beer = await beerService.getBeer("Guinness");
+
+    expect(beer).toBeDefined();
+    expect(beer?.name).toBe("Guinness");
+    expect(beer?.brewery).toBe("Midnight Brewery");
+  });
+
+  test("should return undefined when searching for a non-existent beer", async () => {
+    const beer = await beerService.getBeer("NonExistentBeer");
+    expect(beer).toBeUndefined();
+  });
 });
