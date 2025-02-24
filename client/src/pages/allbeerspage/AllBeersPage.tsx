@@ -1,39 +1,44 @@
 import React, { useEffect, useState } from "react";
 import { Beer } from "../../interfaces/beer";
 import BeerCard from "../../components/beerCard/BeerCard";
+import "./allbeerspage.css";
+import { Col, Row } from "react-bootstrap";
+import { getAllBeers } from "../../api";
+
+
 
 function AllBeersPage() {
   const [beers, setBeers] = useState<Beer[] | null>(null);
 
+  async function getBeerList() {
+    const bs = await getAllBeers();
+    setBeers(bs);
+  }
+
   useEffect(() => {
-    fetch(`http://localhost:8080/beer`)
-      .then((res) => res.json())
-      .then((data) => setBeers(data))
-      .catch((error) => console.error("Error fetching beer data:", error));
+    getBeerList();
   }, []);
 
   if (!beers) {
-    return <div>Error loading beers</div>;
+    return <div>Loading beers<div className="loader"></div></div>;
   }
 
   const beersList = beers.map((beer) => (
-    <li>
       <BeerCard
-        imagePath={"corona.png"}
+        imagePath={beer.imagePath}
         name={beer.name}
-        brewery={"eriks bryggeri"}
-        style={"lager"}
-        abv={1}
+        brewery={beer.brewery}
+        style={beer.style}
+        abv={beer.abv}
         rating={beer.rating}
-        numReviewers={beer.reviewer}
+        numReviewers={4}
       />
-    </li>
   ));
 
   return (
-    <div>
-      <p>Here are all of the beers that are available in the backend.</p>
-      <ul>{beersList}</ul>
+    <div className="all-beers-page">
+      <p className="beers-page-text">Here are all of the beers that are available in the backend.</p>
+      <div className="beer-list">{beersList}</div>
     </div>
   );
 }
