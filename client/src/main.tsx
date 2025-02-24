@@ -16,7 +16,6 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/beer/:name" element={<BeerPage />} />
           <Route path="/" element={<HomePage />} />
           <Route path="/login" element={<LoginPage />} />
-          <Route path="/dashboard" element={<LoginPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>

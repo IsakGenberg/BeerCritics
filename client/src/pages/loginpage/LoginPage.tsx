@@ -12,7 +12,6 @@ function LoginPage() {
   }>({});
   const navigate = useNavigate();
 
-  // Validate user input
   const checkUserLogin = () => {
     const newErrors: { username?: string; password?: string } = {};
 
@@ -27,11 +26,9 @@ function LoginPage() {
     return newErrors;
   };
 
-  // Handle form submission
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    setErrors({}); // Reset errors before validating
-
+    setErrors({});
     const formErrors = checkUserLogin();
     if (Object.keys(formErrors).length > 0) {
       setErrors(formErrors);
@@ -52,7 +49,7 @@ function LoginPage() {
       if (response.status === 200) {
         console.log("Login successful:", data);
         localStorage.setItem("authToken", data.token);
-        navigate("/"); // Redirect to home page
+        navigate("/");
       } else if (response.status === 400) {
         setErrors({ username: "Invalid username or password format" });
       } else if (response.status === 401) {
