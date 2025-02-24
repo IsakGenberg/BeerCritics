@@ -1,8 +1,7 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { Beer } from "../../interfaces/beer";
 import BeerCard from "../../components/beerCard/BeerCard";
 import "./allbeerspage.css";
-import { Col, Row } from "react-bootstrap";
 import { getAllBeers } from "../../api";
 
 
@@ -20,7 +19,7 @@ function AllBeersPage() {
   }, []);
 
   if (!beers) {
-    return <div>Loading beers<div className="loader"></div></div>;
+    return <div className="loading-state">Loading beers<div className="loader"></div></div>;
   }
 
   const beersList = beers.map((beer) => (
