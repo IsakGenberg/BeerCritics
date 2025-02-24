@@ -3,6 +3,8 @@ import express from "express";
 import { beerRouter } from "./router/beer";
 import cors from "cors";
 import session from "express-session";
+import { userRouter } from "./router/user";
+import { reviewRouter } from "./router/review";
 
 export const app = express();
 dotenv.config();
@@ -26,3 +28,5 @@ app.use(
   })
 );
 app.use("/beer", beerRouter);
+app.use("/user", userRouter);
+app.use("/review", reviewRouter);

@@ -11,7 +11,7 @@ function MyNavbar() {
           <Nav.Link href="#">Top Beers</Nav.Link>
           <Nav.Link href="/allbeers">All Beers</Nav.Link>
           <Nav.Link href="#">My Reviews</Nav.Link>
-          <Nav.Link href="#">My Account</Nav.Link>
+          <Nav.Link href="/login">My Account</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

@@ -1,11 +1,11 @@
 #Review {
-  margin: 10px;
   padding: 10px;
   border: 1px solid black;
   border-radius: 10px;
   background-color: #f0f0f0;
-  width: 50vw;
+  width: 100%;
   box-sizing: border-box;
+  margin-top: 1vw;
 }
 
 #Comment {
