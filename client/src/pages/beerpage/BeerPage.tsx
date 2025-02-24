@@ -44,7 +44,7 @@ const BeerPage: React.FC = () => {
             <p className="beer-rating">
               <StarRating rating={beer.rating} />{" "}
               <a href="#review-list" id="num-reviews">
-                ({100} Reviews)
+                ({4} Reviews)
               </a>
             </p>
           </Row>
@@ -54,20 +54,20 @@ const BeerPage: React.FC = () => {
         <h2>Reviews</h2>
         <Col id="review-list">
           <div className="reviews">
-          <Review
-            rating={beer.rating}
-            author="beerlover1337"
-            comment={`I think ${beer.name} is the best beer I've ever had!`}
-            date={new Date()}
-          />
-          <Review
-            rating={1}
-            author="Not beerlover1337"
-            comment={`I think ${beer.name} is terrible!`}
-            date={new Date()}
-          />
+            <Review
+              rating={beer.rating}
+              author="beerlover1337"
+              comment={`I think ${beer.name} is the best beer I've ever had!`}
+              date={new Date()}
+            />
+            <Review
+              rating={1}
+              author="Not beerlover1337"
+              comment={`I think ${beer.name} is terrible!`}
+              date={new Date()}
+            />
           </div>
-          <AddReviewButton/>
+          <AddReviewButton />
         </Col>
       </Row>
     </div>
