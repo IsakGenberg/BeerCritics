@@ -3,6 +3,7 @@ import { Beer } from "./interfaces/beer";
 import { Review } from "./interfaces/review";
 
 const BASE_URL = "http://localhost:8080";
+axios.defaults.withCredentials = true;
 
 export async function getAllBeers(): Promise<Beer[]> {
   try {
@@ -80,18 +81,9 @@ export async function getBeerReviews(
   }
 }
 
-export async function login(
-  username: string,
-  password: string
-): Promise<AxiosResponse> {
-  try {
-    const response = await axios.post(`${BASE_URL}/user/login`, {
-      username,
-      password,
-    });
-    return response;
-  } catch (e: any) {
-    console.log(e);
-    throw e;
-  }
+export async function login(username: string, password: string): Promise<void> {
+  await axios.post(`${BASE_URL}/user/login`, {
+    username: username,
+    password: password,
+  });
 }

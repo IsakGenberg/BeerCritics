@@ -5,13 +5,20 @@ import "./Review.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 interface ReviewProps {
+  beer: string;
+  user: string;
   rating: number;
-  author: string;
-  comment?: string;
   date: Date;
+  description?: string;
 }
 
-const Review: React.FC<ReviewProps> = ({ rating, author, comment, date }) => {
+const ReviewCard: React.FC<ReviewProps> = ({
+  beer,
+  rating,
+  user,
+  description,
+  date,
+}) => {
   return (
     <StrictMode>
       <Card id="Review">
@@ -19,8 +26,9 @@ const Review: React.FC<ReviewProps> = ({ rating, author, comment, date }) => {
           <Card.Title>
             <StarRating rating={rating} />
           </Card.Title>
-          <Card.Subtitle id="Author">{author}</Card.Subtitle>
-          <Card.Text id="Comment">{comment}</Card.Text>
+          <Card.Subtitle id="Author">{user}</Card.Subtitle>
+          <Card.Text id="Beer">{beer}</Card.Text>
+          <Card.Text id="Description">{description}</Card.Text>
           <Card.Text id="Date">{date.toLocaleDateString()}</Card.Text>
         </Card.Body>
       </Card>
@@ -28,4 +36,4 @@ const Review: React.FC<ReviewProps> = ({ rating, author, comment, date }) => {
   );
 };
 
-export default Review;
+export default ReviewCard;
