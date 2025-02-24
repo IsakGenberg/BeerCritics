@@ -6,28 +6,25 @@ import { Review } from "../model/review";
 export const reviewRouter = express.Router();
 const reviewService = new ReviewService();
 
-interface ReviewRequest extends Request	{
-  session:any
+interface ReviewRequest extends Request {
+  session: any;
 }
 
 reviewRouter.get(
   "/myreviews",
   async (req: ReviewRequest, res: Response<Review[] | string>) => {
     try {
-      if (!req.session.user) {
+      if (!req.session.username) {
         res.status(401).send("Not logged in");
         return;
       }
-      const username = req.session.user.username;
-      const reviews = await reviewService.getReviewsUser(username);
+      const reviews = await reviewService.getReviewsUser(req.session.username);
       res.status(200).send(reviews);
     } catch (e: any) {
       res.status(500).send(e.message);
     }
   }
 );
-
-
 
 reviewRouter.get(
   "/:name",
@@ -44,12 +41,10 @@ reviewRouter.get(
 
 reviewRouter.post("/", async (req: Request, res: Response) => {
   try {
-    const review: Review = req.body; 
+    const review: Review = req.body;
     await reviewService.addReview(review);
     res.status(201).send("Review added");
   } catch (e: any) {
     res.status(500).send(e.message);
   }
 });
-
-

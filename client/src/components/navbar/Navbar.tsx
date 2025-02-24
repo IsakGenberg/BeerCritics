@@ -10,8 +10,8 @@ function MyNavbar() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#">Top Beers</Nav.Link>
           <Nav.Link href="#">All Beers</Nav.Link>
-          <Nav.Link href="#">My Reviews</Nav.Link>
-          <Nav.Link href="/login">My Account</Nav.Link>
+          <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
+          <Nav.Link href="/user/login">My Account</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

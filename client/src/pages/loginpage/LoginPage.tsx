@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./loginPage.css";
+import { login } from "../../api";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -34,21 +35,10 @@ function LoginPage() {
       setErrors(formErrors);
       return;
     }
-
     try {
-      const response = await fetch("http://localhost:8080/user/login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
-      const data = await response.json();
+      const response = await login(username, password);
 
       if (response.status === 200) {
-        console.log("Login successful:", data);
-        localStorage.setItem("authToken", data.token);
         navigate("/");
       } else if (response.status === 400) {
         setErrors({ username: "Invalid username or password format" });
