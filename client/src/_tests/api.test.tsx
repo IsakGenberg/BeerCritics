@@ -8,7 +8,7 @@ const mockedAxios = axios as jest.Mocked<typeof axios>;
 describe("Client-side API", () => {
   
   afterEach(() => {
-    jest.clearAllMocks(); // Reset mocks after each test
+    jest.clearAllMocks();
   });
 
   test("getAllBeers should fetch and return beer data", async () => {
@@ -48,7 +48,7 @@ describe("Client-side API", () => {
   });
 
   test("registerNewUser should handle API errors gracefully", async () => {
-    const consoleSpy = jest.spyOn(console, "log").mockImplementation(); // Mock console.log
+    const consoleSpy = jest.spyOn(console, "log").mockImplementation(); 
 
     mockedAxios.post.mockRejectedValueOnce(new Error("API error"));
 
@@ -56,6 +56,6 @@ describe("Client-side API", () => {
 
     expect(consoleSpy).toHaveBeenCalledWith(expect.any(Error));
 
-    consoleSpy.mockRestore(); // Restore console.log
+    consoleSpy.mockRestore(); 
   });
 });
