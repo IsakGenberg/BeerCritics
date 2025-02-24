@@ -27,7 +27,7 @@ export class UserService {
     }
   }
 
-  async checkPassword(username: string, password: string): Promise<boolean> {
-    return true;
+  async findUser(username: string, password:string): Promise<User | undefined>{
+    return {username:username, password: password}
   }
 }

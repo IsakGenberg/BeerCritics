@@ -31,14 +31,7 @@ describe("getReviewsBeer", () => {
   });
 
   it("should return reviews for the specified beer", async () => {
-    const reviews = await reviewService.getReviewsBeer({
-      name: "Heineken",
-      rating: 0,
-      brewery: "",
-      style: "",
-      abv: 0,
-      imagePath: "",
-    });
+    const reviews = await reviewService.getReviewsBeer("Heineken")
     expect(reviews).toEqual([
       {
         beer: "Heineken",
@@ -51,28 +44,14 @@ describe("getReviewsBeer", () => {
   });
 
   it("should return an empty array if no reviews match", async () => {
-    const reviews = await reviewService.getReviewsBeer({
-      name: "Corona",
-      rating: 0,
-      brewery: "",
-      style: "",
-      abv: 0,
-      imagePath: "",
-    });
+    const reviews = await reviewService.getReviewsBeer("Corona");
     expect(reviews).toEqual([]);
   });
 
   it("should throw an error if REVIEWS_JSON_PATH is not defined", async () => {
     delete process.env.REVIEWS_JSON_PATH;
     await expect(
-      reviewService.getReviewsBeer({
-        name: "Heineken",
-        rating: 0,
-        brewery: "",
-        style: "",
-        abv: 0,
-        imagePath: "",
-      })
+      reviewService.getReviewsBeer("Heineken")
     ).rejects.toThrow("REVIEWS_JSON_PATH is not defined in the .env file");
   });
 });

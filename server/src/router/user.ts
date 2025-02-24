@@ -5,6 +5,11 @@ import { User } from "../model/user";
 export const userRouter = express.Router();
 const userService = new UserService();
 
+interface UserRequest extends Request{
+  body: {username: string, password: string},
+  session:any
+}
+
 userRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { user } = req.body;
@@ -16,17 +21,17 @@ userRouter.post("/", async (req: Request, res: Response) => {
 });
 
 userRouter.post(
-  "/:name",
+  "/login",
   async (
-    req: Request<{}, {}, { username: string; password: string }>,
-    res: Response
+    req:UserRequest, res:Response
   ) => {
-    try {
       const { username, password } = req.body;
-      const correctPwrd = await userService.checkPassword(username, password);
-      res.status(200).send(correctPwrd);
-    } catch (e: any) {
-      res.status(500).send(e.message);
-    }
+      const user : User | undefined = await userService.findUser(username, password);
+      if (!user){
+        res.status(401).send("No such username or password");
+        return;
+      }
+      req.session.user = user
+      res.status(200).send("Logged in")
   }
 );

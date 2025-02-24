@@ -10,26 +10,29 @@ dotenv.config();
 
 export class ReviewService {
   async addReview(review: Review): Promise<void> {
+    console.log("Adding review:", review);  // Check the review object
+  
     const filePath = process.env.REVIEWS_JSON_PATH;
-
+  
     if (!filePath) {
       throw new Error("REVIEWS_JSON_PATH is not defined in the .env file");
     }
     const absolutePath = path.resolve(filePath);
-
+  
     try {
       let data = fs.readFileSync(absolutePath, "utf-8");
       let reviews = JSON.parse(data);
       reviews.push(review);
-
+  
       fs.writeFileSync(absolutePath, JSON.stringify(reviews, null, 2));
       console.log("Review added successfully!");
     } catch (err) {
-      console.error("Error accessing users.json:", err);
+      console.error("Error accessing reviews.json:", err);
     }
   }
+  
 
-  async getReviewsBeer(beer: Beer): Promise<Review[]> {
+  async getReviewsBeer(beer: string): Promise<Review[]> {
     const filePath = process.env.REVIEWS_JSON_PATH;
 
     if (!filePath) {
@@ -39,10 +42,11 @@ export class ReviewService {
     const absolutePath = path.resolve(filePath);
     const reviews: Review[] = JSON.parse(readFileSync(absolutePath, "utf-8"));
 
-    return reviews.filter((review) => review.beer === beer.name);
+    return reviews.filter((review) => review.beer === beer);
   }
 
-  async getReviewsUser(user: User): Promise<Review[]> {
+  async getReviewsUser(user: string): Promise<Review[]> {
+
     const filePath = process.env.REVIEWS_JSON_PATH;
 
     if (!filePath) {
@@ -51,7 +55,7 @@ export class ReviewService {
 
     const absolutePath = path.resolve(filePath);
     const reviews: Review[] = JSON.parse(readFileSync(absolutePath, "utf-8"));
-
-    return reviews.filter((review) => review.user === user.username);
+    console.log("Reviews loaded: ", reviews);
+    return reviews.filter((review) => review.user === user);
   }
 }
