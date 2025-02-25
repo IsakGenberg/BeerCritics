@@ -36,7 +36,7 @@ const BeerCard: React.FC<BeerCardProps> = ({
             <Col xs={4}>
               <Card.Img id="Image" src={imagePath} />
             </Col>
-            <Col xs={8}>
+            <Col className="text-col" xs={8}>
               <Card.Title>{name}</Card.Title>
               <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
               <Card.Subtitle id="Style">{style}</Card.Subtitle>
