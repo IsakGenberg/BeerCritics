@@ -8,6 +8,7 @@ import HomePage from "./pages/homepage/HomePage.tsx";
 import BeerPage from "./pages/beerpage/BeerPage.tsx";
 import LoginPage from "./pages/loginpage/LoginPage.tsx";
 import RegisterPage from "./pages/registerpage/RegisterPage.tsx";
+import MyReviewsPage from "./pages/myreviews/MyReviewsPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -18,6 +19,7 @@ createRoot(document.getElementById("root")!).render(
           <Route path="/" element={<HomePage />} />
           <Route path="/user/login" element={<LoginPage />} />
           <Route path="/user/register" element={<RegisterPage />} />
+          <Route path="/user/myreviews" element={<MyReviewsPage />} />
         </Routes>
       </Layout>
     </BrowserRouter>
