@@ -5,7 +5,7 @@ import "./allbeerspage.css";
 import { getAllBeers } from "../../api";
 
 function AllBeersPage() {
-  const [beers, setBeers] = useState<Beer[] | null>(null);
+  const [beers, setBeers] = useState<Beer[]>([]);
 
   async function getBeerList() {
     const bs = await getAllBeers();
@@ -16,7 +16,7 @@ function AllBeersPage() {
     getBeerList();
   }, []);
 
-  if (!beers) {
+  if (beers.length == 0) {
     return (
       <div className="loading-state">
         Loading beers<div className="loader"></div>
@@ -33,7 +33,6 @@ function AllBeersPage() {
         style={beer.style}
         abv={beer.abv}
         rating={beer.rating}
-        numReviewers={4}
       />
     </div>
   ));
