@@ -14,6 +14,10 @@ reviewRouter.get(
   "/myreviews",
   async (req: ReviewRequest, res: Response<Review[] | string>) => {
     try {
+      if (!req.session.username) {
+        res.status(401).send("Not logged in");
+        return;
+      }
       const reviews = await reviewService.getReviewsUser(req.session.username);
       res.status(200).send(reviews);
     } catch (e: any) {
