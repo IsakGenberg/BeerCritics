@@ -14,7 +14,6 @@ reviewRouter.get(
   "/myreviews",
   async (req: ReviewRequest, res: Response<Review[] | string>) => {
     try {
-      console.log("Session in /myreviews", req.session);
       const reviews = await reviewService.getReviewsUser(req.session.username);
       res.status(200).send(reviews);
     } catch (e: any) {

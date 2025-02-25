@@ -39,7 +39,7 @@ function LoginPage() {
       await login(username, password);
       navigate("/");
 
-      /* if (response.status === 200) {
+      /*    if (response.status === 200) {
         navigate("/");
       } else if (response.status === 400) {
         setErrors({ username: "Invalid username or password format" });
