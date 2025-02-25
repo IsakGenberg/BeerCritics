@@ -11,7 +11,6 @@ describe("BeerCard component", () => {
     style: "Öl, Ljus lager, Italiensk",
     abv: 5.5,
     rating: 4,
-    numReviewers: 52,
   };
 
   test("renders the beer name correctly", () => {
@@ -52,18 +51,6 @@ describe("BeerCard component", () => {
     );
     const abvElement = screen.getByText(`${beerCardProps.abv}%`);
     expect(abvElement).toBeInTheDocument();
-  });
-
-  test("renders the number of reviewers correctly", () => {
-    render(
-      <BrowserRouter>
-        <BeerCard {...beerCardProps} />
-      </BrowserRouter>
-    );
-    const numReviewersElement = screen.getByText(
-      `(${beerCardProps.numReviewers})`
-    );
-    expect(numReviewersElement).toBeInTheDocument();
   });
 
   test("renders the image correctly", () => {

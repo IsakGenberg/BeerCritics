@@ -1,4 +1,4 @@
-import axios, { AxiosResponse } from "axios";
+import axios from "axios";
 import { Beer } from "./interfaces/beer";
 import { Review } from "./interfaces/review";
 
@@ -40,16 +40,14 @@ export async function getBeer(name: string): Promise<Beer | null> {
 export async function registerNewUser(
   username: string,
   password: string
-): Promise<AxiosResponse> {
+): Promise<void> {
   try {
-    const response = await axios.post(`${BASE_URL}/user`, {
+    await axios.post(`${BASE_URL}/user`, {
       username,
       password,
     });
-    return response;
   } catch (e: any) {
     console.log(e);
-    throw e;
   }
 }
 
