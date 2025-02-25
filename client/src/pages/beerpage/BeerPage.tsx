@@ -62,7 +62,7 @@ const BeerPage: React.FC = () => {
             <p className="beer-rating">
               <StarRating rating={beer.rating} />{" "}
               <a href="#review-list" id="num-reviews">
-                ({4} Reviews)
+                ({reviews.length} Reviews)
               </a>
             </p>
           </Row>
