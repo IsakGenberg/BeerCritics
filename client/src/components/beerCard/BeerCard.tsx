@@ -13,7 +13,6 @@ interface BeerCardProps {
   style: string;
   abv: number;
   rating: number;
-  numReviewers: number;
 }
 
 const BeerCard: React.FC<BeerCardProps> = ({
@@ -23,7 +22,6 @@ const BeerCard: React.FC<BeerCardProps> = ({
   style,
   abv,
   rating,
-  numReviewers,
 }) => {
   const navigate = useNavigate();
 
@@ -45,7 +43,6 @@ const BeerCard: React.FC<BeerCardProps> = ({
               <Card.Subtitle id="ABV">{abv}%</Card.Subtitle>
               <Card.Subtitle id="Rating">
                 <StarRating rating={rating} />
-                <span className="numReviewers">({numReviewers})</span>
               </Card.Subtitle>
             </Col>
           </Row>

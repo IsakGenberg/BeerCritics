@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./registerPage.css";
+import "../../api";
+import { registerNewUser } from "../../api";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
@@ -45,17 +47,10 @@ function RegisterPage() {
     }
 
     try {
-      const response = await fetch("/user", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ username, password }),
-      });
-
+      const response = await registerNewUser(username, password);
       if (response.status === 201) {
         console.log("User registered successfully");
-        navigate("/login");
+        navigate("/user/login");
       } else if (response.status === 400) {
         setErrors({ username: "Invalid username or password" });
       } else if (response.status === 409) {

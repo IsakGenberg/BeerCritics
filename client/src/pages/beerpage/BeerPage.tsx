@@ -16,7 +16,7 @@ const BeerPage: React.FC = () => {
     const b = await getBeer(name);
     setBeer(b);
   }
-  
+
   useEffect(() => {
     if (name) {
       loadBeer(name);
@@ -32,7 +32,7 @@ const BeerPage: React.FC = () => {
       <Row className="product-info">
         <Col className="product-image">
           <div className="image-container">
-            <img src={beer.imagePath} alt={`${beer.name} image`} />
+            <img src={`/${beer.imagePath}`} alt={`${beer.name} image`} />
           </div>
         </Col>
         <Col className="product-details">
