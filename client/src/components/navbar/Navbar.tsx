@@ -3,13 +3,6 @@ import { useEffect, useState } from "react";
 import "./navbar.css";
 
 function MyNavbar() {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    const token = localStorage.getItem("authToken");
-    setIsLoggedIn(!!token);
-  }, []);
-
   return (
     <Navbar expand="lg" className="navbar">
       <Container fluid>
@@ -18,9 +11,8 @@ function MyNavbar() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#">Top Beers</Nav.Link>
           <Nav.Link href="#">All Beers</Nav.Link>
-          <Nav.Link href="#">My Reviews</Nav.Link>
-          <Nav.Link href="/login">My Account</Nav.Link>
           <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
+          <Nav.Link href="/user/register">Register Account</Nav.Link>
           <Nav.Link href="/user/login">My Account</Nav.Link>
         </Nav>
       </Container>
