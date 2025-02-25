@@ -18,7 +18,7 @@ function AllBeersPage() {
 
   if (beers.length == 0) {
     return (
-      <div className="loading-state">
+      <div className="loading-state" data-testid="loading-state">
         Loading beers<div className="loader"></div>
       </div>
     );
@@ -38,7 +38,7 @@ function AllBeersPage() {
   ));
 
   return (
-    <div className="all-beers-page">
+    <div className="all-beers-page" data-testid="all-beers-page">
       <p className="beers-page-text">
         Here are all of the beers that are available in the database.
       </p>
