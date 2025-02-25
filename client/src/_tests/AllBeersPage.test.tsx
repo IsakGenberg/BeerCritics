@@ -1,3 +1,4 @@
+// TODO finish these tests when "useNavigate error" is fixed
 import { render} from "@testing-library/react";
 import "@testing-library/jest-dom";
 import axios from "axios";

@@ -4,8 +4,6 @@ import BeerCard from "../../components/beerCard/BeerCard";
 import "./allbeerspage.css";
 import { getAllBeers } from "../../api";
 
-
-
 function AllBeersPage() {
   const [beers, setBeers] = useState<Beer[] | null>(null);
 
@@ -19,10 +17,15 @@ function AllBeersPage() {
   }, []);
 
   if (!beers) {
-    return <div className="loading-state">Loading beers<div className="loader"></div></div>;
+    return (
+      <div className="loading-state">
+        Loading beers<div className="loader"></div>
+      </div>
+    );
   }
 
   const beersList = beers.map((beer) => (
+    <div className="beer-card">
       <BeerCard
         imagePath={beer.imagePath}
         name={beer.name}
@@ -32,11 +35,14 @@ function AllBeersPage() {
         rating={beer.rating}
         numReviewers={4}
       />
+    </div>
   ));
 
   return (
     <div className="all-beers-page">
-      <p className="beers-page-text">Here are all of the beers that are available in the backend.</p>
+      <p className="beers-page-text">
+        Here are all of the beers that are available in the database.
+      </p>
       <div className="beer-list">{beersList}</div>
     </div>
   );

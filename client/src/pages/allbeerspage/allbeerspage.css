@@ -9,6 +9,12 @@
     justify-items: center;
 }
 
+.beer-card{
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+}
+
 .beers-page-text{
     font-size: large;
     font-weight: bold;
