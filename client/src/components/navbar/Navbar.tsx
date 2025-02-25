@@ -10,7 +10,7 @@ function MyNavbar() {
         <Nav>
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#">Top Beers</Nav.Link>
-          <Nav.Link href="#">All Beers</Nav.Link>
+          <Nav.Link href="/allbeers">All Beers</Nav.Link>
           <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
           <Nav.Link href="/user/register">Register Account</Nav.Link>
           <Nav.Link href="/user/login">My Account</Nav.Link>
