@@ -11,6 +11,7 @@
   margin: 10px;
   padding: 10px;
   transition: transform 0.1s;
+  overflow: hidden;
 }
 
 #BeerCard:hover {
@@ -22,21 +23,16 @@
 #Image {
   display: block;
   margin: auto;
-  max-width: fit-content;
-  object-fit: scale-down;
+  max-width: 100%;
+  object-fit: contain;
   align-self: center;
 }
 
-#Brewery {
-}
-
-#Style {
-}
-
-#ABV {
-}
-
-#Rating {
+.text-col > * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 #Rating .numReviewers {
