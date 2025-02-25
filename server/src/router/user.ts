@@ -21,13 +21,14 @@ userRouter.post("/", async (req: Request, res: Response) => {
 });
 
 userRouter.post("/login", async (req: UserRequest, res: Response) => {
-  const { username, password } = req.body;
-  const user: User | undefined = await userService.findUser(username, password);
+  const user: User | undefined = await userService.findUser(
+    req.body.username,
+    req.body.password
+  );
   if (!user) {
     res.status(401).send("No such username or password");
     return;
   }
   req.session.username = req.body.username;
-  console.log(`Logged in ${username}`);
   res.status(200).send("Logged in");
 });

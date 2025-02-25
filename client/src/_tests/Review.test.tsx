@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Review from "../components/review/Review";
+import Review from "../components/review/ReviewCard";
 
 describe("Review component", () => {
   const reviewProps = {

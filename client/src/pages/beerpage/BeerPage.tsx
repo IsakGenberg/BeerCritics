@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
-import Review from "../../components/review/Review";
+import Review from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
 import StarRating from "../../components/review/StarRating";
@@ -53,20 +53,7 @@ const BeerPage: React.FC = () => {
       <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col id="review-list">
-          <div className="reviews">
-            <Review
-              rating={beer.rating}
-              author="beerlover1337"
-              comment={`I think ${beer.name} is the best beer I've ever had!`}
-              date={new Date()}
-            />
-            <Review
-              rating={1}
-              author="Not beerlover1337"
-              comment={`I think ${beer.name} is terrible!`}
-              date={new Date()}
-            />
-          </div>
+          <div className="reviews"></div>
           <AddReviewButton />
         </Col>
       </Row>
