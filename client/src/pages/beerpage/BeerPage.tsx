@@ -1,22 +1,40 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
-import Review from "../../components/review/Review";
+import ReviewCard from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
 import StarRating from "../../components/review/StarRating";
 import { Col, Row } from "react-bootstrap";
 import "./BeerPage.css";
+import { getBeerReviews } from "../../api";
+import { Review } from "../../interfaces/review";
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
+  const [reviews, setReviews] = useState<Review[]>([]);
 
+  async function loadReviews() {
+    if (name) {
+      const r = await getBeerReviews(name);
+      setReviews(
+        (r ?? []).map((review) => ({
+          ...review,
+          date: new Date(review.date),
+        }))
+      );
+    }
+  }
+
+  useEffect(() => {
+    loadReviews();
+  }, []);
   async function loadBeer(name: string) {
     const b = await getBeer(name);
     setBeer(b);
   }
-  
+
   useEffect(() => {
     if (name) {
       loadBeer(name);
@@ -32,7 +50,7 @@ const BeerPage: React.FC = () => {
       <Row className="product-info">
         <Col className="product-image">
           <div className="image-container">
-            <img src={beer.imagePath} alt={`${beer.name} image`} />
+            <img src={`/${beer.imagePath}`} alt={`${beer.name} image`} />
           </div>
         </Col>
         <Col className="product-details">
@@ -54,18 +72,13 @@ const BeerPage: React.FC = () => {
         <h2>Reviews</h2>
         <Col id="review-list">
           <div className="reviews">
-            <Review
-              rating={beer.rating}
-              author="beerlover1337"
-              comment={`I think ${beer.name} is the best beer I've ever had!`}
-              date={new Date()}
-            />
-            <Review
-              rating={1}
-              author="Not beerlover1337"
-              comment={`I think ${beer.name} is terrible!`}
-              date={new Date()}
-            />
+            {reviews.length > 0 ? (
+              reviews.map((review, index) => (
+                <ReviewCard key={index} {...review} beer={review.beer} />
+              ))
+            ) : (
+              <p>No reviews found.</p>
+            )}
           </div>
           <AddReviewButton />
         </Col>
