@@ -36,9 +36,10 @@ function LoginPage() {
       return;
     }
     try {
-      const response = await login(username, password);
+      await login(username, password);
+      navigate("/");
 
-      if (response.status === 200) {
+      /*    if (response.status === 200) {
         navigate("/");
       } else if (response.status === 400) {
         setErrors({ username: "Invalid username or password format" });
@@ -46,7 +47,7 @@ function LoginPage() {
         setErrors({ username: "Incorrect username or password" });
       } else {
         setErrors({ username: "Unexpected error. Please try again" });
-      }
+      } */
     } catch (error) {
       console.error("Error logging in:", error);
       setErrors({ username: "Server error. Please try again later." });
