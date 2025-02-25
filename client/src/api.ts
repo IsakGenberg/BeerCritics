@@ -49,7 +49,6 @@ export async function registerNewUser(
     return response;
   } catch (e: any) {
     console.log(e);
-    throw e;
   }
 }
 
