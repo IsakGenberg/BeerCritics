@@ -1,17 +1,35 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import AddReviewButton from "../../components/review/AddReviewButton";
-import Review from "../../components/review/ReviewCard";
+import ReviewCard from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
 import StarRating from "../../components/review/StarRating";
 import { Col, Row } from "react-bootstrap";
 import "./BeerPage.css";
+import { getBeerReviews } from "../../api";
+import { Review } from "../../interfaces/review";
 
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
+  const [reviews, setReviews] = useState<Review[]>([]);
 
+  async function loadReviews() {
+    if (name) {
+      const r = await getBeerReviews(name);
+      setReviews(
+        (r ?? []).map((review) => ({
+          ...review,
+          date: new Date(review.date),
+        }))
+      );
+    }
+  }
+
+  useEffect(() => {
+    loadReviews();
+  }, []);
   async function loadBeer(name: string) {
     const b = await getBeer(name);
     setBeer(b);
@@ -53,7 +71,15 @@ const BeerPage: React.FC = () => {
       <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col id="review-list">
-          <div className="reviews"></div>
+          <div className="reviews">
+            {reviews.length > 0 ? (
+              reviews.map((review, index) => (
+                <ReviewCard key={index} {...review} beer={review.beer} />
+              ))
+            ) : (
+              <p>No reviews found.</p>
+            )}
+          </div>
           <AddReviewButton />
         </Col>
       </Row>
