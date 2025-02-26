@@ -32,13 +32,3 @@ userRouter.post("/login", async (req: UserRequest, res: Response) => {
   req.session.username = req.body.username;
   res.status(200).send("Logged in");
 });
-
-userRouter.get("/", async (req: UserRequest, res: Response) => {
-  if (!req.session.username) {
-    res.status(401).send(null);
-    return;
-  }
-  else{
-    res.status(200).send(req.session.username);
-  }
-});
