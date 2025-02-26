@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AddReviewModal.css";
 import StarRating from "./StarRating";
-import {getUser} from "../../api"
+import { getUser } from "../../api";
 
 interface AddReviewModalProps {
   show: boolean;
@@ -27,9 +27,15 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
   const [description, setComment] = useState("");
   const [date] = useState(new Date());
 
-  const getUser () => {
-    
-  }
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await getUser();
+      if (userData) {
+        setUser(userData);
+      }
+    };
+    fetchUser();
+  }, []);
 
   const handleSubmit = () => {
     handleSave(beer, user, rating, date, description);
