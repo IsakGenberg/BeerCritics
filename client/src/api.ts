@@ -85,3 +85,13 @@ export async function login(username: string, password: string): Promise<void> {
     password: password,
   });
 }
+
+export async function getUser() : Promise<string | null>{
+  try{
+    const res = await axios.get<string>(`${BASE_URL}/user`);
+    return res.data;
+  } catch (e: any) {
+    console.log(e);
+    return null;
+  }
+}
