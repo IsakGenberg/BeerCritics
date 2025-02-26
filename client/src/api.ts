@@ -86,9 +86,9 @@ export async function login(username: string, password: string): Promise<void> {
   });
 }
 
-export async function getUser() : Promise<String | null>{
+export async function getUser() : Promise<string | null>{
   try{
-    const res = await axios.get<String>(`${BASE_URL}/user`);
+    const res = await axios.get<string>(`${BASE_URL}/user`);
     return res.data;
   } catch (e: any) {
     console.log(e);
