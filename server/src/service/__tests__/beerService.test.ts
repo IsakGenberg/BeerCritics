@@ -1,5 +1,5 @@
-import { BeerService } from "./beerService";
-import { Beer } from "../model/beer";
+import { BeerService } from ".././beerService";
+import { Beer } from "../../model/beer";
 
 describe("BeerService", () => {
   let beerService: BeerService;

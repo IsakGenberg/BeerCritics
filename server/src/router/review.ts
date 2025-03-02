@@ -2,6 +2,7 @@ import express, { Request, Response } from "express";
 import { ReviewService } from "../service/reviewService";
 import { Beer } from "../model/beer";
 import { Review } from "../model/review";
+import { IReviewService } from "../serviceInterfaces/IReviewService";
 
 export const reviewRouter = express.Router();
 const reviewService = new ReviewService();

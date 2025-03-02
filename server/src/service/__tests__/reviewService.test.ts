@@ -1,5 +1,5 @@
-import { ReviewService } from "./reviewService";
-import { Review } from "../model/review";
+import { ReviewService } from "../reviewService";
+import { Review } from "../../model/review";
 
 describe("ReviewService", () => {
   let reviewService: ReviewService;

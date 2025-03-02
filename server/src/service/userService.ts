@@ -1,6 +1,7 @@
 import { User } from "../model/user";
+import { IUserService } from "../serviceInterfaces/IUserService";
 
-export class UserService {
+export class UserService implements IUserService {
   users: User[] = [
     { username: "Luqas", password: "12345678" },
     { username: "Hannah", password: "12345678" },

@@ -1,6 +1,7 @@
 import { Review } from "../model/review";
+import { IReviewService } from "../serviceInterfaces/IReviewService";
 
-export class ReviewService {
+export class ReviewService implements IReviewService {
   reviews: Review[] = [
     {
       beer: "Corona",

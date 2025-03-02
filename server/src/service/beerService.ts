@@ -1,6 +1,7 @@
 import { Beer } from "../model/beer";
+import { IBeerService } from "../serviceInterfaces/IBeerService";
 
-export class BeerService {
+export class BeerService implements IBeerService {
   beers: Beer[] = [
     {
       name: "Corona",
