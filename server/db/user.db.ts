@@ -29,5 +29,6 @@ UserModel.init(
   },
   {
     sequelize,
+    timestamps: false,
   }
 );

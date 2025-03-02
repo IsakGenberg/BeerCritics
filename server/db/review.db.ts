@@ -31,7 +31,6 @@ ReviewModel.init(
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
-      primaryKey: true,
     },
     user: {
       type: DataTypes.STRING,
@@ -42,7 +41,6 @@ ReviewModel.init(
       },
       onDelete: "CASCADE",
       onUpdate: "CASCADE",
-      primaryKey: true,
     },
 
     rating: {
@@ -60,6 +58,13 @@ ReviewModel.init(
   },
   {
     sequelize,
+    timestamps: false,
+    indexes: [
+      {
+        unique: true,
+        fields: ["beer", "user"],
+      },
+    ],
   }
 );
 

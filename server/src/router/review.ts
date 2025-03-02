@@ -5,7 +5,7 @@ import { Review } from "../model/review";
 import { IReviewService } from "../serviceInterfaces/IReviewService";
 
 export const reviewRouter = express.Router();
-const reviewService = new ReviewService();
+const reviewService: IReviewService = new ReviewService();
 
 interface ReviewRequest extends Request {
   session: any;

@@ -23,11 +23,13 @@ BeerModel.init(
   {
     name: {
       type: DataTypes.STRING,
+      primaryKey: true,
       allowNull: false,
     },
     rating: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: false,
+      defaultValue: 0,
     },
     brewery: {
       type: DataTypes.STRING,
@@ -38,7 +40,7 @@ BeerModel.init(
       allowNull: false,
     },
     abv: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.DOUBLE,
       allowNull: false,
     },
     imagePath: {
@@ -48,5 +50,6 @@ BeerModel.init(
   },
   {
     sequelize,
+    timestamps: false,
   }
 );

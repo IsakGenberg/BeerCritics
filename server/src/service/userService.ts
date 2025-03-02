@@ -1,26 +1,27 @@
 import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
+import { UserModel } from "../../db/user.db";
 
 export class UserService implements IUserService {
-  users: User[] = [
-    { username: "Luqas", password: "12345678" },
-    { username: "Hannah", password: "12345678" },
-    { username: "Irre", password: "12345678" },
-    { username: "Pimme", password: "12345678" },
-  ];
   async registerUser(username: string, password: string) {
-    this.users.push({ username: username, password: password });
+    UserModel.create({
+      username: username,
+      password: password,
+    });
   }
 
   async findUser(
     username: string,
     password?: string
   ): Promise<User | undefined> {
-    if (!password) {
-      return this.users.find((user) => user.username === username);
-    }
-    return this.users.find(
-      (user) => user.username === username && user.password === password
-    );
+    const user = await UserModel.findOne({ where: { username } });
+
+    if (!user) return undefined;
+
+    if (!password) return user;
+
+    if (user.password !== password) return undefined;
+
+    return user;
   }
 }
