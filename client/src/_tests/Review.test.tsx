@@ -1,29 +1,30 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import Review from "../components/review/ReviewCard";
+import ReviewCard from "../components/review/ReviewCard";
 
 describe("Review component", () => {
   const reviewProps = {
+    beer: "Corona",
     rating: 4,
-    author: "John Doe",
-    comment: "Great beer!",
+    user: "John Doe",
+    description: "Great beer!",
     date: new Date("2023-10-01"),
   };
 
   test("Renders the author correctly", () => {
-    render(<Review {...reviewProps} />);
-    const authorElement = screen.getByText(reviewProps.author);
+    render(<ReviewCard {...reviewProps} />);
+    const authorElement = screen.getByText(reviewProps.user);
     expect(authorElement).toBeInTheDocument();
   });
 
   test("Renders the comment correctly", () => {
-    render(<Review {...reviewProps} />);
-    const commentElement = screen.getByText(reviewProps.comment);
+    render(<ReviewCard {...reviewProps} />);
+    const commentElement = screen.getByText(reviewProps.description);
     expect(commentElement).toBeInTheDocument();
   });
 
   test("Renders the date correctly", () => {
-    render(<Review {...reviewProps} />);
+    render(<ReviewCard {...reviewProps} />);
     const dateElement = screen.getByText(reviewProps.date.toLocaleDateString());
     expect(dateElement).toBeInTheDocument();
   });

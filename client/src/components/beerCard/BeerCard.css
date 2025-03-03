@@ -3,14 +3,15 @@
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 15vw;
-  height: 10vw;
+  width: 220px;
+  height: 170px;
   background-color: #f5f5f5;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   margin: 10px;
   padding: 10px;
   transition: transform 0.1s;
+  overflow: hidden;
 }
 
 #BeerCard:hover {
@@ -22,21 +23,16 @@
 #Image {
   display: block;
   margin: auto;
-  max-width: fit-content;
-  object-fit: scale-down;
+  max-width: 100%;
+  object-fit: contain;
   align-self: center;
 }
 
-#Brewery {
-}
-
-#Style {
-}
-
-#ABV {
-}
-
-#Rating {
+.text-col > * {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 100%;
 }
 
 #Rating .numReviewers {
