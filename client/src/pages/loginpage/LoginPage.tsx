@@ -5,6 +5,7 @@ import "./loginPage.css";
 import { login } from "../../api";
 
 function LoginPage() {
+  const { checkAuth } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{
@@ -37,6 +38,9 @@ function LoginPage() {
     }
     try {
       await login(username, password);
+
+      // Call context provider method update isLoggedIn variable.
+      await checkAuth();
       navigate("/");
 
       /*    if (response.status === 200) {
