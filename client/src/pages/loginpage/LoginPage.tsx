@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./loginPage.css";
 import { login } from "../../api";
+import axios from "axios";
 
 function LoginPage() {
   const [username, setUsername] = useState("");
@@ -10,6 +11,7 @@ function LoginPage() {
   const [errors, setErrors] = useState<{
     username?: string;
     password?: string;
+    general?: string;
   }>({});
   const navigate = useNavigate();
 
@@ -17,12 +19,8 @@ function LoginPage() {
     const newErrors: { username?: string; password?: string } = {};
 
     if (!username) newErrors.username = "Username is required";
-    else if (!/^[a-zA-Z0-9_]{3,15}$/.test(username))
-      newErrors.username = "Username is invalid";
 
     if (!password) newErrors.password = "Password is required";
-    else if (password.length < 6)
-      newErrors.password = "Password must be at least 6 characters";
 
     return newErrors;
   };
@@ -35,22 +33,29 @@ function LoginPage() {
       setErrors(formErrors);
       return;
     }
+    handleLogin();
+  };
+
+  const handleLogin = async () => {
     try {
       await login(username, password);
       navigate("/");
-
-      /*    if (response.status === 200) {
-        navigate("/");
-      } else if (response.status === 400) {
-        setErrors({ username: "Invalid username or password format" });
-      } else if (response.status === 401) {
-        setErrors({ username: "Incorrect username or password" });
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 401) {
+          setErrors({ general: "Invalid Username or Password" });
+        } else if (error.response?.status === 500) {
+          setErrors({ general: "Server error! Please try again later." });
+        } else {
+          setErrors({
+            general:
+              error.response?.data?.message ||
+              "Login failed. Please try again.",
+          });
+        }
       } else {
-        setErrors({ username: "Unexpected error. Please try again" });
-      } */
-    } catch (error) {
-      console.error("Error logging in:", error);
-      setErrors({ username: "Server error. Please try again later." });
+        setErrors({ general: "Network error! Please check your connection." });
+      }
     }
   };
 
@@ -58,6 +63,7 @@ function LoginPage() {
     <div className="login-wrapper">
       <div className="login-container">
         <h2 className="login-title">Login</h2>
+
         <Form onSubmit={handleSubmit} className="login-form">
           <Form.Group controlId="formBasicUsername">
             <Form.Label>Username</Form.Label>
@@ -86,7 +92,7 @@ function LoginPage() {
               {errors.password}
             </Form.Control.Feedback>
           </Form.Group>
-
+          {errors.general && <p className="text-danger">{errors.general}</p>}
           <Button variant="primary" type="submit" className="login-button">
             Login
           </Button>

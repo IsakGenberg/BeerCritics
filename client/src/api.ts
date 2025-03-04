@@ -80,14 +80,11 @@ export async function getBeerReviews(
 }
 
 export async function login(username: string, password: string): Promise<void> {
-  await axios.post(`${BASE_URL}/user/login`, {
-    username: username,
-    password: password,
-  });
+  await axios.post(`${BASE_URL}/user/login`, { username, password });
 }
 
-export async function getUser() : Promise<string | null>{
-  try{
+export async function getUser(): Promise<string | null> {
+  try {
     const res = await axios.get<string>(`${BASE_URL}/user`);
     return res.data;
   } catch (e: any) {
