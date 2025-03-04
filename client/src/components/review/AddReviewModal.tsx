@@ -2,31 +2,43 @@ import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
 import "./AddReviewModal.css";
 import StarRating from "./StarRating";
+import { getUser } from "../../api";
 
 interface AddReviewModalProps {
   show: boolean;
+  beer: string;
   handleClose: () => void;
   handleSave: (
+    beer: string,
+    user: string,
     rating: number,
-    author: string,
-    comment: string,
-    date: Date
+    date: Date,
+    description?: string
   ) => void;
 }
-// TODO - Connect review to a specific beer
 const AddReviewModal: React.FC<AddReviewModalProps> = ({
   show,
   handleClose,
   handleSave,
+  beer,
 }) => {
   const [rating, setRating] = useState(0);
-  // TODO - get author from user authentication
-  const [author] = useState("");
-  const [comment, setComment] = useState("");
+  const [user, setUser] = useState("");
+  const [description, setComment] = useState("");
   const [date] = useState(new Date());
 
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const userData = await getUser();
+      if (userData) {
+        setUser(userData);
+      }
+    };
+    fetchUser();
+  }, []);
+
   const handleSubmit = () => {
-    handleSave(rating, author, comment, date);
+    handleSave(beer, user, rating, date, description);
     handleClose();
   };
 
@@ -51,7 +63,7 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
               as="textarea"
               rows={3}
               placeholder="Enter comment"
-              value={comment}
+              value={description}
               onChange={(e) => setComment(e.target.value)}
             />
           </Form.Group>

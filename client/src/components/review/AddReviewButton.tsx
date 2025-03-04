@@ -1,8 +1,14 @@
 import React, { useState } from "react";
 import AddReviewModal from "./AddReviewModal";
 import "./AddReviewButton.css";
+import { addReview } from "../../api";
+import { Review } from "../../interfaces/review";
 
-const AddReviewButton: React.FC = () => {
+interface AddReviewButtonProps {
+  beer: string;
+}
+
+const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
@@ -13,14 +19,21 @@ const AddReviewButton: React.FC = () => {
     setShowModal(false);
   };
 
-  const handleSave = (
+  const handleSave = async (
+    beer: string,
+    user: string,
     rating: number,
-    author: string,
-    comment: string,
-    date: Date
+    date: Date,
+    description?: string
   ) => {
-    //TODO - save review to database
-    console.log("Review saved:", { rating, author, comment, date });
+    const review: Review = {
+      beer: beer,
+      user: user,
+      rating: rating,
+      date: date,
+      description: description,
+    };
+    await addReview(review);
   };
 
   return (
@@ -32,6 +45,7 @@ const AddReviewButton: React.FC = () => {
         show={showModal}
         handleClose={handleClose}
         handleSave={handleSave}
+        beer={beer}
       />
     </>
   );

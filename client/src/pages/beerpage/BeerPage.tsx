@@ -80,7 +80,7 @@ const BeerPage: React.FC = () => {
               <p>No reviews found.</p>
             )}
           </div>
-          <AddReviewButton />
+          <AddReviewButton beer={beer.name} />
         </Col>
       </Row>
     </div>
