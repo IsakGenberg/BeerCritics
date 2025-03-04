@@ -47,17 +47,18 @@ function RegisterPage() {
     }
 
     try {
-      const response = await registerNewUser(username, password);
-      if (response.status === 201) {
-        console.log("User registered successfully");
-        navigate("/user/login");
-      } else if (response.status === 400) {
-        setErrors({ username: "Invalid username or password" });
-      } else if (response.status === 409) {
-        setErrors({ username: "Username already exists" });
-      } else {
-        setErrors({ username: "Unexpected error. Please try again" });
-      }
+      await registerNewUser(username, password);
+      navigate("/user/login");
+      // if (response.status === 201) {
+      //   console.log("User registered successfully");
+      //   navigate("/user/login");
+      // } else if (response.status === 400) {
+      //   setErrors({ username: "Invalid username or password" });
+      // } else if (response.status === 409) {
+      //   setErrors({ username: "Username already exists" });
+      // } else {
+      //   setErrors({ username: "Unexpected error. Please try again" });
+      // }
     } catch (error) {
       console.error("Error registering user:", error);
       setErrors({ username: "Server error. Please try again later." });
