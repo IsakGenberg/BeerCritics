@@ -1,29 +1,49 @@
-import React, { createContext, ReactNode, useContext, useEffect, useState } from 'react';
-import { getUser } from './api';
+import React, {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useState,
+} from "react";
+import { getUser } from "./api";
 
-
-const AuthContext = createContext<{ isLoggedIn: boolean; checkAuth: () => void }>({
-    isLoggedIn: false,
-    checkAuth: () => {},
-  });;
+const AuthContext = createContext<{
+  isLoggedIn: boolean;
+  checkAuth: () => void;
+} | null>(null);
 
 interface AuthProps {
   children: ReactNode;
 }
 
-export function AuthProvideer({ children }: AuthProps) {
-    const [isLoggedIn, setLoggedIn] = useState<Boolean>(false);
-    const authContext = useContext(AuthContext);
+export function AuthProvider({ children }: AuthProps) {
+  const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
+  const authContext = useContext(AuthContext);
 
-    authContext.checkAuth = async () => {
-        const loggedIn : string | null = await getUser();
-        if(loggedIn){
-            setLoggedIn(true);
-        }else{
-            setLoggedIn(false);
-        }
+  const checkAuth = async () => {
+    const loggedIn: string | null = await getUser();
+    if (loggedIn) {
+      setLoggedIn(true);
+    } else {
+      setLoggedIn(false);
     }
+  };
 
-    useEffect(authContext.checkAuth){
+  useEffect(() => {
+    checkAuth();
+  }, []);
+
+  return (
+    <AuthContext.Provider value={{ isLoggedIn, checkAuth }}>
+      {children}
+    </AuthContext.Provider>
+  );
+}
+
+export function useAuth() {
+    const context = useContext(AuthContext);
+    if (!context) {
+      throw new Error("useAuth must be used within an AuthProvider");
     }
+    return context;
 }
