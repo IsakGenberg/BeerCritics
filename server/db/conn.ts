@@ -1,4 +1,8 @@
 import { Sequelize } from "sequelize";
-export const sequelize = new Sequelize(
-  "postgres://app_db_user:RadamsFavoriter@localhost:5432"
-);
+import dotenv from "dotenv";
+dotenv.config(); // Automatically loads .env from the same directory
+
+if (!process.env.DATABASE_URL) {
+  throw new Error("DATABASE_URL environment variable is not defined");
+}
+export const sequelize = new Sequelize(process.env.DATABASE_URL);
