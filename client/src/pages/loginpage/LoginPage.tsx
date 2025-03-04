@@ -3,6 +3,7 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./loginPage.css";
 import { login } from "../../api";
+import { useAuth } from "../../authcontext";
 
 function LoginPage() {
   const { checkAuth } = useAuth();

@@ -2,8 +2,8 @@ import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom";
 import MyNavbar from "../components/navbar/Navbar";
-import { AuthProvider } from "../authcontext";
 import axios from "axios";
+import { AuthProvider } from "../authprovider";
 jest.mock("axios");
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;

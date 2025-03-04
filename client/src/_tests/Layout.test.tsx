@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
 import { Layout } from "../components/layout/Layout";
-import { AuthProvider } from "../authcontext";
+import { AuthProvider } from "../authprovider";
 
 describe("Layout", () => {
   it("renders", () => {

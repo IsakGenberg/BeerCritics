@@ -11,7 +11,7 @@ import AllBeersPage from "./pages/allbeerspage/AllBeersPage.tsx";
 import LoginPage from "./pages/loginpage/LoginPage.tsx";
 import RegisterPage from "./pages/registerpage/RegisterPage.tsx";
 import MyReviewsPage from "./pages/myreviews/MyReviewsPage.tsx";
-import { AuthProvider } from "./authcontext.tsx";
+import { AuthProvider } from "./authprovider.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
