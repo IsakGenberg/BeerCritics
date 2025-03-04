@@ -67,6 +67,13 @@ export async function addReview(review: Review): Promise<void> {
     console.log(e);
   }
 }
+export async function deleteReview(review: Review): Promise<void> {
+  try {
+    await axios.post(`${BASE_URL}/review`, review);
+  } catch (e: any) {
+    console.log(e);
+  }
+}
 
 export async function getBeerReviews(
   beerName: string
@@ -86,8 +93,8 @@ export async function login(username: string, password: string): Promise<void> {
   });
 }
 
-export async function getUser() : Promise<string | null>{
-  try{
+export async function getUser(): Promise<string | null> {
+  try {
     const res = await axios.get<string>(`${BASE_URL}/user`);
     return res.data;
   } catch (e: any) {
