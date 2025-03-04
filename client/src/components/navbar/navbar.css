@@ -6,14 +6,12 @@
   width: 100%;
 
   box-shadow: 0 4px 8px var(--logo-color);
-  padding: 0.7rem 8rem;
+  padding: 0.5rem 8rem;
 }
 
 .navbar-brand {
   font-size: 2.5rem;
   font-weight: bold;
-  font-family: var(--brand-font);
-  color: var(--logo-color);
   letter-spacing: 1px;
 }
 
