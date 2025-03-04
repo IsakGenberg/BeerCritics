@@ -1,25 +1,78 @@
-import { render, screen } from "@testing-library/react";
+import { render, screen, waitFor } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import "@testing-library/jest-dom";
 import MyNavbar from "../components/navbar/Navbar";
+import { AuthProvider } from "../authcontext";
+import axios from "axios";
+jest.mock("axios");
+
+const mockedAxios = axios as jest.Mocked<typeof axios>;
 
 describe("MyNavbar Component", () => {
-  test("renders the Navbar component", () => {
-    render(<MyNavbar />);
-    expect(screen.getByRole("navigation")).toBeInTheDocument();
+  afterEach(() => {
+    jest.clearAllMocks();
   });
 
-  test("displays the correct brand name", () => {
-    render(<MyNavbar />);
-    expect(screen.getByText("BeerCritics")).toBeInTheDocument();
+  test("renders the Navbar component", async () => {
+    render(
+      <AuthProvider>
+        <MyNavbar />
+      </AuthProvider>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByRole("navigation")).toBeInTheDocument();
+    });
   });
 
-  test("has all expected navigation links", () => {
-    render(<MyNavbar />);
-    expect(screen.getByText("Home")).toBeInTheDocument();
-    expect(screen.getByText("Top Beers")).toBeInTheDocument();
-    expect(screen.getByText("All Beers")).toBeInTheDocument();
-    expect(screen.getByText("My Reviews")).toBeInTheDocument();
-    expect(screen.getByText("My Account")).toBeInTheDocument();
+  test("displays the correct brand name", async () => {
+    render(
+      <AuthProvider>
+        <MyNavbar />
+      </AuthProvider>
+    );
+
+    await waitFor(() => {
+      expect(screen.getByText("BeerCritics")).toBeInTheDocument();
+    });
+  });
+
+  test("has all expected navigation links, when logged out", async () => {
+    mockedAxios.get.mockResolvedValueOnce({ data: null });
+
+    render(
+      <AuthProvider>
+        <MyNavbar />
+      </AuthProvider>
+    );
+
+    
+    await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith("http://localhost:8080/user");
+      expect(screen.getByText("Home")).toBeInTheDocument();
+      expect(screen.getByText("Top Beers")).toBeInTheDocument();
+      expect(screen.getByText("All Beers")).toBeInTheDocument();
+      expect(screen.getByText("Register Account")).toBeInTheDocument();
+      expect(screen.getByText("Login")).toBeInTheDocument();
+    });
+  });
+
+  test("has all expected navigation links, when logged in", async () => {
+    mockedAxios.get.mockResolvedValueOnce({ data: "exampleuser" });
+
+    render(
+      <AuthProvider>
+        <MyNavbar />
+      </AuthProvider>
+    );
+
+    await waitFor(() => {
+      expect(mockedAxios.get).toHaveBeenCalledWith("http://localhost:8080/user");
+      expect(screen.getByText("Home")).toBeInTheDocument();
+      expect(screen.getByText("Top Beers")).toBeInTheDocument();
+      expect(screen.getByText("All Beers")).toBeInTheDocument();
+      expect(screen.getByText("My Reviews")).toBeInTheDocument();
+      expect(screen.getByText("My Account")).toBeInTheDocument();
+    });
   });
 });

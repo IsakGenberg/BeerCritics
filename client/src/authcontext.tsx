@@ -1,16 +1,19 @@
-import React, {
+import {
   createContext,
   ReactNode,
+  useCallback,
   useContext,
   useEffect,
   useState,
 } from "react";
 import { getUser } from "./api";
 
-const AuthContext = createContext<{
+export const AuthContext = createContext<{
   isLoggedIn: boolean;
   checkAuth: () => void;
-} | null>(null);
+} | undefined>(undefined);
+
+
 
 interface AuthProps {
   children: ReactNode;
@@ -18,20 +21,20 @@ interface AuthProps {
 
 export function AuthProvider({ children }: AuthProps) {
   const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
-  const authContext = useContext(AuthContext);
 
-  const checkAuth = async () => {
+  // create authentication checker to be used by all components
+  const checkAuth = useCallback(async () => {
     const loggedIn: string | null = await getUser();
     if (loggedIn) {
       setLoggedIn(true);
     } else {
       setLoggedIn(false);
     }
-  };
+  },[]);
 
   useEffect(() => {
     checkAuth();
-  }, []);
+  }, [checkAuth]);
 
   return (
     <AuthContext.Provider value={{ isLoggedIn, checkAuth }}>
@@ -40,6 +43,10 @@ export function AuthProvider({ children }: AuthProps) {
   );
 }
 
+/**
+ * Saftey function that checks that every components that tries to use the context values is wrapped in an AuthProvider
+ * @returns context
+ */
 export function useAuth() {
     const context = useContext(AuthContext);
     if (!context) {
