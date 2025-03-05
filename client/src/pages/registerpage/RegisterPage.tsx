@@ -4,6 +4,7 @@ import { useNavigate } from "react-router-dom";
 import "./registerPage.css";
 import "../../api";
 import { registerNewUser } from "../../api";
+import axios from "axios";
 
 function RegisterPage() {
   const [username, setUsername] = useState("");
@@ -13,6 +14,7 @@ function RegisterPage() {
     username?: string;
     password?: string;
     confirmPassword?: string;
+    general?: string;
   }>({});
   const navigate = useNavigate();
 
@@ -46,22 +48,21 @@ function RegisterPage() {
       return;
     }
 
+    handleRegister();
+  };
+
+  const handleRegister = async () => {
     try {
       await registerNewUser(username, password);
-      navigate("/user/login");
-      // if (response.status === 201) {
-      //   console.log("User registered successfully");
-      //   navigate("/user/login");
-      // } else if (response.status === 400) {
-      //   setErrors({ username: "Invalid username or password" });
-      // } else if (response.status === 409) {
-      //   setErrors({ username: "Username already exists" });
-      // } else {
-      //   setErrors({ username: "Unexpected error. Please try again" });
-      // }
-    } catch (error) {
-      console.error("Error registering user:", error);
-      setErrors({ username: "Server error. Please try again later." });
+      //navigate("/user/login");
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 409) {
+          setErrors({ general: "User already exists" });
+        } else if (error.response?.status === 500) {
+          setErrors({ general: "Server error! Please try again later." });
+        }
+      }
     }
   };
 
@@ -111,7 +112,7 @@ function RegisterPage() {
               {errors.confirmPassword}
             </Form.Control.Feedback>
           </Form.Group>
-
+          {errors.general && <p className="text-danger">{errors.general}</p>}
           <Button variant="primary" type="submit" className="register-button">
             Register
           </Button>
