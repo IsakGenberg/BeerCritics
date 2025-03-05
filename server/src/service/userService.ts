@@ -12,15 +12,11 @@ export class UserService implements IUserService {
 
   async findUser(
     username: string,
-    password?: string
+    password: string
   ): Promise<User | undefined> {
     const user = await UserModel.findOne({ where: { username } });
 
-    if (!user) return undefined;
-
-    if (!password) return user;
-
-    if (user.password !== password) return undefined;
+    if (!user || user.password !== password) return undefined;
 
     return user;
   }
