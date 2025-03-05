@@ -12,6 +12,7 @@ import LoginPage from "./pages/loginpage/LoginPage.tsx";
 import RegisterPage from "./pages/registerpage/RegisterPage.tsx";
 import MyReviewsPage from "./pages/myreviews/MyReviewsPage.tsx";
 import { AuthProvider } from "./authprovider.tsx";
+import MyAccountPage from "./pages/myaccountpage/MyAccountPage.tsx";
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
@@ -24,6 +25,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/user/login" element={<LoginPage />} />
             <Route path="/user/register" element={<RegisterPage />} />
             <Route path="/user/myreviews" element={<MyReviewsPage />} />
+            <Route path="/user/account" element={<MyAccountPage />} />
             <Route path="/allbeers" element={<AllBeersPage/>}/>
           </Routes>
         </Layout>

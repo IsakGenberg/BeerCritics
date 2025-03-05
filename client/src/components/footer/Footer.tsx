@@ -14,7 +14,7 @@ function Footer() {
             <h4>Useful links</h4>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/allbeers">All Beers</Nav.Link>
-            <Nav.Link>Account page</Nav.Link>
+            <Nav.Link href="/user/account">Account page</Nav.Link>
             <Nav.Link>About us</Nav.Link>
           </Nav>
         </Col>

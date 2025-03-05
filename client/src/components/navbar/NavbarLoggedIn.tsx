@@ -11,7 +11,7 @@ function LoggedInNavbar() {
           <Nav.Link href="#">Top Beers</Nav.Link>
           <Nav.Link href="/allbeers">All Beers</Nav.Link>
           <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
-          <Nav.Link href="/user/login">My Account</Nav.Link>
+          <Nav.Link href="/user/account">My Account</Nav.Link>
         </Nav>
       </Container>
     </Navbar>

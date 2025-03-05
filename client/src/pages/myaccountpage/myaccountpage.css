@@ -1,0 +1,13 @@
+.account-page{
+    display: flex; 
+    flex-direction: row;
+    width: 100%;
+}
+
+.user{
+    justify-self: flex-start;
+}
+
+.review-list{
+    justify-self: flex-end;
+}
