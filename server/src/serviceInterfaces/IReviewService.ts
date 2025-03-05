@@ -6,4 +6,6 @@ export interface IReviewService {
   getReviewsBeer(beer: string): Promise<Review[]>;
 
   getReviewsUser(user: string): Promise<Review[]>;
+
+  updateReview(review: Review): Promise<{ message: string }>;
 }

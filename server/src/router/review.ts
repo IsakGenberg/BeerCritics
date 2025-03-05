@@ -53,3 +53,15 @@ reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
     res.status(500).send(e.message);
   }
 });
+
+reviewRouter.put("/", async (req: ReviewRequest, res: Response) => {
+  try {
+    if (!req.session.username) {
+      res.status(401).send("Not logged in");
+    }
+    const review: Review = req.body;
+    await reviewService.updateReview(review);
+  } catch (e: any) {
+    res.status(500).send(e.message);
+  }
+});
