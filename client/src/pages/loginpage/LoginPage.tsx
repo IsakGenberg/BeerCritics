@@ -3,9 +3,11 @@ import { Form, Button } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import "./loginPage.css";
 import { login } from "../../api";
+import { useAuth } from "../../authcontext";
 import axios from "axios";
 
 function LoginPage() {
+  const { checkAuth } = useAuth();
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState<{
@@ -39,6 +41,9 @@ function LoginPage() {
   const handleLogin = async () => {
     try {
       await login(username, password);
+
+      // Call context provider method update isLoggedIn variable.
+      await checkAuth();
       navigate("/");
     } catch (error: any) {
       if (axios.isAxiosError(error)) {

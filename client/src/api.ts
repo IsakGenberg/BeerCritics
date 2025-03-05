@@ -83,6 +83,10 @@ export async function login(username: string, password: string): Promise<void> {
   await axios.post(`${BASE_URL}/user/login`, { username, password });
 }
 
+/**
+ * Gets the current user in the session and returns the user's username if they are logged in.
+ * @returns username if logged in and null if not.
+ */
 export async function getUser(): Promise<string | null> {
   try {
     const res = await axios.get<string>(`${BASE_URL}/user`);

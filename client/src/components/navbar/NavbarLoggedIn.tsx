@@ -1,7 +1,7 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./navbar.css";
 
-function LoggedOutNavbar() {
+function LoggedInNavbar() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container fluid>
@@ -10,12 +10,12 @@ function LoggedOutNavbar() {
           <Nav.Link href="/">Home</Nav.Link>
           <Nav.Link href="#">Top Beers</Nav.Link>
           <Nav.Link href="/allbeers">All Beers</Nav.Link>
-          <Nav.Link href="/user/register">Register Account</Nav.Link>
-          <Nav.Link href="/user/login">Login</Nav.Link>
+          <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
+          <Nav.Link href="/user/login">My Account</Nav.Link>
         </Nav>
       </Container>
     </Navbar>
   );
 }
 
-export default LoggedOutNavbar;
+export default LoggedInNavbar;
