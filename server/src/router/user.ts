@@ -17,7 +17,8 @@ userRouter.post("/", async (req: Request, res: Response) => {
     await userService.registerUser(username, password);
     res.status(201).send(`Registered user`);
   } catch (e: any) {
-    res.status(500).send(e.message);
+    console.log("sending error");
+    res.status(409).send("User already exists");
   }
 });
 
