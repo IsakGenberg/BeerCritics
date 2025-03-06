@@ -22,17 +22,24 @@ export class ReviewService implements IReviewService {
   }
 
   async updateReview(review: Review) {
-    await ReviewModel.update(
-      {
-        beer: review.beer,
-        user: review.user,
-        rating: review.rating,
-        date: review.date,
-        description: review.description,
-      },
-      {
-        where: { beer: review.beer, user: review.user },
+    try {
+      await ReviewModel.update(
+        {
+          rating: review.rating,
+          date: review.date,
+          description: review.description,
+        },
+        {
+          where: { beer: review.beer, user: review.user },
+        }
+      );
+
+      return { message: "Review updated successfully" };
+    } catch (error: any) {
+      if (error.name === "SequelizeUniqueConstraintError") {
+        throw new Error("Review already exists");
       }
-    );
+      throw new Error("Database error: " + error.message);
+    }
   }
 }
