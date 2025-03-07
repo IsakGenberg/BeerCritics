@@ -7,5 +7,5 @@ export interface IReviewService {
 
   getReviewsUser(user: string): Promise<Review[]>;
 
-  updateReview(review: Review): Promise<{ message: string }>;
+  updateReview(review: Review): Promise<void>;
 }

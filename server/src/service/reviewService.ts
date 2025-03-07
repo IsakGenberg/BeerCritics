@@ -33,8 +33,6 @@ export class ReviewService implements IReviewService {
           where: { beer: review.beer, user: review.user },
         }
       );
-
-      return { message: "Review updated successfully" };
     } catch (error: any) {
       if (error.name === "SequelizeUniqueConstraintError") {
         throw new Error("Review already exists");
