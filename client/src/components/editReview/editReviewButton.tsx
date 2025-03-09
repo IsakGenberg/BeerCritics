@@ -1,14 +1,16 @@
 import React, { useState } from "react";
-import AddReviewModal from "./AddReviewModal";
-import "./AddReviewButton.css";
-import { addReview, updateReview } from "../../api";
+import AddReviewModal from "../../components/review/AddReviewModal";
+import { updateReview } from "../../api";
 import { Review } from "../../interfaces/review";
+import { BsPencilSquare } from "react-icons/bs";
+import "./editReviewButton.css";
 
 interface AddReviewButtonProps {
+  review: Review;
   beer: string;
 }
 
-const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
+const EditReviewButton: React.FC<AddReviewButtonProps> = ({ review, beer }) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
@@ -33,39 +35,23 @@ const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
       date: date,
       description: description,
     };
-    await addReview(review);
-  };
-  const handleEdit = async (
-    beer: string,
-    user: string,
-    rating: number,
-    date: Date,
-    description?: string
-  ) => {
-    const review: Review = {
-      beer: beer,
-      user: user,
-      rating: rating,
-      date: date,
-      description: description,
-    };
     await updateReview(review);
   };
 
   return (
     <>
       <button onClick={handleClick} className="btn btn-primary">
-        Add Review
+        <BsPencilSquare size={20} />
       </button>
       <AddReviewModal
         show={showModal}
         handleClose={handleClose}
         handleSave={handleSave}
-        handleEdit={handleEdit}
+        review={review}
         beer={beer}
       />
     </>
   );
 };
 
-export default AddReviewButton;
+export default EditReviewButton;
