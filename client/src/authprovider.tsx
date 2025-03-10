@@ -1,12 +1,7 @@
-import {
-    ReactNode,
-    useCallback,
-    useEffect,
-    useState,
-  } from "react";
+import { ReactNode, useCallback, useEffect, useState } from "react";
 import { getUser } from "./api";
 import { AuthContext } from "./authcontext";
-  
+
 interface AuthProps {
   children: ReactNode;
 }
@@ -22,7 +17,7 @@ export function AuthProvider({ children }: AuthProps) {
     } else {
       setLoggedIn(false);
     }
-  },[]);
+  }, []);
 
   useEffect(() => {
     checkAuth();
