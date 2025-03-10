@@ -15,6 +15,11 @@ const BeerPage: React.FC = () => {
   const [beer, setBeer] = useState<Beer | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
 
+  // This function is passed to the AddReviewButton to update the state with the new review
+  const handleAddReview = (newReview: Review) => {
+    setReviews((prevReviews) => [newReview, ...prevReviews]); // Add the new review to the front of the list
+  };
+
   async function loadReviews() {
     if (name) {
       const r = await getBeerReviews(name);
@@ -29,7 +34,8 @@ const BeerPage: React.FC = () => {
 
   useEffect(() => {
     loadReviews();
-  }, []);
+  }, [name]);
+
   async function loadBeer(name: string) {
     const b = await getBeer(name);
     setBeer(b);
@@ -80,7 +86,7 @@ const BeerPage: React.FC = () => {
               <p>No reviews found.</p>
             )}
           </div>
-          <AddReviewButton beer={beer.name} />
+          <AddReviewButton beer={beer.name} onAddReview={handleAddReview} />
         </Col>
       </Row>
     </div>

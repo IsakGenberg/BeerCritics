@@ -6,9 +6,13 @@ import { Review } from "../../interfaces/review";
 
 interface AddReviewButtonProps {
   beer: string;
+  onAddReview: (review: Review) => void; // Update to pass the new review directly
 }
 
-const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
+const AddReviewButton: React.FC<AddReviewButtonProps> = ({
+  beer,
+  onAddReview,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
@@ -26,14 +30,19 @@ const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
     date: Date,
     description?: string
   ) => {
-    const review: Review = {
+    const newReview: Review = {
       beer: beer,
       user: user,
       rating: rating,
       date: date,
       description: description,
     };
-    await addReview(review);
+
+    // Add the new review via the API (assuming the API saves it)
+    await addReview(newReview);
+
+    // After adding the review to the database, update the parent component's state
+    onAddReview(newReview); // Pass the new review back to the parent
   };
 
   return (
