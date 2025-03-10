@@ -5,8 +5,7 @@ import { useAuth } from "../../authcontext";
 import { useNavigate } from "react-router-dom";
 import "./myaccountpage.css";
 import ReviewCard from "../../components/review/ReviewCard";
-import LogOutButton from "../../components/logoutbutton/LogOutBtn";
-import { Col, Container, Row } from "react-bootstrap";
+import { Button, Col, Container, Row } from "react-bootstrap";
 
 function MyAccountPage() {
   const { isLoggedIn } = useAuth();
@@ -51,7 +50,8 @@ function MyAccountPage() {
         <Col>
           <div className="user">
             <h1>{currentUser}</h1>
-            <LogOutButton onClick={() => {}} />
+            <button type="button">Change username</button>
+            <button type="button">Change password</button>
           </div>
         </Col>
         <Col xs={6}>

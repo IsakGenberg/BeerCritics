@@ -63,7 +63,11 @@ reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
     }
     await reviewService.deleteReview(review);
     res.status(200).send("Review successfully deleted");
+  }catch (e: any) {
+    res.status(500).send(e.message);
   }
+});
+
 reviewRouter.put("/", async (req: ReviewRequest, res: Response) => {
   try {
     if (!req.session.username) {
