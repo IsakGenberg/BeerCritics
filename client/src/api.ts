@@ -90,6 +90,12 @@ export async function getUser(): Promise<string | null> {
   }
 }
 
+export async function logout(): Promise<void> {
+  await axios.post(`${BASE_URL}/user/logout`);
+
+}
+
 export async function deleteReview(review: Review): Promise<void> {
   await axios.delete(`${BASE_URL}/review`, { data: review });
+
 }
