@@ -61,6 +61,10 @@ export async function addReview(review: Review): Promise<void> {
   }
 }
 
+export async function updateReview(review: Review): Promise<void> {
+  await axios.put(`${BASE_URL}/review`, review);
+}
+
 export async function getBeerReviews(
   beerName: string
 ): Promise<Review[] | undefined> {

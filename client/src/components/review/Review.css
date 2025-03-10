@@ -11,3 +11,7 @@
 #Comment {
   text-wrap: wrap;
 }
+
+#EditReviewButton {
+  size: 20px;
+}

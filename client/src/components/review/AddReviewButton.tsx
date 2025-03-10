@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import AddReviewModal from "./AddReviewModal";
 import "./AddReviewButton.css";
-import { addReview } from "../../api";
+import { addReview, updateReview } from "../../api";
 import { Review } from "../../interfaces/review";
 
 interface AddReviewButtonProps {
@@ -44,6 +44,22 @@ const AddReviewButton: React.FC<AddReviewButtonProps> = ({
     // After adding the review to the database, update the parent component's state
     onAddReview(newReview); // Pass the new review back to the parent
   };
+  const handleEdit = async (
+    beer: string,
+    user: string,
+    rating: number,
+    date: Date,
+    description?: string
+  ) => {
+    const review: Review = {
+      beer: beer,
+      user: user,
+      rating: rating,
+      date: date,
+      description: description,
+    };
+    await updateReview(review);
+  };
 
   return (
     <>
@@ -54,6 +70,7 @@ const AddReviewButton: React.FC<AddReviewButtonProps> = ({
         show={showModal}
         handleClose={handleClose}
         handleSave={handleSave}
+        handleEdit={handleEdit}
         beer={beer}
       />
     </>

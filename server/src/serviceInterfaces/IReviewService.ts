@@ -8,4 +8,6 @@ export interface IReviewService {
   getReviewsUser(user: string): Promise<Review[]>;
 
   deleteReview(review: Review): Promise<void>;
+
+  updateReview(review: Review): Promise<void>;
 }

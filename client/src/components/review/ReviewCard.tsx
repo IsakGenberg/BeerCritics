@@ -3,6 +3,8 @@ import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
 import "./Review.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import EditReviewButton from "../editReview/editReviewButton";
+import { useAuth } from "../../authcontext";
 
 interface ReviewProps {
   beer: string;
@@ -19,12 +21,20 @@ const ReviewCard: React.FC<ReviewProps> = ({
   description,
   date,
 }) => {
+  const { isLoggedIn } = useAuth();
+
   return (
     <StrictMode>
       <Card id="Review">
         <Card.Body>
           <Card.Title>
             <StarRating rating={rating} />
+            {isLoggedIn && (
+              <EditReviewButton
+                beer={beer}
+                review={{ beer, user, rating, date, description }}
+              />
+            )}
           </Card.Title>
           <Card.Subtitle id="Author">{user}</Card.Subtitle>
           <Card.Text id="Beer">{beer}</Card.Text>
