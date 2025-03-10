@@ -5,6 +5,8 @@ import { useAuth } from "../../authcontext";
 import { useNavigate } from "react-router-dom";
 import "./myaccountpage.css";
 import ReviewCard from "../../components/review/ReviewCard";
+import LogOutButton from "../../components/logoutbutton/LogOutBtn";
+import { Col, Container, Row } from "react-bootstrap";
 
 function MyAccountPage() {
   const { isLoggedIn } = useAuth();
@@ -44,18 +46,28 @@ function MyAccountPage() {
   }
 
   return (
-    <div className="account-page">
-      <div className="user"><p>{currentUser}</p></div>
-      <div className="review-list">
-        {reviews.length > 0 ? (
-          reviews.map((review, index) => (
-            <ReviewCard key={index} {...review} beer={review.beer} />
-          ))
-        ) : (
-          <p>No reviews found.</p>
-        )}
-      </div>
-    </div>
+    <Container className="account-page">
+      <Row>
+        <Col>
+          <div className="user">
+            <h1>{currentUser}</h1>
+            <LogOutButton onClick={() => {}} />
+          </div>
+        </Col>
+        <Col xs={6}>
+          <div className="review-list">
+            <h2>Your Reviews</h2>
+            {reviews.length > 0 ? (
+              reviews.map((review, index) => (
+                <ReviewCard key={index} {...review} beer={review.beer} />
+              ))
+            ) : (
+              <p>No reviews found.</p>
+            )}
+          </div>
+        </Col>
+      </Row>
+    </Container>
   );
 }
 

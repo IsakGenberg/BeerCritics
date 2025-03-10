@@ -1,13 +1,9 @@
-.account-page{
-    display: flex; 
-    flex-direction: row;
-    width: 100%;
+.account-page {
+  width: 100vw;
 }
 
-.user{
-    justify-self: flex-start;
+.user {
 }
 
-.review-list{
-    justify-self: flex-end;
+.review-list {
 }
