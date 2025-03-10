@@ -21,6 +21,12 @@ export class ReviewService implements IReviewService {
     return await ReviewModel.findAll({ where: { user: user } });
   }
 
+  async deleteReview(review: Review): Promise<void> {
+    await ReviewModel.destroy({
+      where: { beer: review.beer, user: review.user },
+    });
+  }
+
   async updateReview(review: Review) {
     try {
       await ReviewModel.update(
@@ -39,5 +45,6 @@ export class ReviewService implements IReviewService {
       }
       throw new Error("Database error: " + error.message);
     }
+
   }
 }

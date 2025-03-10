@@ -54,6 +54,16 @@ reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
   }
 });
 
+
+reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
+  try {
+    const review: Review = req.body;
+    if (req.session.username !== review.user) {
+      res.status(401).send("Not authorized to delete review");
+    }
+    await reviewService.deleteReview(review);
+    res.status(200).send("Review successfully deleted");
+  }
 reviewRouter.put("/", async (req: ReviewRequest, res: Response) => {
   try {
     if (!req.session.username) {

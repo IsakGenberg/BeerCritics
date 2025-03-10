@@ -43,3 +43,12 @@ userRouter.get("/", async (req: UserRequest, res: Response) => {
     res.status(200).send(req.session.username);
   }
 });
+
+userRouter.post("/logout", async (req: UserRequest, res: Response) => {
+  try {
+    delete req.session.username;
+    res.status(200).send("Logged out user");
+  } catch {
+    res.status(500).send("Couldn't logout user");
+  }
+});
