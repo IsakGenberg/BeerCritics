@@ -2,6 +2,7 @@ import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
 import { UserModel } from "../../db/user.db";
 import bcrypt from "bcrypt";
+import { where } from "sequelize";
 
 export class UserService implements IUserService {
   async registerUser(username: string, password: string) {
@@ -33,5 +34,18 @@ export class UserService implements IUserService {
     if (!isMatch) return undefined;
 
     return user;
+  }
+
+  async updateUsername(newUsername : string, oldUser: User){
+    const existingUser = await UserModel.findOne({ where: { username : oldUser.username } });
+    if (existingUser) {
+      console.log("Username exists");
+      throw new Error("User already exists");
+    }
+    try{
+      await UserModel.update({username:newUsername}, {where : {username: oldUser.username}});
+    }catch(e :any){
+      console.log(e);
+    }
   }
 }

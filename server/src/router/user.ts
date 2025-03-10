@@ -52,3 +52,13 @@ userRouter.post("/logout", async (req: UserRequest, res: Response) => {
     res.status(500).send("Couldn't logout user");
   }
 });
+
+userRouter.patch("/", async (req : UserRequest, res: Response) => {
+  if(!req.session.username){
+    res.status(500).send("Can't update username, user not logged in");
+    return;
+  } else{
+    
+  }
+
+});
