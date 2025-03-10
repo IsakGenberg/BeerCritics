@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import { Modal, Button, Form } from "react-bootstrap";
-import "./AddReviewModal.css";
+import "./ReviewModal.css";
 import StarRating from "./StarRating";
 import { getUser } from "../../api";
 import { Review } from "../../interfaces/review";
 
-interface AddReviewModalProps {
+interface ReviewModalProps {
   show: boolean;
   beer: string;
   handleClose: () => void;
@@ -18,7 +18,7 @@ interface AddReviewModalProps {
   ) => void;
   review?: Review;
 }
-const AddReviewModal: React.FC<AddReviewModalProps> = ({
+const ReviewModal: React.FC<ReviewModalProps> = ({
   show,
   handleClose,
   handleSave,
@@ -92,4 +92,4 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
   );
 };
 
-export default AddReviewModal;
+export default ReviewModal;

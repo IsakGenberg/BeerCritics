@@ -3,7 +3,7 @@ import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
 import "./Review.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import EditReviewButton from "../editReview/editReviewButton";
+import ReviewButton from "../reviewButton/ReviewButton";
 import { useAuth } from "../../authcontext";
 
 interface ReviewProps {
@@ -30,9 +30,10 @@ const ReviewCard: React.FC<ReviewProps> = ({
           <Card.Title>
             <StarRating rating={rating} />
             {isLoggedIn && (
-              <EditReviewButton
+              <ReviewButton
                 beer={beer}
                 review={{ beer, user, rating, date, description }}
+                mode="edit"
               />
             )}
           </Card.Title>
