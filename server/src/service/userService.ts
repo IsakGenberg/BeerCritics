@@ -4,7 +4,13 @@ import { UserModel } from "../../db/user.db";
 
 export class UserService implements IUserService {
   async registerUser(username: string, password: string) {
-    UserModel.create({
+    const existingUser = await UserModel.findOne({ where: { username } });
+    if (existingUser) {
+      console.log("User exists");
+      throw new Error("User already exists");
+    }
+
+    await UserModel.create({
       username: username,
       password: password,
     });

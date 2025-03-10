@@ -37,18 +37,11 @@ export async function getBeer(name: string): Promise<Beer | null> {
   }
 }
 
-export async function registerNewUser(
-  username: string,
-  password: string
-): Promise<void> {
-  try {
-    await axios.post(`${BASE_URL}/user`, {
-      username,
-      password,
-    });
-  } catch (e: any) {
-    console.log(e);
-  }
+export async function registerNewUser(username: string, password: string) {
+  await axios.post(`${BASE_URL}/user`, {
+    username,
+    password,
+  });
 }
 
 export async function getMyReviews(): Promise<Review[] | undefined> {
