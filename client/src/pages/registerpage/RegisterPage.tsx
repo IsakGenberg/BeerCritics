@@ -54,7 +54,7 @@ function RegisterPage() {
   const handleRegister = async () => {
     try {
       await registerNewUser(username, password);
-      //navigate("/user/login");
+      navigate("/user/login");
     } catch (error: any) {
       if (axios.isAxiosError(error)) {
         if (error.response?.status === 409) {

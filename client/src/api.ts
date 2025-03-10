@@ -89,3 +89,6 @@ export async function getUser(): Promise<string | null> {
     return null;
   }
 }
+export async function logout(): Promise<void> {
+  await axios.post(`${BASE_URL}/user/logout`);
+}
