@@ -89,3 +89,7 @@ export async function getUser(): Promise<string | null> {
     return null;
   }
 }
+
+export async function deleteReview(review: Review): Promise<void> {
+  await axios.delete(`${BASE_URL}/review`, { data: review });
+}
