@@ -1,12 +1,22 @@
 import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
 import { UserModel } from "../../db/user.db";
+import bcrypt from "bcrypt";
 
 export class UserService implements IUserService {
   async registerUser(username: string, password: string) {
-    UserModel.create({
+    const existingUser = await UserModel.findOne({ where: { username } });
+    if (existingUser) {
+      console.log("User exists");
+      throw new Error("User already exists");
+    }
+
+    const saltRounds = 10;
+    const hashedPassword = await bcrypt.hash(password, saltRounds);
+
+    await UserModel.create({
       username: username,
-      password: password,
+      password: hashedPassword,
     });
   }
 
@@ -16,7 +26,11 @@ export class UserService implements IUserService {
   ): Promise<User | undefined> {
     const user = await UserModel.findOne({ where: { username } });
 
-    if (!user || user.password !== password) return undefined;
+    if (!user) return undefined;
+
+    const isMatch = await bcrypt.compare(password, user.password);
+
+    if (!isMatch) return undefined;
 
     return user;
   }

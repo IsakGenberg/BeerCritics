@@ -1,5 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./navbar.css";
+import LogoutButton from "../logoutButton/LogoutButton";
 
 function LoggedInNavbar() {
   return (
@@ -12,6 +13,7 @@ function LoggedInNavbar() {
           <Nav.Link href="/allbeers">All Beers</Nav.Link>
           <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
           <Nav.Link href="/user/account">My Account</Nav.Link>
+          <LogoutButton />
         </Nav>
       </Container>
     </Navbar>

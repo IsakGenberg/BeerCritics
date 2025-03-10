@@ -3,6 +3,7 @@ import { Modal, Button, Form } from "react-bootstrap";
 import "./AddReviewModal.css";
 import StarRating from "./StarRating";
 import { getUser } from "../../api";
+import { Review } from "../../interfaces/review";
 
 interface AddReviewModalProps {
   show: boolean;
@@ -15,17 +16,26 @@ interface AddReviewModalProps {
     date: Date,
     description?: string
   ) => void;
+  review?: Review;
 }
 const AddReviewModal: React.FC<AddReviewModalProps> = ({
   show,
   handleClose,
   handleSave,
   beer,
+  review,
 }) => {
   const [rating, setRating] = useState(0);
   const [user, setUser] = useState("");
   const [description, setComment] = useState("");
   const [date] = useState(new Date());
+
+  React.useEffect(() => {
+    if (review) {
+      setRating(review.rating);
+      setComment(review.description || "");
+    }
+  }, [review]);
 
   React.useEffect(() => {
     const fetchUser = async () => {
@@ -39,6 +49,7 @@ const AddReviewModal: React.FC<AddReviewModalProps> = ({
 
   const handleSubmit = () => {
     handleSave(beer, user, rating, date, description);
+
     handleClose();
   };
 

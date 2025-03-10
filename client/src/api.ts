@@ -37,18 +37,11 @@ export async function getBeer(name: string): Promise<Beer | null> {
   }
 }
 
-export async function registerNewUser(
-  username: string,
-  password: string
-): Promise<void> {
-  try {
-    await axios.post(`${BASE_URL}/user`, {
-      username,
-      password,
-    });
-  } catch (e: any) {
-    console.log(e);
-  }
+export async function registerNewUser(username: string, password: string) {
+  await axios.post(`${BASE_URL}/user`, {
+    username,
+    password,
+  });
 }
 
 export async function getMyReviews(): Promise<Review[] | undefined> {
@@ -66,6 +59,10 @@ export async function addReview(review: Review): Promise<void> {
   } catch (e: any) {
     console.log(e);
   }
+}
+
+export async function updateReview(review: Review): Promise<void> {
+  await axios.put(`${BASE_URL}/review`, review);
 }
 
 export async function getBeerReviews(
@@ -95,4 +92,14 @@ export async function getUser(): Promise<string | null> {
     console.log(e);
     return null;
   }
+}
+
+export async function logout(): Promise<void> {
+  await axios.post(`${BASE_URL}/user/logout`);
+
+}
+
+export async function deleteReview(review: Review): Promise<void> {
+  await axios.delete(`${BASE_URL}/review`, { data: review });
+
 }
