@@ -6,12 +6,23 @@ import ReviewCard from "../../components/review/ReviewCard";
 import { Col, Container, Row } from "react-bootstrap";
 import { UserDataModalType } from "./UserDataModalType";
 import ChangeUserDataModal from "../../components/changeuserdatamodal/ChangeUserDatamodal";
+import { useAuth } from "../../authcontext";
+import { useNavigate } from "react-router-dom";
 
 
 
 function MyAccountPage() {
+  const {isLoggedIn} = useAuth();
+  const navigate = useNavigate();
+
+  
   const [reviews, setReviews] = useState<Review[]>([]);
   const [currentUser, setUser] = useState<string >("User not found");
+
+  // Do not allow unauthorized users to reach the page.
+  if(!isLoggedIn){
+    navigate("/");
+  }
 
   const updateUsername = (newUsername: string) => {
     setUser(newUsername);
