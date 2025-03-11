@@ -2,21 +2,18 @@ import React, { useEffect, useState } from "react";
 import { Form, Modal } from "react-bootstrap";
 
 import Button from "react-bootstrap/Button";
-import { UserDataModalType } from "../../pages/myaccountpage/UserDataModalType";
 import { changeUsername } from "../../api";
 import axios from "axios";
 
 interface ChangeUserDataModalProps {
   btnText: string;
   currentUser: string;
-  type: UserDataModalType;
   update: (newUsername: string) => void;
 }
 
 function ChangeUserDataModal({
   btnText,
   currentUser,
-  type,
   update,
 }: ChangeUserDataModalProps) {
   const [show, setShow] = useState(false);
@@ -31,26 +28,16 @@ function ChangeUserDataModal({
     if (inputValue == "") {
       return;
     }
-    switch (type) {
-      case UserDataModalType.PASSWORD: {
-        update(inputValue);
-        handleClose();
-        break;
-      }
-      case UserDataModalType.USERNAME: {
-        try {
-          await changeUsername(currentUser, inputValue);
-          update(inputValue);
-          handleClose();
-          break;
-        } catch (error: any) {
-          if (axios.isAxiosError(error)) {
-            if (error.response?.status === 409) {
-              setErrors({ general: "Username already exists" });
-            } else if (error.response?.status === 500) {
-              setErrors({ general: "Internal server error" });
-            }
-          }
+    try {
+      await changeUsername(currentUser, inputValue);
+      update(inputValue);
+      handleClose();
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        if (error.response?.status === 409) {
+          setErrors({ general: "Username already exists" });
+        } else if (error.response?.status === 500) {
+          setErrors({ general: "Internal server error" });
         }
       }
     }

@@ -4,7 +4,6 @@ import { Review } from "../../interfaces/review";
 import "./myaccountpage.css";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Col, Container, Row } from "react-bootstrap";
-import { UserDataModalType } from "./UserDataModalType";
 import ChangeUserDataModal from "../../components/changeuserdatamodal/ChangeUserDatamodal";
 import { useAuth } from "../../authcontext";
 import { useNavigate } from "react-router-dom";
@@ -62,7 +61,6 @@ function MyAccountPage() {
               <ChangeUserDataModal
                 btnText="Change Username"
                 currentUser={currentUser}
-                type = {UserDataModalType.USERNAME}
                 update = {updateUsername}
               />
             </div>
