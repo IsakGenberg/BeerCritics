@@ -12,7 +12,7 @@ import { useNavigate } from "react-router-dom";
 
 
 function MyAccountPage() {
-  const {isLoggedIn} = useAuth();
+  const {isLoggedIn, checkAuth} = useAuth();
   const navigate = useNavigate();
 
   
@@ -47,6 +47,7 @@ function MyAccountPage() {
   }
 
   useEffect(() => {
+    checkAuth();
     loadReviews();
     loadCurrentUser();
   }, []);
