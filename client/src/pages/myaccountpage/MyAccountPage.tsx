@@ -1,19 +1,28 @@
 import { useEffect, useState } from "react";
-import { getMyReviews, getUser } from "../../api";
+import { changeUsername, getMyReviews, getUser } from "../../api";
 import { Review } from "../../interfaces/review";
 import { useAuth } from "../../authcontext";
 import { useNavigate } from "react-router-dom";
 import "./myaccountpage.css";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Button, Col, Container, Row } from "react-bootstrap";
+import { UserDataModalType } from "./UserDataModalType";
+import ChangeUserDataModal from "../../components/changeuserdatamodal/ChangeUserDatamodal";
+
+
 
 function MyAccountPage() {
-  const { isLoggedIn } = useAuth();
+  const { checkAuth } = useAuth();
 
   const navigate = useNavigate();
 
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [currentUser, setUser] = useState<string | null>("");
+  const [currentUser, setUser] = useState<string >("User not found");
+
+  const updateUsername = (newUsername: string) => {
+    setUser(newUsername);
+    window.location.reload();
+  };
 
   async function loadReviews() {
     const r = await getMyReviews();
@@ -27,7 +36,9 @@ function MyAccountPage() {
 
   async function loadCurrentUser() {
     const user = await getUser();
-    setUser(user);
+    if(user){
+      setUser(user);
+    }
   }
 
   useEffect(() => {
@@ -35,23 +46,26 @@ function MyAccountPage() {
     loadCurrentUser();
   }, []);
 
-  // if(!isLoggedIn){
-  //     navigate("/user/login");
-  // }
-
-  //FIXME might not be needed here, used when no user record exist in database
-  if (!currentUser) {
-    setUser("user not found");
-  }
-
   return (
     <Container className="account-page">
       <Row>
         <Col>
           <div className="user">
             <h1>{currentUser}</h1>
-            <button type="button">Change username</button>
-            <button type="button">Change password</button>
+            <div className="items">
+              <ChangeUserDataModal
+                btnText="Change Username"
+                currentUser={currentUser}
+                type = {UserDataModalType.USERNAME}
+                update = {updateUsername}
+              />
+              <ChangeUserDataModal 
+                btnText="Change Password"
+                currentUser={currentUser}
+                type = {UserDataModalType.PASSWORD}
+                update = {()=>{}}
+                />
+            </div>
           </div>
         </Col>
         <Col xs={6}>

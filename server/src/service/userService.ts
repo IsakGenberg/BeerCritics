@@ -36,16 +36,19 @@ export class UserService implements IUserService {
     return user;
   }
 
-  async updateUsername(newUsername : string, oldUser: User){
-    const existingUser = await UserModel.findOne({ where: { username : oldUser.username } });
+  async changeUsername(oldUsername: string, newUsername: string) {
+    const existingUser =await UserModel.findOne({ where: { username : newUsername } });
     if (existingUser) {
       console.log("Username exists");
       throw new Error("User already exists");
     }
-    try{
-      await UserModel.update({username:newUsername}, {where : {username: oldUser.username}});
-    }catch(e :any){
-      console.log(e);
+    try {
+      await UserModel.update(
+        { username: newUsername },
+        { where: { username: oldUsername } }
+      );
+    } catch (e: any) {
+      console.log("Database error " + e.message);
     }
   }
 }

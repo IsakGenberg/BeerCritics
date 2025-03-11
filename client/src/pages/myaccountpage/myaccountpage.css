@@ -3,8 +3,12 @@
 }
 
 .user {
-    align-items: space-around;
 }
 
 .review-list {
+}
+
+.items{
+  display: flex;
+  gap: 5%;
 }
