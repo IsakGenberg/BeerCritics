@@ -5,6 +5,7 @@ import "./Review.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReviewButton from "../reviewButton/ReviewButton";
 import { useAuth } from "../../authcontext";
+import { getUser } from "../../api";
 
 interface ReviewProps {
   beer: string;
@@ -22,6 +23,15 @@ const ReviewCard: React.FC<ReviewProps> = ({
   date,
 }) => {
   const { isLoggedIn } = useAuth();
+  const [isCreator, setIsCreator] = React.useState(false);
+
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const currentUser = await getUser();
+      setIsCreator(user === currentUser);
+    };
+    fetchUser();
+  }, [user]);
 
   return (
     <StrictMode>
@@ -29,7 +39,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
         <Card.Body>
           <Card.Title>
             <StarRating rating={rating} />
-            {isLoggedIn && (
+            {isLoggedIn && isCreator && (
               <ReviewButton
                 beer={beer}
                 review={{ beer, user, rating, date, description }}
