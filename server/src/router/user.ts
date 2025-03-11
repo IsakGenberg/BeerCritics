@@ -79,7 +79,7 @@ userRouter.patch("/", async (req:  ChangeUsernameRequest, res: Response) => {
     if (e.message === "User already exists") {
       res.status(409).send("Can't change username, username already exists");
     } else {
-      res.status(500).send("Internal server error 22222");
+      res.status(500).send("Internal server error");
     }
   }
 });

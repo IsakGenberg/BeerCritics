@@ -65,12 +65,6 @@ function MyAccountPage() {
                 type = {UserDataModalType.USERNAME}
                 update = {updateUsername}
               />
-              <ChangeUserDataModal 
-                btnText="Change Password"
-                currentUser={currentUser}
-                type = {UserDataModalType.PASSWORD}
-                update = {()=>{}}
-                />
             </div>
           </div>
         </Col>

@@ -4,6 +4,7 @@ import { Form, Modal } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import { UserDataModalType } from "../../pages/myaccountpage/UserDataModalType";
 import { changeUsername } from "../../api";
+import axios from "axios";
 
 interface ChangeUserDataModalProps {
   btnText: string;
@@ -21,6 +22,7 @@ function ChangeUserDataModal({
   const [show, setShow] = useState(false);
   const [formText, setFormtext] = useState("parameters");
   const [inputValue, setInputValue] = useState("");
+  const [errors, setErrors] = useState<{ general?: string }>({});
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -32,15 +34,26 @@ function ChangeUserDataModal({
     switch (type) {
       case UserDataModalType.PASSWORD: {
         update(inputValue);
+        handleClose();
         break;
       }
       case UserDataModalType.USERNAME: {
-        await changeUsername(currentUser, inputValue);
-        update(inputValue);
-        break;
+        try {
+          await changeUsername(currentUser, inputValue);
+          update(inputValue);
+          handleClose();
+          break;
+        } catch (error: any) {
+          if (axios.isAxiosError(error)) {
+            if (error.response?.status === 409) {
+              setErrors({ general: "Username already exists" });
+            } else if (error.response?.status === 500) {
+              setErrors({ general: "Internal server error" });
+            }
+          }
+        }
       }
     }
-    handleClose();
   };
 
   function getTextAfterChange(input: string): string | null {
@@ -74,7 +87,11 @@ function ChangeUserDataModal({
                 value={inputValue}
                 onChange={(e) => setInputValue(e.target.value)}
                 placeholder={`New ${formText.toLowerCase()}`}
+                isInvalid={!!errors.general}
               />
+              <Form.Control.Feedback type="invalid">
+                {errors.general}
+              </Form.Control.Feedback>
             </Form.Group>
           </Form>
         </Modal.Body>
