@@ -21,7 +21,7 @@ function MyAccountPage() {
 
   // Do not allow unauthorized users to reach the page.
   if(!isLoggedIn){
-    navigate("/");
+    navigate("/user/login");
   }
 
   const updateUsername = (newUsername: string) => {
