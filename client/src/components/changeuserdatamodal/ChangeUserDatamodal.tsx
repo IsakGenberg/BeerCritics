@@ -16,7 +16,7 @@ function ChangeUserDataModal({
   btnText,
   currentUser,
   type,
-  update
+  update,
 }: ChangeUserDataModalProps) {
   const [show, setShow] = useState(false);
   const [formText, setFormtext] = useState("parameters");
@@ -26,18 +26,19 @@ function ChangeUserDataModal({
   const handleShow = () => setShow(true);
 
   const handleSubmit = async () => {
-    if(inputValue == ""){
-        return;
+    if (inputValue == "") {
+      return;
     }
-    switch(type){
-        case UserDataModalType.PASSWORD: {
-            break;
-        }
-        case UserDataModalType.USERNAME: {
-            await changeUsername(currentUser, inputValue);
-            update(inputValue);
-            break;
-        }
+    switch (type) {
+      case UserDataModalType.PASSWORD: {
+        update(inputValue);
+        break;
+      }
+      case UserDataModalType.USERNAME: {
+        await changeUsername(currentUser, inputValue);
+        update(inputValue);
+        break;
+      }
     }
     handleClose();
   };

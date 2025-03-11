@@ -1,21 +1,15 @@
 import { useEffect, useState } from "react";
-import { changeUsername, getMyReviews, getUser } from "../../api";
+import { getMyReviews, getUser } from "../../api";
 import { Review } from "../../interfaces/review";
-import { useAuth } from "../../authcontext";
-import { useNavigate } from "react-router-dom";
 import "./myaccountpage.css";
 import ReviewCard from "../../components/review/ReviewCard";
-import { Button, Col, Container, Row } from "react-bootstrap";
+import { Col, Container, Row } from "react-bootstrap";
 import { UserDataModalType } from "./UserDataModalType";
 import ChangeUserDataModal from "../../components/changeuserdatamodal/ChangeUserDatamodal";
 
 
 
 function MyAccountPage() {
-  const { checkAuth } = useAuth();
-
-  const navigate = useNavigate();
-
   const [reviews, setReviews] = useState<Review[]>([]);
   const [currentUser, setUser] = useState<string >("User not found");
 
