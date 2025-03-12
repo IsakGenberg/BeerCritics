@@ -49,6 +49,7 @@ describe("UserService", () => {
 
     const foundUser = await userService.findUser("newUsername", "12345678");
 
+    expect(foundUser).toBeDefined();
     expect(foundUser?.username).toBe("newUsername");
 
   });
