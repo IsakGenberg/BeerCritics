@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AddReviewButton from "../../components/review/AddReviewButton";
+import ReviewButton from "../../components/reviewButton/ReviewButton";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
@@ -14,6 +14,11 @@ const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
+
+  // This function is passed to the AddReviewButton to update the state with the new review
+  const handleAddReview = (newReview: Review) => {
+    setReviews((prevReviews) => [newReview, ...prevReviews]); // Add the new review to the front of the list
+  };
 
   async function loadReviews() {
     if (name) {
@@ -29,7 +34,8 @@ const BeerPage: React.FC = () => {
 
   useEffect(() => {
     loadReviews();
-  }, []);
+  }, [name]);
+
   async function loadBeer(name: string) {
     const b = await getBeer(name);
     setBeer(b);
@@ -80,7 +86,11 @@ const BeerPage: React.FC = () => {
               <p>No reviews found.</p>
             )}
           </div>
-          <AddReviewButton beer={beer.name} />
+          <ReviewButton
+            beer={beer.name}
+            mode="add"
+            onAddReview={handleAddReview}
+          />
         </Col>
       </Row>
     </div>

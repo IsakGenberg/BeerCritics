@@ -20,4 +20,31 @@ export class ReviewService implements IReviewService {
   async getReviewsUser(user: string): Promise<Review[]> {
     return await ReviewModel.findAll({ where: { user: user } });
   }
+
+  async deleteReview(review: Review): Promise<void> {
+    await ReviewModel.destroy({
+      where: { beer: review.beer, user: review.user },
+    });
+  }
+
+  async updateReview(review: Review) {
+    try {
+      await ReviewModel.update(
+        {
+          rating: review.rating,
+          date: review.date,
+          description: review.description,
+        },
+        {
+          where: { beer: review.beer, user: review.user },
+        }
+      );
+    } catch (error: any) {
+      if (error.name === "SequelizeUniqueConstraintError") {
+        throw new Error("Review already exists");
+      }
+      throw new Error("Database error: " + error.message);
+    }
+
+  }
 }

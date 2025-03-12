@@ -1,10 +1,9 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
-import AddReviewButton from "../components/review/AddReviewButton";
+import AddReviewButton from "../components/reviewButton/ReviewButton";
 import { act } from "react";
 
 describe("AddReviewButton component", () => {
-
   test("renders the button correctly", () => {
     render(<AddReviewButton />);
     const buttonElement = screen.getByRole("button");

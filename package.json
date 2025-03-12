@@ -1,6 +1,8 @@
 {
   "devDependencies": {
-    "@types/react-router-dom": "^5.3.3"
+    "@types/dotenv": "^6.1.1",
+    "@types/react-router-dom": "^5.3.3",
+    "@types/sequelize": "^4.28.20"
   },
   "dependencies": {
     "pg": "^8.13.3",

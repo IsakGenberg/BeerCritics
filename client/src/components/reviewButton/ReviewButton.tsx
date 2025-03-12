@@ -1,14 +1,23 @@
 import React, { useState } from "react";
-import AddReviewModal from "./AddReviewModal";
-import "./AddReviewButton.css";
-import { addReview } from "../../api";
+import ReviewModal from "../review/ReviewModal";
+import "./ReviewButton.css";
+import { addReview, updateReview } from "../../api";
 import { Review } from "../../interfaces/review";
+import { BsPencilSquare } from "react-icons/bs";
 
-interface AddReviewButtonProps {
+interface ReviewButtonProps {
   beer: string;
+  review?: Review;
+  mode: "add" | "edit";
+  onAddReview?: (review: Review) => void;
 }
 
-const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
+const ReviewButton: React.FC<ReviewButtonProps> = ({
+  beer,
+  review,
+  mode,
+  onAddReview,
+}) => {
   const [showModal, setShowModal] = useState(false);
 
   const handleClick = () => {
@@ -26,29 +35,38 @@ const AddReviewButton: React.FC<AddReviewButtonProps> = ({ beer }) => {
     date: Date,
     description?: string
   ) => {
-    const review: Review = {
+    const newReview: Review = {
       beer: beer,
       user: user,
       rating: rating,
       date: date,
       description: description,
     };
-    await addReview(review);
+
+    if (mode === "edit" && review) {
+      await updateReview(newReview);
+    } else {
+      await addReview(newReview);
+    }
+    if (onAddReview) {
+      onAddReview(newReview);
+    }
   };
 
   return (
     <>
       <button onClick={handleClick} className="btn btn-primary">
-        Add Review
+        {mode === "edit" ? <BsPencilSquare size={20} /> : "Add Review"}
       </button>
-      <AddReviewModal
+      <ReviewModal
         show={showModal}
         handleClose={handleClose}
         handleSave={handleSave}
         beer={beer}
+        review={review}
       />
     </>
   );
 };
 
-export default AddReviewButton;
+export default ReviewButton;

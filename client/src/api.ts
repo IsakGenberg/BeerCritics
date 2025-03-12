@@ -68,6 +68,10 @@ export async function deleteReview(reviewId: string): Promise<void> {
   }
 }
 
+export async function updateReview(review: Review): Promise<void> {
+  await axios.put(`${BASE_URL}/review`, review);
+}
+
 export async function getBeerReviews(
   beerName: string
 ): Promise<Review[] | undefined> {
@@ -95,4 +99,14 @@ export async function getUser(): Promise<string | null> {
     console.log(e);
     return null;
   }
+}
+
+export async function logout(): Promise<void> {
+  await axios.post(`${BASE_URL}/user/logout`);
+
+}
+
+export async function deleteReview(review: Review): Promise<void> {
+  await axios.delete(`${BASE_URL}/review`, { data: review });
+
 }

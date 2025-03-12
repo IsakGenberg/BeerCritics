@@ -76,6 +76,38 @@ ReviewModel.belongsTo(UserModel, { foreignKey: "user" });
 BeerModel.hasMany(ReviewModel, { foreignKey: "beer" });
 ReviewModel.belongsTo(BeerModel, { foreignKey: "beer" });
 
+ReviewModel.afterCreate(async (review, options) => {
+  await updateBeerRating(review.beer);
+});
+
+ReviewModel.afterUpdate(async (review, options) => {
+  await updateBeerRating(review.beer);
+});
+
+ReviewModel.afterDestroy(async (review, options) => {
+  await updateBeerRating(review.beer);
+});
+
+async function updateBeerRating(beerName: string) {
+  try {
+    const reviews = await ReviewModel.findAll({
+      where: { beer: beerName },
+    });
+
+    const averageRating =
+      reviews.reduce((sum, review) => sum + review.rating, 0) / reviews.length;
+
+    await BeerModel.update(
+      { rating: averageRating },
+      {
+        where: { name: beerName },
+      }
+    );
+  } catch (error) {
+    console.error("Error updating beer rating:", error);
+  }
+}
+
 sequelize
   .sync({ alter: true })
   .then(() => console.log("Tables synced"))
