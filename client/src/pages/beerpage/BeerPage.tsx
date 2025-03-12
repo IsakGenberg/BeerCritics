@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import AddReviewButton from "../../components/review/AddReviewButton";
+import ReviewButton from "../../components/reviewButton/ReviewButton";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
@@ -86,7 +86,11 @@ const BeerPage: React.FC = () => {
               <p>No reviews found.</p>
             )}
           </div>
-          <AddReviewButton beer={beer.name} onAddReview={handleAddReview} />
+          <ReviewButton
+            beer={beer.name}
+            mode="add"
+            onAddReview={handleAddReview}
+          />
         </Col>
       </Row>
     </div>

@@ -54,7 +54,6 @@ reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
   }
 });
 
-
 reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
   try {
     const review: Review = req.body;
@@ -63,8 +62,8 @@ reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
     }
     await reviewService.deleteReview(review);
     res.status(200).send("Review successfully deleted");
-  }catch (e: any) {
-    res.status(500).send(e.message);
+  } catch {
+    res.status(500).send("Could not delete review");
   }
 });
 
