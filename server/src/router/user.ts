@@ -61,6 +61,9 @@ userRouter.post("/logout", async (req: UserRequest, res: Response) => {
   }
 });
 
+/**
+ * Route for updating a user's username
+ */
 userRouter.patch("/", async (req:  ChangeUsernameRequest, res: Response) => {
   try {
     const { oldUsername, newUsername } = req.body;

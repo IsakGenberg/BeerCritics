@@ -36,6 +36,12 @@ export class UserService implements IUserService {
     return user;
   }
 
+  /**
+   * Updates username for a user
+   * @param oldUsername 
+   * @param newUsername 
+   * @throws {Error} if new username already exists
+   */
   async changeUsername(oldUsername: string, newUsername: string) {
     const existingUser =await UserModel.findOne({ where: { username : newUsername } });
     if (existingUser) {

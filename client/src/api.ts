@@ -104,6 +104,11 @@ export async function deleteReview(review: Review): Promise<void> {
 
 }
 
+/**
+ * Updates a user's username with a new username
+ * @param oldUsername 
+ * @param newUsername 
+ */
 export async function changeUsername(oldUsername : string, newUsername : string) : Promise<void> {
   await axios.patch(`${BASE_URL}/user`, { oldUsername, newUsername})
   .then(response => console.log(response.data));
