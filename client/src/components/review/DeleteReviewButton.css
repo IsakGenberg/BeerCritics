@@ -1,0 +1,14 @@
+.delete-review-button {
+  max-height: 40px;
+  background-color: darkred;
+  border: 0px;
+  border-radius: 5px;
+}
+.delete-review-button:hover {
+  max-height: 40px;
+  background-color: rgb(157, 0, 0);
+}
+
+.bin-icon {
+  max-height: 40px;
+}
