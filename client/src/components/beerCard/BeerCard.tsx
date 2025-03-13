@@ -9,6 +9,7 @@ import { Col, Row } from "react-bootstrap";
 interface BeerCardProps {
   imagePath: string;
   name: string;
+  style: string;
   rating: number;
 }
 /**
@@ -16,14 +17,17 @@ interface BeerCardProps {
  * @param BeerCardProps - an object containing the following properties:
  * - imagePath: string - the path to the image of the beer
  * - name: string - the name of the beer
- * - brewery: string - the name of the brewery that makes the beer
  * - style: string - the style of the beer
- * - abv: number - the alcohol by volume of the beer
  * - rating: number - the average rating of the beer
  * @returns A card that displays the image, name, brewery, style, abv, and rating of a beer.
  * Clicking on the card will navigate to the beer's page.
  */
-const BeerCard: React.FC<BeerCardProps> = ({ imagePath, name, rating }) => {
+const BeerCard: React.FC<BeerCardProps> = ({
+  imagePath,
+  name,
+  rating,
+  style,
+}) => {
   const navigate = useNavigate();
 
   const handleClick = (name: string) => {
@@ -39,6 +43,7 @@ const BeerCard: React.FC<BeerCardProps> = ({ imagePath, name, rating }) => {
             </Col>
             <Col className="text-col" xs={8}>
               <Card.Title>{name}</Card.Title>
+              <Card.Subtitle id="Style">{style}</Card.Subtitle>
             </Col>
           </Row>
         </Card.Body>

@@ -18,17 +18,15 @@ function HomePage() {
     <Container className="homepage">
       <h1 className="text-beer1">Find the best beers here!🍺</h1>
       <SearchBar />
-      <h2 className="text-beer2">Featured beers:</h2>
+      <h2 className="text-beer2">Trending Beers 🍺:</h2>
       <div className="carousel">
         <Row>
           {sortedBeers.map((beer) => (
             <Col key={beer.name} xs={12} md={6} lg={3} className="mb-4">
               <BeerCard
                 imagePath={beer.imagePath}
-                name={beer.name}
-                brewery={beer.brewery}
                 style={beer.style}
-                abv={beer.abv}
+                name={beer.name}
                 rating={beer.rating}
               />
             </Col>

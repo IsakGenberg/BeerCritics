@@ -2,19 +2,23 @@ import React, { useState } from "react";
 import { deleteReview } from "../../api";
 import "./DeleteReviewButton.css";
 import { Review } from "../../interfaces/review";
+import { getUser } from "../../api";
 
 interface DeleteReviewButtonProps {
   review: Review;
-  currentUser: string;
-  onDelete: () => void;
 }
 
-const DeleteReviewButton: React.FC<DeleteReviewButtonProps> = ({
-  review,
-  currentUser,
-  onDelete,
-}) => {
+const DeleteReviewButton: React.FC<DeleteReviewButtonProps> = ({ review }) => {
   const [loading, setLoading] = useState(false);
+  const [currentUser, setCurrentUser] = useState<string | null>(null);
+
+  React.useEffect(() => {
+    const fetchUser = async () => {
+      const user = await getUser();
+      setCurrentUser(user);
+    };
+    fetchUser();
+  }, []);
 
   if (review.user !== currentUser) return null;
 
@@ -25,7 +29,6 @@ const DeleteReviewButton: React.FC<DeleteReviewButtonProps> = ({
     try {
       await deleteReview(review);
       alert("Review successfully deleted!");
-      onDelete();
     } catch (error) {
       console.error("Error deleting review:", error);
       alert("Failed to delete review. Please try again.");

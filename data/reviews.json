@@ -42,13 +42,6 @@
     "description": "Love the citrus notes!"
   },
   {
-    "beer": "Dos Equis",
-    "user": "Matthew",
-    "rating": 3,
-    "date": "2025-01-01",
-    "description": "Decent, but nothing special."
-  },
-  {
     "beer": "Miller Lite",
     "user": "Olivia",
     "rating": 2,
@@ -70,7 +63,7 @@
     "description": "Great flavor and balance."
   },
   {
-    "beer": "Sapporo",
+    "beer": "West Coast IPA",
     "user": "Daniel",
     "rating": 4,
     "date": "2025-01-01",
@@ -105,25 +98,11 @@
     "description": "A decent European lager."
   },
   {
-    "beer": "Amstel",
-    "user": "Emily",
-    "rating": 4,
-    "date": "2025-01-01",
-    "description": "Solid lager, nice balance."
-  },
-  {
     "beer": "Newcastle Brown Ale",
     "user": "Matthew",
     "rating": 5,
     "date": "2025-01-01",
     "description": "Rich and malty, love it!"
-  },
-  {
-    "beer": "Yuengling Lager",
-    "user": "Olivia",
-    "rating": 4,
-    "date": "2025-01-01",
-    "description": "Best budget amber lager."
   },
   {
     "beer": "Hoegaarden",
@@ -210,7 +189,7 @@
     "description": "Absolutely love this lager."
   },
   {
-    "beer": "Sapporo",
+    "beer": "West Coast IPA",
     "user": "Hannah",
     "rating": 4,
     "date": "2025-01-01",
@@ -239,25 +218,11 @@
     "description": "Not bad for a pilsner."
   },
   {
-    "beer": "Amstel",
-    "user": "Olivia",
-    "rating": 4,
-    "date": "2025-01-01",
-    "description": "Solid beer, nothing too special."
-  },
-  {
     "beer": "Newcastle Brown Ale",
     "user": "Ethan",
     "rating": 5,
     "date": "2025-01-01",
     "description": "Malty and delicious!"
-  },
-  {
-    "beer": "Yuengling Lager",
-    "user": "James",
-    "rating": 4,
-    "date": "2025-01-01",
-    "description": "Always a solid choice."
   },
   {
     "beer": "Hoegaarden",

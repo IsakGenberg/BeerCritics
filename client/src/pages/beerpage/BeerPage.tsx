@@ -9,8 +9,10 @@ import { Col, Row } from "react-bootstrap";
 import "./BeerPage.css";
 import { getBeerReviews } from "../../api";
 import { Review } from "../../interfaces/review";
+import { useAuth } from "../../authcontext";
+
 /**
- * 
+ *
  * @returns BeerPage component which displays the details of a specific beer and its reviews.
  * If the beer does not exist, a message is displayed instead.
  */
@@ -18,6 +20,7 @@ const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);
   const [reviews, setReviews] = useState<Review[]>([]);
+  const { isLoggedIn } = useAuth();
 
   // This function is passed to the AddReviewButton to update the state with the new review
   const handleAddReview = (newReview: Review) => {
@@ -90,11 +93,13 @@ const BeerPage: React.FC = () => {
               <p>No reviews found.</p>
             )}
           </div>
-          <ReviewButton
-            beer={beer.name}
-            mode="add"
-            onAddReview={handleAddReview}
-          />
+          {isLoggedIn && (
+            <ReviewButton
+              beer={beer.name}
+              mode="add"
+              onAddReview={handleAddReview}
+            />
+          )}
         </Col>
       </Row>
     </div>
