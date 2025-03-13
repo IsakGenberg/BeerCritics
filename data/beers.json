@@ -10,7 +10,7 @@
   {
     "name": "Budweiser",
     "rating": 0,
-    "brewery": "American Brewers",
+    "brewery": "AB Inbev Belgium",
     "style": "Pale Lager",
     "abv": 5,
     "imagePath": "budweiser.png"
@@ -48,20 +48,12 @@
     "imagePath": "bluemoon.png"
   },
   {
-    "name": "Dos Equis",
-    "rating": 0,
-    "brewery": "Mexican Brewers",
-    "style": "Amber Lager",
-    "abv": 4.7,
-    "imagePath": "dosequis.png"
-  },
-  {
     "name": "Miller Lite",
     "rating": 0,
     "brewery": "American Brewers",
     "style": "Light Lager",
     "abv": 4.2,
-    "imagePath": "millerlite.png"
+    "imagePath": "millerlight.png"
   },
   {
     "name": "Pabst Blue Ribbon",
@@ -80,12 +72,12 @@
     "imagePath": "samadams.png"
   },
   {
-    "name": "Sapporo",
+    "name": "West Coast IPA",
     "rating": 0,
-    "brewery": "Japanese Brewers",
-    "style": "Rice Lager",
+    "brewery": "Stigbergets Bryggeri",
+    "style": "IPA",
     "abv": 5,
-    "imagePath": "sapporo.png"
+    "imagePath": "stigbergetsIPA.png"
   },
   {
     "name": "Asahi Super Dry",
@@ -120,28 +112,12 @@
     "imagePath": "carlsberg.png"
   },
   {
-    "name": "Amstel",
-    "rating": 0,
-    "brewery": "Dutch Brewers",
-    "style": "Pale Lager",
-    "abv": 5,
-    "imagePath": "amstel.png"
-  },
-  {
     "name": "Newcastle Brown Ale",
     "rating": 0,
     "brewery": "English Brewers",
     "style": "Brown Ale",
     "abv": 4.7,
     "imagePath": "newcastle.png"
-  },
-  {
-    "name": "Yuengling Lager",
-    "rating": 0,
-    "brewery": "American Brewers",
-    "style": "Amber Lager",
-    "abv": 4.5,
-    "imagePath": "yuengling.png"
   },
   {
     "name": "Hoegaarden",
