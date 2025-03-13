@@ -1,6 +1,6 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./navbar.css";
-import LogoutButton from "../logoutButton/LogoutButton";
+import LogoutButton from "../logoutbutton/LogoutButton";
 
 /**
  * 
