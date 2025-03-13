@@ -1,7 +1,10 @@
 import { Navbar, Nav, Container } from "react-bootstrap";
 import "./navbar.css";
 import LogoutButton from "../logoutButton/LogoutButton";
-
+/**
+ * 
+ * @returns Navbar component that displays links to home, top beers, all beers, my reviews, my account and a logout button.
+ */
 function LoggedInNavbar() {
   return (
     <Navbar expand="lg" className="navbar">
