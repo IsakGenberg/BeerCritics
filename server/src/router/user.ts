@@ -11,6 +11,14 @@ interface UserRequest extends Request {
   session: any;
 }
 
+interface ChangeUsernameRequest{
+  body: {
+    oldUsername: string;
+    newUsername: string;
+  };
+  session: any;
+}
+
 userRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -50,5 +58,31 @@ userRouter.post("/logout", async (req: UserRequest, res: Response) => {
     res.status(200).send("Logged out user");
   } catch {
     res.status(500).send("Couldn't logout user");
+  }
+});
+
+/**
+ * Route for updating a user's username
+ */
+userRouter.patch("/", async (req:  ChangeUsernameRequest, res: Response) => {
+  try {
+    const { oldUsername, newUsername } = req.body;
+    
+    if (!req.session.username) {
+      res.status(401).send("Can't update username, user not logged in");
+      return;
+    }
+
+    await userService.changeUsername(oldUsername,newUsername);
+
+    req.session.username = newUsername;
+    res.status(200).send(newUsername);
+  } catch (e: any) {
+    console.error("Error occurred during username change:", e);
+    if (e.message === "User already exists") {
+      res.status(409).send("Can't change username, username already exists");
+    } else {
+      res.status(500).send("Internal server error");
+    }
   }
 });
