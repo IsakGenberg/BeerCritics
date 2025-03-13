@@ -28,7 +28,7 @@ createRoot(document.getElementById("root")!).render(
             <Route path="/user/register" element={<RegisterPage />} />
             <Route path="/user/myreviews" element={<MyReviewsPage />} />
             <Route path="/user/account" element={<MyAccountPage />} />
-            <Route path="/allbeers" element={<AllBeersPage/>}/>
+            <Route path="/allbeers" element={<AllBeersPage />} />
           </Routes>
         </Layout>
       </BrowserRouter>
