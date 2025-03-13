@@ -16,29 +16,34 @@ const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
 function HomePage() {
   return (
     <Container className="homepage">
+      <div className="margin-top"></div>
       <div className="start">
-        <h1 className="text-beer1">Find the best beers here!🍺</h1>
+        <h1 className="text-beer1">Find the best beers here</h1>
         <SearchBar />
       </div>
 
-      <h2 className="text-beer2">Trending Beers 🍺:</h2>
-      <div className="carousel">
-        <Row>
-          {sortedBeers.map((beer) => (
-            <Col key={beer.name} xs={12} md={6} lg={3} className="mb-4">
-              <BeerCard
-                imagePath={beer.imagePath}
-                style={beer.style}
-                name={beer.name}
-                rating={beer.rating}
-              />
-            </Col>
-          ))}
-        </Row>
+      <div className="trending-beers-section">
+        <h1 className="trending-beer-text">Trending Beers</h1>
+        <div className="line"></div>
+        <div className="carousel">
+          <Row>
+            {sortedBeers.map((beer) => (
+              <Col key={beer.name} xs={12} md={6} lg={3} className="mb-4">
+                <BeerCard
+                  imagePath={beer.imagePath}
+                  style={beer.style}
+                  name={beer.name}
+                  rating={beer.rating}
+                />
+              </Col>
+            ))}
+          </Row>
+        </div>
       </div>
 
       <div className="about-section">
         <h1 className="about-title">About</h1>
+        <div className="line"></div>
         <p className="about-text">
           BeerCritics is a cutting-edge platform dedicated to beer enthusiasts
           worldwide. Founded in 2024 by a team of passionate brewers and tech

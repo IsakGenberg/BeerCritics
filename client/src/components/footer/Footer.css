@@ -27,7 +27,7 @@
   font-family: var(--brand-font);
   letter-spacing: 1px;
   margin-left: 50px;
-  color: #ba9939;
+  color: var(--primary-color);
 }
 .footer-text {
   color: var(--logo-color);
