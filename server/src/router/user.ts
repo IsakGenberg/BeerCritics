@@ -3,6 +3,9 @@ import express, { Request, Response } from "express";
 import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
 
+/**
+ * Router for get and post user endpoints
+ */
 export const userRouter = express.Router();
 const userService: IUserService = new UserService();
 
@@ -19,6 +22,9 @@ interface ChangeUsernameRequest{
   session: any;
 }
 
+/**
+ * Register a user in the database
+ */
 userRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -30,6 +36,9 @@ userRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * Login a user
+ */
 userRouter.post("/login", async (req: UserRequest, res: Response) => {
   const user: User | undefined = await userService.findUser(
     req.body.username,
@@ -43,6 +52,9 @@ userRouter.post("/login", async (req: UserRequest, res: Response) => {
   res.status(200).send("Logged in");
 });
 
+/**
+ * Get the current user in the session
+ */
 userRouter.get("/", async (req: UserRequest, res: Response) => {
   if (!req.session.username) {
     res.status(401).send(null);
@@ -52,6 +64,9 @@ userRouter.get("/", async (req: UserRequest, res: Response) => {
   }
 });
 
+/**
+ * Logout a user
+ */
 userRouter.post("/logout", async (req: UserRequest, res: Response) => {
   try {
     delete req.session.username;

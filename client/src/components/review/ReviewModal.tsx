@@ -18,6 +18,17 @@ interface ReviewModalProps {
   ) => void;
   review?: Review;
 }
+
+/**
+ * 
+ * @param ReviewModalProps - An object containing the following properties:
+ * - show: boolean - a boolean that determines whether the modal is displayed
+ * - beer: string - the name of the beer being reviewed
+ * - handleClose: () => void - a function that closes the modal
+ * - handleSave: (beer: string, user: string, rating: number, date: Date, description?: string) => void - a function that saves the review
+ * - review?: Review - an optional review object, prefills input fields if provided
+ * @returns A modal that allows the user to input values in order to add a review for a beer
+ */
 const ReviewModal: React.FC<ReviewModalProps> = ({
   show,
   handleClose,

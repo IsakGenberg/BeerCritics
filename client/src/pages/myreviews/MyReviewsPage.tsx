@@ -2,7 +2,10 @@ import { useEffect, useState } from "react";
 import { getMyReviews } from "../../api";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Review } from "../../interfaces/review";
-
+/**
+ * 
+ * @returns MyReviewsPage component which displays the reviews written by the logged in user
+ */
 const MyReviewsPage: React.FC = () => {
   const [reviews, setReviews] = useState<Review[]>([]);
 

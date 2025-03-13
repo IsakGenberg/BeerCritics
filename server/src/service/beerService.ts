@@ -1,12 +1,23 @@
 import { Beer } from "../model/beer";
 import { IBeerService } from "../serviceInterfaces/IBeerService";
 import { BeerModel } from "../../db/beer.db";
-
+/**
+ * BeerService is a class that represents a service for beers.
+ */
 export class BeerService implements IBeerService {
+  /**
+   * 
+   * @returns a list of all beers in the database
+   */
   async getAllBeers(): Promise<Beer[]> {
     return BeerModel.findAll();
   }
 
+  /**
+   * 
+   * @param beer name of the beer to be fetched
+   * @returns Beer object if the beer exists in the database, otherwise undefined
+   */
   async getBeer(beer: string): Promise<Beer | undefined> {
     const beerModel = await BeerModel.findOne({ where: { name: beer } });
 

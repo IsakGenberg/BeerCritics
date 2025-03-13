@@ -7,13 +7,15 @@ import { Layout } from "./components/layout/Layout.tsx";
 import HomePage from "./pages/homepage/HomePage.tsx";
 import BeerPage from "./pages/beerpage/BeerPage.tsx";
 import AllBeersPage from "./pages/allbeerspage/AllBeersPage.tsx";
-
 import LoginPage from "./pages/loginpage/LoginPage.tsx";
 import RegisterPage from "./pages/registerpage/RegisterPage.tsx";
 import MyReviewsPage from "./pages/myreviews/MyReviewsPage.tsx";
 import { AuthProvider } from "./authprovider.tsx";
 import MyAccountPage from "./pages/myaccountpage/MyAccountPage.tsx";
 
+/**
+ * Main component of the application which sets up the routing for the different pages
+ */
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AuthProvider>

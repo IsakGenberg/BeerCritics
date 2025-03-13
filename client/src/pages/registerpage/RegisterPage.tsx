@@ -5,7 +5,10 @@ import "./registerPage.css";
 import "../../api";
 import { registerNewUser } from "../../api";
 import axios from "axios";
-
+/**
+ * 
+ * @returns RegisterPage component which displays the registration form
+ */
 function RegisterPage() {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
@@ -18,6 +21,7 @@ function RegisterPage() {
   }>({});
   const navigate = useNavigate();
 
+  // Function to check if user input is of valid form
   const checkValidForm = () => {
     const newErrors: {
       username?: string;

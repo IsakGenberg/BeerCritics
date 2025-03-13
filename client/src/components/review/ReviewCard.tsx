@@ -14,7 +14,17 @@ interface ReviewProps {
   date: Date;
   description?: string;
 }
-
+/**
+ * 
+ * @param ReviewProps - An object containing the following properties:
+ * - beer: string - the name of the beer being reviewed
+ * - user: string - the name of the user who wrote the review
+ * - rating: number - the rating given to the beer
+ * - date: Date - the date the review was written
+ * - description?: string - an optional description of the review
+ * @returns An individual review card that displays the beer, user, rating, date, and description of a review.
+ * If the user is logged in and is the creator of the review, an edit button will be displayed.
+ */
 const ReviewCard: React.FC<ReviewProps> = ({
   beer,
   rating,
@@ -39,7 +49,7 @@ const ReviewCard: React.FC<ReviewProps> = ({
         <Card.Body>
           <Card.Title>
             <StarRating rating={rating} />
-            {isLoggedIn && isCreator && (
+            {isLoggedIn && isCreator && ( // Only show the edit button if the user is logged in and is the creator of the review
               <ReviewButton
                 beer={beer}
                 review={{ beer, user, rating, date, description }}

@@ -7,7 +7,15 @@ interface StarRatingProps {
   isClickable?: boolean;
   className?: string;
 }
-
+/**
+ * 
+ * @param StarRatingProps - An object containing the following properties:
+ * - rating: number - the rating to display
+ * - onRatingChange?: (newRating: number) => void - a function that is called when the rating is changed
+ * - isClickable?: boolean - a boolean that determines whether the rating can be changed
+ * - className?: string - an optional class name to apply to the component 
+ * @returns Five stars that represent a rating, with the ability to change the rating if isClickable is true
+ */
 const StarRating: React.FC<StarRatingProps> = ({
   rating,
   onRatingChange,

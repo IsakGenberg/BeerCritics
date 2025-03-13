@@ -11,7 +11,14 @@ interface ReviewButtonProps {
   mode: "add" | "edit";
   onAddReview?: (review: Review) => void;
 }
-
+/**
+ * 
+ * @param ReviewButtonProps - An object containing the following properties:
+ * - beer: string - the name of the beer being reviewed
+ * - review?: Review - an optional review object to edit
+ * - mode: "add" | "edit" - a string that determines whether the review is being added or edited 
+ * @returns A button that opens a modal to add or edit a review
+ */
 const ReviewButton: React.FC<ReviewButtonProps> = ({
   beer,
   review,

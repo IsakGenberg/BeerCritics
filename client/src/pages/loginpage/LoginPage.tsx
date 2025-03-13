@@ -5,7 +5,10 @@ import "./loginPage.css";
 import { login } from "../../api";
 import { useAuth } from "../../authcontext";
 import axios from "axios";
-
+/**
+ * 
+ * @returns LoginPage component which displays the login form
+ */
 function LoginPage() {
   const { checkAuth } = useAuth();
   const [username, setUsername] = useState("");
