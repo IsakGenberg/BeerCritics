@@ -16,8 +16,11 @@ const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
 function HomePage() {
   return (
     <Container className="homepage">
-      <h1 className="text-beer1">Find the best beers here!🍺</h1>
-      <SearchBar />
+      <div className="start">
+        <h1 className="text-beer1">Find the best beers here!🍺</h1>
+        <SearchBar />
+      </div>
+
       <h2 className="text-beer2">Trending Beers 🍺:</h2>
       <div className="carousel">
         <Row>
