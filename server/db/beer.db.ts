@@ -6,7 +6,9 @@ import {
   DataTypes,
 } from "sequelize";
 import { sequelize } from "./conn";
-
+/**
+ * BeerModel is a class that represents a beer in the database.
+ */
 export class BeerModel extends Model<
   InferAttributes<BeerModel>,
   InferCreationAttributes<BeerModel>
