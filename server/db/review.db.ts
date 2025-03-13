@@ -9,6 +9,9 @@ import { sequelize } from "./conn";
 import { UserModel } from "./user.db";
 import { BeerModel } from "./beer.db";
 
+/**
+ * ReviewModel is a class that represents a review in the database.
+ */
 export class ReviewModel extends Model<
   InferAttributes<ReviewModel>,
   InferCreationAttributes<ReviewModel>
@@ -87,7 +90,10 @@ ReviewModel.afterUpdate(async (review, options) => {
 ReviewModel.afterDestroy(async (review, options) => {
   await updateBeerRating(review.beer);
 });
-
+/**
+ * Updates the rating of a beer in the database based on the average rating of all reviews for that beer.
+ * @param beerName name of the beer to update the rating for
+ */
 async function updateBeerRating(beerName: string) {
   try {
     const reviews = await ReviewModel.findAll({

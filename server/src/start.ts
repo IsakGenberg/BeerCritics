@@ -6,6 +6,9 @@ import session from "express-session";
 import { userRouter } from "./router/user";
 import { reviewRouter } from "./router/review";
 
+/**
+ * Express app setup
+ */
 export const app = express();
 app.use(express.json());
 dotenv.config();

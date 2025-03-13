@@ -1,6 +1,10 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import "./Footer.css";
 import { useAuth } from "../../authcontext";
+/**
+ * 
+ * @returns Footer component with links to home, all beers and account page. Also contains mock contact information.
+ */
 
 function Footer() {
   const {isLoggedIn} = useAuth();

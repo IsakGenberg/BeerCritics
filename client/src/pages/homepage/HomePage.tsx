@@ -6,8 +6,13 @@ import { getAllBeers } from "../../api";
 
 const beers = await getAllBeers();
 
+// Sort the beers by rating in a descending order
 const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
 
+/**
+ * 
+ * @returns HomePage component which displays the search bar and the top rated beers in the database
+ */
 function HomePage() {
   return (
     <Container className="homepage">

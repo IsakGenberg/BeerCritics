@@ -3,10 +3,15 @@ import { Beer } from "../model/beer";
 import { BeerService } from "../service/beerService";
 import express, { Request, Response } from "express";
 import { IBeerService } from "../serviceInterfaces/IBeerService";
-
+/**
+ * Router for get and post beer endpoints
+ */
 export const beerRouter = express.Router();
 const beerService: IBeerService = new BeerService();
 
+/**
+ * Get all beers in the database
+ */
 beerRouter.get("/", async (req: Request, res: Response) => {
   try {
     const beers = await beerService.getAllBeers();
@@ -16,6 +21,9 @@ beerRouter.get("/", async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * Get a specific beer from the database
+ */
 beerRouter.get(
   "/:name",
   async (req: Request<{ name: string }, {}, {}>, res: Response) => {
@@ -29,6 +37,9 @@ beerRouter.get(
   }
 );
 
+/**
+ * Add a beer to the database
+ */
 beerRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { beer } = req.body;

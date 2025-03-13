@@ -3,7 +3,10 @@ import { Beer } from "../../interfaces/beer";
 import BeerCard from "../../components/beerCard/BeerCard";
 import "./allbeerspage.css";
 import { getAllBeers } from "../../api";
-
+/**
+ * 
+ * @returns AllBeersPage component which displays BeerCards for all beers in the database
+ */
 function AllBeersPage() {
   const [beers, setBeers] = useState<Beer[]>([]);
 
