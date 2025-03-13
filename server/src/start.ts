@@ -16,7 +16,7 @@ if (!process.env.SESSION_SECRET) {
 }
 app.use(
   cors({
-    origin: true,
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );

@@ -53,3 +53,5 @@ BeerModel.init(
     timestamps: false,
   }
 );
+
+export default BeerModel;

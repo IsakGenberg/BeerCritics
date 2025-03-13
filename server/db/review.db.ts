@@ -114,3 +114,5 @@ sequelize
   .catch((error) => console.error("Error syncing tables:", error));
 
 module.exports = { UserModel, BeerModel, ReviewModel };
+
+export default ReviewModel;

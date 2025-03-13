@@ -32,3 +32,5 @@ UserModel.init(
     timestamps: false,
   }
 );
+
+export default UserModel;
