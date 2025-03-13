@@ -8,18 +8,15 @@ import ChangeUserDataModal from "../../components/changeuserdatamodal/ChangeUser
 import { useAuth } from "../../authcontext";
 import { useNavigate } from "react-router-dom";
 
-
-
 function MyAccountPage() {
-  const {isLoggedIn, checkAuth} = useAuth();
+  const { isLoggedIn, checkAuth } = useAuth();
   const navigate = useNavigate();
 
-  
   const [reviews, setReviews] = useState<Review[]>([]);
-  const [currentUser, setUser] = useState<string >("User not found");
+  const [currentUser, setUser] = useState<string>("User not found");
 
   // Do not allow unauthorized users to reach the page.
-  if(!isLoggedIn){
+  if (!isLoggedIn) {
     navigate("/user/login");
   }
 
@@ -40,13 +37,12 @@ function MyAccountPage() {
 
   async function loadCurrentUser() {
     const user = await getUser();
-    if(user){
+    if (user) {
       setUser(user);
     }
   }
 
   useEffect(() => {
-    checkAuth();
     loadReviews();
     loadCurrentUser();
   }, []);
@@ -61,7 +57,7 @@ function MyAccountPage() {
               <ChangeUserDataModal
                 btnText="Change Username"
                 currentUser={currentUser}
-                update = {updateUsername}
+                update={updateUsername}
               />
             </div>
           </div>

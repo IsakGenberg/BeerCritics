@@ -20,6 +20,10 @@
   cursor: pointer;
 }
 
+.text-col {
+  word-wrap: break-word;
+}
+
 #Image {
   display: block;
   margin: auto;
@@ -28,7 +32,7 @@
   align-self: center;
 }
 
-.text-col > * {
+#Title > * {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -37,4 +41,8 @@
 
 #Rating .numReviewers {
   color: black;
+}
+
+#StarRating {
+  size: 10rem;
 }

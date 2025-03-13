@@ -1,6 +1,7 @@
 import { render, screen } from "@testing-library/react";
 import "@testing-library/jest-dom";
 import ReviewCard from "../components/review/ReviewCard";
+import { AuthProvider } from "../authprovider";
 
 describe("Review component", () => {
   const reviewProps = {
@@ -10,21 +11,25 @@ describe("Review component", () => {
     description: "Great beer!",
     date: new Date("2023-10-01"),
   };
+  beforeEach(() => {
+    render(
+      <AuthProvider>
+        <ReviewCard {...reviewProps} />
+      </AuthProvider>
+    );
+  });
 
   test("Renders the author correctly", () => {
-    render(<ReviewCard {...reviewProps} />);
     const authorElement = screen.getByText(reviewProps.user);
     expect(authorElement).toBeInTheDocument();
   });
 
   test("Renders the comment correctly", () => {
-    render(<ReviewCard {...reviewProps} />);
     const commentElement = screen.getByText(reviewProps.description);
     expect(commentElement).toBeInTheDocument();
   });
 
   test("Renders the date correctly", () => {
-    render(<ReviewCard {...reviewProps} />);
     const dateElement = screen.getByText(reviewProps.date.toLocaleDateString());
     expect(dateElement).toBeInTheDocument();
   });
