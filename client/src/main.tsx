@@ -12,7 +12,9 @@ import LoginPage from "./pages/loginpage/LoginPage.tsx";
 import RegisterPage from "./pages/registerpage/RegisterPage.tsx";
 import MyReviewsPage from "./pages/myreviews/MyReviewsPage.tsx";
 import { AuthProvider } from "./authprovider.tsx";
-
+/**
+ * Main component of the application which sets up the routing for the different pages
+ */
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
     <AuthProvider>
