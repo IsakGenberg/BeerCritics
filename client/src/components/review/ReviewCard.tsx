@@ -1,7 +1,7 @@
 import React, { StrictMode } from "react";
 import Card from "react-bootstrap/Card";
 import StarRating from "./StarRating";
-import "./Review.css";
+import "./ReviewCard.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import ReviewButton from "../reviewButton/ReviewButton";
 import { useAuth } from "../../authcontext";
@@ -50,22 +50,18 @@ const ReviewCard: React.FC<ReviewProps> = ({
         <Card.Body>
           <Card.Title>
             <StarRating rating={rating} />
-            {isLoggedIn &&
-              isCreator && ( // Only show the edit button if the user is logged in and is the creator of the review
-                <>
-                  <ReviewButton
-                    beer={beer}
-                    review={{ beer, user, rating, date, description }}
-                    mode="edit"
-                  />
-                  <DeleteReviewButton
-                    review={{ beer, user, rating, date, description }}
-                    onDelete={function (): void {
-                      throw new Error("Function not implemented.");
-                    }}
-                  />
-                </>
-              )}
+            {isLoggedIn && isCreator && (
+              <>
+                <ReviewButton
+                  beer={beer}
+                  review={{ beer, user, rating, date, description }}
+                  mode="edit"
+                />
+                <DeleteReviewButton
+                  review={{ beer, user, rating, date, description }}
+                />
+              </>
+            )}
           </Card.Title>
           <Card.Subtitle id="Author">{user}</Card.Subtitle>
           <Card.Text id="Beer">{beer}</Card.Text>
