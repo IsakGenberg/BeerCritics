@@ -13,6 +13,12 @@
   font-size: 2.5rem;
   font-weight: bold;
   letter-spacing: 1px;
+  font-family: var(--brand-font);
+  color: var(--logo-color);
+}
+
+.navbar-brand:hover {
+  color: #ba9939;
 }
 
 .nav-link {
