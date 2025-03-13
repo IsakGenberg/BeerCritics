@@ -10,6 +10,7 @@ jest.mock("../../../db/user.db", () => ({
   UserModel: {
     findOne: jest.fn(),
     create: jest.fn(),
+    update: jest.fn()
   },
 }));
 
@@ -99,16 +100,27 @@ describe("UserService", () => {
   test("changes username correctly", async () =>{
     const existingUser = { username: "Luqas", password: "12345678" };
 
-    (UserModel.findOne as jest.Mock).mockResolvedValue(undefined);
-
+    (UserModel.findOne as jest.Mock).mockResolvedValueOnce(undefined);
+  
+    (UserModel.update as jest.Mock).mockResolvedValue([1]);
+  
     await userService.changeUsername(existingUser.username, "newUsername");
-
-    (UserModel.findOne as jest.Mock).mockResolvedValue({ username: "newUsername" });
-
+  
+    (UserModel.findOne as jest.Mock).mockResolvedValueOnce({
+      username: "newUsername",
+      password: "hashedPassword",  
+    });
+  
+    (bcrypt.compare as jest.Mock).mockResolvedValue(true);  
     const foundUser = await userService.findUser("newUsername", "12345678");
-
+  
     expect(foundUser).toBeDefined();
     expect(foundUser?.username).toBe("newUsername");
+  
+    expect(UserModel.update).toHaveBeenCalledWith(
+      { username: "newUsername" },
+      { where: { username: existingUser.username } }
+    );
 
   });
 
@@ -116,10 +128,9 @@ describe("UserService", () => {
     const existingUser = { username: "Luqas", password: "12345678" };
 
     (UserModel.findOne as jest.Mock).mockResolvedValue({ username: "newUsername" });
-
+  
     await expect(userService.changeUsername(existingUser.username, "newUsername"))
       .rejects
-      .toThrow("User already exists");
-
+      .toThrowError("User already exists");
   });
 });
