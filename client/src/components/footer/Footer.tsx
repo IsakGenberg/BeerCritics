@@ -18,18 +18,17 @@ function Footer() {
         </Col>
         <Col>
           <Nav className="flex-column">
-            <h4>Useful links</h4>
+            <h4 className="footer-text">Useful links</h4>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/allbeers">All Beers</Nav.Link>
             {isLoggedIn && (
               <Nav.Link href="/user/account">Account page</Nav.Link>
             )}
-            <Nav.Link>About us</Nav.Link>
           </Nav>
         </Col>
         <Col>
-          <h4>Drunk call us!</h4>
-          <p>+11235423</p>
+          <h4 className="footer-text">Drunk call us!</h4>
+          <p className="footer-number">+11235423</p>
         </Col>
       </Row>
     </Container>
