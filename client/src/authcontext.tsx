@@ -1,5 +1,7 @@
 import { createContext, useContext } from "react";
-
+/**
+ * Context that stores the authentication status of the user
+ */
 export const AuthContext = createContext<
   | {
       isLoggedIn: boolean;
@@ -9,7 +11,7 @@ export const AuthContext = createContext<
 >(undefined);
 
 /**
- * Saftey function that checks that every components that tries to use the context values is wrapped in an AuthProvider
+ * Safety function that checks that every components that tries to use the context values is wrapped in an AuthProvider
  * @returns context
  */
 export function useAuth() {

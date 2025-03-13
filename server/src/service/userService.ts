@@ -2,8 +2,18 @@ import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
 import { UserModel } from "../../db/user.db";
 import bcrypt from "bcrypt";
+import { where } from "sequelize";
 
+/**
+ * UserService is a class that represents a service for users.
+ */
 export class UserService implements IUserService {
+
+  /**
+   * Hashes the password and registers a user in the database
+   * @param username username of the user to be registered
+   * @param password password of the user to be registered
+   */
   async registerUser(username: string, password: string) {
     const existingUser = await UserModel.findOne({ where: { username } });
     if (existingUser) {
@@ -20,6 +30,12 @@ export class UserService implements IUserService {
     });
   }
 
+  /**
+   * Checks if a username and password match a user in the database
+   * @param username username of the user to be found
+   * @param password password of the user to be found
+   * @returns user object if the user exists in the database, otherwise undefined
+   */
   async findUser(
     username: string,
     password: string
@@ -33,5 +49,27 @@ export class UserService implements IUserService {
     if (!isMatch) return undefined;
 
     return user;
+  }
+
+  /**
+   * Updates username for a user
+   * @param oldUsername 
+   * @param newUsername 
+   * @throws {Error} if new username already exists
+   */
+  async changeUsername(oldUsername: string, newUsername: string) {
+    const existingUser =await UserModel.findOne({ where: { username : newUsername } });
+    if (existingUser) {
+      console.log("Username exists");
+      throw new Error("User already exists");
+    }
+    try {
+      await UserModel.update(
+        { username: newUsername },
+        { where: { username: oldUsername } }
+      );
+    } catch (e: any) {
+      console.log("Database error " + e.message);
+    }
   }
 }

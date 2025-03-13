@@ -41,4 +41,16 @@ describe("UserService", () => {
     const foundUser = await userService.findUser("NonExistent", "somePassword");
     expect(foundUser).toBeUndefined();
   });
+
+  test("changes username correctly", async () =>{
+    const existingUser = { username: "Luqas", password: "12345678" };
+
+    await userService.changeUsername(existingUser.username, "newUsername");
+
+    const foundUser = await userService.findUser("newUsername", "12345678");
+
+    expect(foundUser).toBeDefined();
+    expect(foundUser?.username).toBe("newUsername");
+
+  });
 });

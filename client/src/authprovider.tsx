@@ -6,6 +6,11 @@ interface AuthProps {
   children: ReactNode;
 }
 
+/**
+ * 
+ * @param children a ReactNode 
+ * @returns AuthProvider component which provides authentication context
+ */
 export function AuthProvider({ children }: AuthProps) {
   const [isLoggedIn, setLoggedIn] = useState<boolean>(false);
 

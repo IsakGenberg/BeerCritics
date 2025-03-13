@@ -6,6 +6,14 @@ interface LoginModalProps {
   show: boolean;
   handleClose: () => void;
 }
+/**
+ * 
+ * @param LoginModalProps - An object containing the following properties:
+ * - show: boolean - determines whether the modal is shown or not
+ * - handleClose: function - a function that closes the modal
+ * @returns A modal that informs the user that they need to be logged in to perform an action.
+ * The modal contains buttons to register and login.
+ */
 const LoginModal: React.FC<LoginModalProps> = ({ show, handleClose }) => {
   return (
     <Modal show={show} onHide={handleClose}>

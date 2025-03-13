@@ -6,6 +6,9 @@ import session from "express-session";
 import { userRouter } from "./router/user";
 import { reviewRouter } from "./router/review";
 
+/**
+ * Express app setup
+ */
 export const app = express();
 app.use(express.json());
 dotenv.config();
@@ -16,7 +19,7 @@ if (!process.env.SESSION_SECRET) {
 }
 app.use(
   cors({
-    origin: true,
+    origin: "http://localhost:5173",
     credentials: true,
   })
 );

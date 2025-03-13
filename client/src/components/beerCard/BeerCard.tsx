@@ -14,7 +14,18 @@ interface BeerCardProps {
   abv: number;
   rating: number;
 }
-
+/**
+ * 
+ * @param BeerCardProps - an object containing the following properties:
+ * - imagePath: string - the path to the image of the beer
+ * - name: string - the name of the beer
+ * - brewery: string - the name of the brewery that makes the beer
+ * - style: string - the style of the beer
+ * - abv: number - the alcohol by volume of the beer
+ * - rating: number - the average rating of the beer 
+ * @returns A card that displays the image, name, brewery, style, abv, and rating of a beer.
+ * Clicking on the card will navigate to the beer's page.
+ */
 const BeerCard: React.FC<BeerCardProps> = ({
   imagePath,
   name,

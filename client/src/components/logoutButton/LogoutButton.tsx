@@ -2,7 +2,10 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { logout } from "../../api";
 import { useAuth } from "../../authcontext";
-
+/**
+ * 
+ * @returns A button that logs the user out when clicked.
+ */
 function LogoutButton() {
   const navigate = useNavigate();
   const { checkAuth } = useAuth();
@@ -20,7 +23,7 @@ function LogoutButton() {
       }
     }
   };
-  return <button onClick={handleClick}>Logout</button>;
+  return <button onClick={handleClick} className="logoutbtn">Logout</button>;
 }
 
 export default LogoutButton;

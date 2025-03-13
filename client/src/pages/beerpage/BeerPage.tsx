@@ -9,7 +9,11 @@ import { Col, Row } from "react-bootstrap";
 import "./BeerPage.css";
 import { getBeerReviews } from "../../api";
 import { Review } from "../../interfaces/review";
-
+/**
+ * 
+ * @returns BeerPage component which displays the details of a specific beer and its reviews.
+ * If the beer does not exist, a message is displayed instead.
+ */
 const BeerPage: React.FC = () => {
   const { name } = useParams<{ name: string }>();
   const [beer, setBeer] = useState<Beer | null>(null);

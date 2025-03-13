@@ -1,0 +1,14 @@
+.account-page {
+  width: 100vw;
+}
+
+.user {
+}
+
+.review-list {
+}
+
+.items{
+  display: flex;
+  gap: 5%;
+}

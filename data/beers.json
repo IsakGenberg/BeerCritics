@@ -1,0 +1,162 @@
+[
+  {
+    "name": "Heineken",
+    "rating": 0,
+    "brewery": "Netherlands Brewers",
+    "style": "Lager",
+    "abv": 5,
+    "imagePath": "heineken.png"
+  },
+  {
+    "name": "Budweiser",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Pale Lager",
+    "abv": 5,
+    "imagePath": "budweiser.png"
+  },
+  {
+    "name": "Guinness",
+    "rating": 0,
+    "brewery": "Irish Brewers",
+    "style": "Stout",
+    "abv": 4.2,
+    "imagePath": "guinness.png"
+  },
+  {
+    "name": "Stella Artois",
+    "rating": 0,
+    "brewery": "Belgian Brewers",
+    "style": "Pilsner",
+    "abv": 5.2,
+    "imagePath": "stella.png"
+  },
+  {
+    "name": "Coors Light",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Light Lager",
+    "abv": 4.2,
+    "imagePath": "coors.png"
+  },
+  {
+    "name": "Blue Moon",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Witbier",
+    "abv": 5.4,
+    "imagePath": "bluemoon.png"
+  },
+  {
+    "name": "Dos Equis",
+    "rating": 0,
+    "brewery": "Mexican Brewers",
+    "style": "Amber Lager",
+    "abv": 4.7,
+    "imagePath": "dosequis.png"
+  },
+  {
+    "name": "Miller Lite",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Light Lager",
+    "abv": 4.2,
+    "imagePath": "millerlite.png"
+  },
+  {
+    "name": "Pabst Blue Ribbon",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Lager",
+    "abv": 4.8,
+    "imagePath": "pbr.png"
+  },
+  {
+    "name": "Samuel Adams Boston Lager",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Vienna Lager",
+    "abv": 5,
+    "imagePath": "samadams.png"
+  },
+  {
+    "name": "Sapporo",
+    "rating": 0,
+    "brewery": "Japanese Brewers",
+    "style": "Rice Lager",
+    "abv": 5,
+    "imagePath": "sapporo.png"
+  },
+  {
+    "name": "Asahi Super Dry",
+    "rating": 0,
+    "brewery": "Japanese Brewers",
+    "style": "Dry Lager",
+    "abv": 5.2,
+    "imagePath": "asahi.png"
+  },
+  {
+    "name": "Tsingtao",
+    "rating": 0,
+    "brewery": "Chinese Brewers",
+    "style": "Pale Lager",
+    "abv": 4.8,
+    "imagePath": "tsingtao.png"
+  },
+  {
+    "name": "Peroni",
+    "rating": 0,
+    "brewery": "Italian Brewers",
+    "style": "Pale Lager",
+    "abv": 5.1,
+    "imagePath": "peroni.png"
+  },
+  {
+    "name": "Carlsberg",
+    "rating": 0,
+    "brewery": "Danish Brewers",
+    "style": "Pilsner",
+    "abv": 5,
+    "imagePath": "carlsberg.png"
+  },
+  {
+    "name": "Amstel",
+    "rating": 0,
+    "brewery": "Dutch Brewers",
+    "style": "Pale Lager",
+    "abv": 5,
+    "imagePath": "amstel.png"
+  },
+  {
+    "name": "Newcastle Brown Ale",
+    "rating": 0,
+    "brewery": "English Brewers",
+    "style": "Brown Ale",
+    "abv": 4.7,
+    "imagePath": "newcastle.png"
+  },
+  {
+    "name": "Yuengling Lager",
+    "rating": 0,
+    "brewery": "American Brewers",
+    "style": "Amber Lager",
+    "abv": 4.5,
+    "imagePath": "yuengling.png"
+  },
+  {
+    "name": "Hoegaarden",
+    "rating": 0,
+    "brewery": "Belgian Brewers",
+    "style": "Witbier",
+    "abv": 4.9,
+    "imagePath": "hoegaarden.png"
+  },
+  {
+    "name": "Leffe Blonde",
+    "rating": 0,
+    "brewery": "Belgian Brewers",
+    "style": "Blonde Ale",
+    "abv": 6.6,
+    "imagePath": "leffe.png"
+  }
+]

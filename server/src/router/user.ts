@@ -3,6 +3,9 @@ import express, { Request, Response } from "express";
 import { User } from "../model/user";
 import { IUserService } from "../serviceInterfaces/IUserService";
 
+/**
+ * Router for get and post user endpoints
+ */
 export const userRouter = express.Router();
 const userService: IUserService = new UserService();
 
@@ -11,6 +14,17 @@ interface UserRequest extends Request {
   session: any;
 }
 
+interface ChangeUsernameRequest{
+  body: {
+    oldUsername: string;
+    newUsername: string;
+  };
+  session: any;
+}
+
+/**
+ * Register a user in the database
+ */
 userRouter.post("/", async (req: Request, res: Response) => {
   try {
     const { username, password } = req.body;
@@ -22,6 +36,9 @@ userRouter.post("/", async (req: Request, res: Response) => {
   }
 });
 
+/**
+ * Login a user
+ */
 userRouter.post("/login", async (req: UserRequest, res: Response) => {
   const user: User | undefined = await userService.findUser(
     req.body.username,
@@ -35,6 +52,9 @@ userRouter.post("/login", async (req: UserRequest, res: Response) => {
   res.status(200).send("Logged in");
 });
 
+/**
+ * Get the current user in the session
+ */
 userRouter.get("/", async (req: UserRequest, res: Response) => {
   if (!req.session.username) {
     res.status(401).send(null);
@@ -44,11 +64,40 @@ userRouter.get("/", async (req: UserRequest, res: Response) => {
   }
 });
 
+/**
+ * Logout a user
+ */
 userRouter.post("/logout", async (req: UserRequest, res: Response) => {
   try {
     delete req.session.username;
     res.status(200).send("Logged out user");
   } catch {
     res.status(500).send("Couldn't logout user");
+  }
+});
+
+/**
+ * Route for updating a user's username
+ */
+userRouter.patch("/", async (req:  ChangeUsernameRequest, res: Response) => {
+  try {
+    const { oldUsername, newUsername } = req.body;
+    
+    if (!req.session.username) {
+      res.status(401).send("Can't update username, user not logged in");
+      return;
+    }
+
+    await userService.changeUsername(oldUsername,newUsername);
+
+    req.session.username = newUsername;
+    res.status(200).send(newUsername);
+  } catch (e: any) {
+    console.error("Error occurred during username change:", e);
+    if (e.message === "User already exists") {
+      res.status(409).send("Can't change username, username already exists");
+    } else {
+      res.status(500).send("Internal server error");
+    }
   }
 });

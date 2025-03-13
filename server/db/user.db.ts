@@ -7,6 +7,9 @@ import {
 } from "sequelize";
 import { sequelize } from "./conn";
 
+/**
+ * UserModel is a class that represents a user in the database.
+ */
 export class UserModel extends Model<
   InferAttributes<UserModel>,
   InferCreationAttributes<UserModel>
@@ -32,3 +35,5 @@ UserModel.init(
     timestamps: false,
   }
 );
+
+export default UserModel;

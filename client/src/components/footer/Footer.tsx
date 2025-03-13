@@ -1,7 +1,14 @@
 import { Container, Row, Col, Nav } from "react-bootstrap";
 import "./Footer.css";
+import { useAuth } from "../../authcontext";
+/**
+ * 
+ * @returns Footer component with links to home, all beers and account page. Also contains mock contact information.
+ */
 
 function Footer() {
+  const {isLoggedIn} = useAuth();
+
   return (
     <Container fluid className="Footer">
       <Row className="Footer-row">
@@ -14,7 +21,7 @@ function Footer() {
             <h4>Useful links</h4>
             <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/allbeers">All Beers</Nav.Link>
-            <Nav.Link>Account page</Nav.Link>
+            {isLoggedIn && <Nav.Link href="/user/account">Account page</Nav.Link>}
             <Nav.Link>About us</Nav.Link>
           </Nav>
         </Col>
