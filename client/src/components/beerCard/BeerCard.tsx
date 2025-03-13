@@ -9,31 +9,21 @@ import { Col, Row } from "react-bootstrap";
 interface BeerCardProps {
   imagePath: string;
   name: string;
-  brewery: string;
-  style: string;
-  abv: number;
   rating: number;
 }
 /**
- * 
+ *
  * @param BeerCardProps - an object containing the following properties:
  * - imagePath: string - the path to the image of the beer
  * - name: string - the name of the beer
  * - brewery: string - the name of the brewery that makes the beer
  * - style: string - the style of the beer
  * - abv: number - the alcohol by volume of the beer
- * - rating: number - the average rating of the beer 
+ * - rating: number - the average rating of the beer
  * @returns A card that displays the image, name, brewery, style, abv, and rating of a beer.
  * Clicking on the card will navigate to the beer's page.
  */
-const BeerCard: React.FC<BeerCardProps> = ({
-  imagePath,
-  name,
-  brewery,
-  style,
-  abv,
-  rating,
-}) => {
+const BeerCard: React.FC<BeerCardProps> = ({ imagePath, name, rating }) => {
   const navigate = useNavigate();
 
   const handleClick = (name: string) => {
@@ -49,15 +39,12 @@ const BeerCard: React.FC<BeerCardProps> = ({
             </Col>
             <Col className="text-col" xs={8}>
               <Card.Title>{name}</Card.Title>
-              <Card.Subtitle id="Brewery">{brewery}</Card.Subtitle>
-              <Card.Subtitle id="Style">{style}</Card.Subtitle>
-              <Card.Subtitle id="ABV">{abv}%</Card.Subtitle>
-              <Card.Subtitle id="Rating">
-                <StarRating rating={rating} />
-              </Card.Subtitle>
             </Col>
           </Row>
         </Card.Body>
+        <Row>
+          <StarRating rating={rating} />
+        </Row>
       </Card>
     </StrictMode>
   );

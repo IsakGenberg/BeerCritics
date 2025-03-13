@@ -4,7 +4,7 @@ import BeerCard from "../../components/beerCard/BeerCard";
 import "./allbeerspage.css";
 import { getAllBeers } from "../../api";
 /**
- * 
+ *
  * @returns AllBeersPage component which displays BeerCards for all beers in the database
  */
 function AllBeersPage() {
@@ -32,9 +32,6 @@ function AllBeersPage() {
       <BeerCard
         imagePath={beer.imagePath}
         name={beer.name}
-        brewery={beer.brewery}
-        style={beer.style}
-        abv={beer.abv}
         rating={beer.rating}
       />
     </div>
