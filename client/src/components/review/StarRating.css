@@ -1,5 +1,6 @@
 #Rating {
   color: chocolate;
+  size: 10rem;
 }
 .clickable {
   cursor: pointer;

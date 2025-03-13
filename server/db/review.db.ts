@@ -116,9 +116,18 @@ async function updateBeerRating(beerName: string) {
 
 sequelize
   .sync({ alter: true })
-  .then(() => console.log("Tables synced"))
-  .catch((error) => console.error("Error syncing tables:", error));
+  .then(async () => {
+    console.log("Tables synced");
 
+    // Get all beers from the BeerModel
+    const beers = await BeerModel.findAll();
+
+    // Call updateBeerRating for each beer
+    for (const beer of beers) {
+      await updateBeerRating(beer.name);
+    }
+  })
+  .catch((error) => console.error("Error syncing tables:", error));
 module.exports = { UserModel, BeerModel, ReviewModel };
 
 export default ReviewModel;
