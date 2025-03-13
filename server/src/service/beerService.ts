@@ -3,8 +3,6 @@ import { IBeerService } from "../serviceInterfaces/IBeerService";
 import { BeerModel } from "../../db/beer.db";
 
 export class BeerService implements IBeerService {
-  async addBeer(beer: Beer) {}
-
   async getAllBeers(): Promise<Beer[]> {
     return BeerModel.findAll();
   }

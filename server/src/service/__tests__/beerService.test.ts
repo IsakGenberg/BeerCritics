@@ -19,24 +19,6 @@ describe("BeerService", () => {
     jest.clearAllMocks();
   });
 
-  //METHOD NOT IMPLEMENTED IN THE SERVICE
-  
-  // test("should add a new beer", async () => {
-  //   const newBeer: Beer = {
-  //     name: "Budweiser",
-  //     rating: 4.0,
-  //     brewery: "Bud Brewing Co.",
-  //     style: "Lager",
-  //     abv: 5.0,
-  //     imagePath: "budweiser.png",
-  //   };
-
-  //   await beerService.addBeer(newBeer);
-
-  //   const beers = await beerService.getAllBeers();
-  //   expect(beers).toContainEqual(newBeer);
-  // });
-
   test("should return all beers", async () => {
     const beer: Beer = {
       name: "Budweiser",
