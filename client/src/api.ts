@@ -5,7 +5,7 @@ import { Review } from "./interfaces/review";
 const BASE_URL = "http://localhost:8080";
 axios.defaults.withCredentials = true;
 /**
- * 
+ *
  * @returns a list of all beers in the database
  */
 export async function getAllBeers(): Promise<Beer[]> {
@@ -19,7 +19,7 @@ export async function getAllBeers(): Promise<Beer[]> {
 }
 
 /**
- * 
+ *
  * @param beer object to be added to the database
  */
 export async function addBeer(beer: Beer): Promise<void> {
@@ -31,7 +31,7 @@ export async function addBeer(beer: Beer): Promise<void> {
 }
 
 /**
- * 
+ *
  * @param name name of the beer to be fetched
  * @returns Beer object if the beer exists in the database, otherwise null
  */
@@ -50,7 +50,7 @@ export async function getBeer(name: string): Promise<Beer | null> {
 }
 
 /**
- * 
+ *
  * @param username username of the user to be registered
  * @param password password of the user to be registered
  */
@@ -62,7 +62,7 @@ export async function registerNewUser(username: string, password: string) {
 }
 
 /**
- * 
+ *
  * @returns a list of reviews for the current user
  */
 export async function getMyReviews(): Promise<Review[] | undefined> {
@@ -75,7 +75,7 @@ export async function getMyReviews(): Promise<Review[] | undefined> {
 }
 
 /**
- * 
+ *
  * @param review object to be added to the database
  */
 export async function addReview(review: Review): Promise<void> {
@@ -87,7 +87,7 @@ export async function addReview(review: Review): Promise<void> {
 }
 
 /**
- * 
+ *
  * @param review object to be updated in the database
  */
 export async function updateReview(review: Review): Promise<void> {
@@ -95,7 +95,7 @@ export async function updateReview(review: Review): Promise<void> {
 }
 
 /**
- * 
+ *
  * @param beerName name of the beer to get reviews for
  * @returns list of reviews for the specified beer
  */
@@ -111,7 +111,7 @@ export async function getBeerReviews(
 }
 
 /**
- * 
+ *
  * @param username username of the user to be logged in
  * @param password password of the user to be logged in
  * @returns void
@@ -151,10 +151,14 @@ export async function deleteReview(review: Review): Promise<void> {
 
 /**
  * Updates a user's username with a new username
- * @param oldUsername 
- * @param newUsername 
+ * @param oldUsername
+ * @param newUsername
  */
-export async function changeUsername(oldUsername : string, newUsername : string) : Promise<void> {
-  await axios.patch(`${BASE_URL}/user`, { oldUsername, newUsername})
-  .then(response => console.log(response.data));
+export async function changeUsername(
+  oldUsername: string,
+  newUsername: string
+): Promise<void> {
+  await axios
+    .patch(`${BASE_URL}/user`, { oldUsername, newUsername })
+    .then((response) => console.log(response.data));
 }

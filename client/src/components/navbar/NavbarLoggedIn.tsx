@@ -1,6 +1,6 @@
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { Navbar, Nav, Container, Col } from "react-bootstrap";
 import "./navbar.css";
-import LogoutButton from "../logoutButton/LogoutButton";
+import LogoutButton from "../logoutbutton/LogoutButton";
 
 /**
  *
@@ -10,15 +10,22 @@ function LoggedInNavbar() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container fluid>
-        <Navbar.Brand href="/">BeerCritics</Navbar.Brand>
-        <Nav>
-          <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="/topbeers">Top Beers</Nav.Link>
-          <Nav.Link href="/allbeers">All Beers</Nav.Link>
-          <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
-          <Nav.Link href="/user/account">My Account</Nav.Link>
-          <LogoutButton />
-        </Nav>
+
+        <Col xs={3}>
+          {" "}
+          {/* Same width as footer logo */}
+          <Navbar.Brand href="/">BeerCritics</Navbar.Brand>
+        </Col>
+        <Col>
+          <Nav>
+            <Nav.Link href="/">Home</Nav.Link>
+            <Nav.Link href="#">Top Beers</Nav.Link>
+            <Nav.Link href="/allbeers">All Beers</Nav.Link>
+            <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>
+            <Nav.Link href="/user/account">My Account</Nav.Link>
+            <LogoutButton />
+          </Nav>
+        </Col>
       </Container>
     </Navbar>
   );

@@ -1,5 +1,5 @@
 .Footer-row {
-  background:var(--background-color);
+  background: var(--background-color);
   padding-top: 2rem;
   padding-bottom: 2rem;
 }
@@ -19,6 +19,7 @@
   font-weight: bold;
   letter-spacing: 1px;
   font-size: 2.5rem;
+  margin-left: 50px;
 }
 
 .footer-logo-subtext {
@@ -26,4 +27,5 @@
   font-family: var(--brand-font);
   color: var(--text-color);
   letter-spacing: 1px;
+  margin-left: 50px;
 }

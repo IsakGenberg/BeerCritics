@@ -6,12 +6,6 @@ import { BeerModel } from "../../db/beer.db";
  */
 export class BeerService implements IBeerService {
   /**
-   * Add a beer to the database
-   * @param beer beer to be added to the database
-   */
-  async addBeer(beer: Beer) {}
-
-  /**
    * 
    * @returns a list of all beers in the database
    */

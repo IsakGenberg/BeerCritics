@@ -48,14 +48,8 @@ describe("Client-side API", () => {
   });
 
   test("registerNewUser should handle API errors gracefully", async () => {
-    const consoleSpy = jest.spyOn(console, "log").mockImplementation(); 
-
     mockedAxios.post.mockRejectedValueOnce(new Error("API error"));
 
-    await registerNewUser("failUser", "failPassword");
-
-    expect(consoleSpy).toHaveBeenCalledWith(expect.any(Error));
-
-    consoleSpy.mockRestore(); 
+    await expect(registerNewUser("failUser", "failPassword")).rejects.toThrow("API error");
   });
 });
