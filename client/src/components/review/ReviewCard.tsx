@@ -6,6 +6,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import ReviewButton from "../reviewButton/ReviewButton";
 import { useAuth } from "../../authcontext";
 import { getUser } from "../../api";
+import DeleteReviewButton from "./DeleteReviewButton";
 
 interface ReviewProps {
   beer: string;
@@ -15,7 +16,7 @@ interface ReviewProps {
   description?: string;
 }
 /**
- * 
+ *
  * @param ReviewProps - An object containing the following properties:
  * - beer: string - the name of the beer being reviewed
  * - user: string - the name of the user who wrote the review
@@ -49,13 +50,22 @@ const ReviewCard: React.FC<ReviewProps> = ({
         <Card.Body>
           <Card.Title>
             <StarRating rating={rating} />
-            {isLoggedIn && isCreator && ( // Only show the edit button if the user is logged in and is the creator of the review
-              <ReviewButton
-                beer={beer}
-                review={{ beer, user, rating, date, description }}
-                mode="edit"
-              />
-            )}
+            {isLoggedIn &&
+              isCreator && ( // Only show the edit button if the user is logged in and is the creator of the review
+                <>
+                  <ReviewButton
+                    beer={beer}
+                    review={{ beer, user, rating, date, description }}
+                    mode="edit"
+                  />
+                  <DeleteReviewButton
+                    review={{ beer, user, rating, date, description }}
+                    onDelete={function (): void {
+                      throw new Error("Function not implemented.");
+                    }}
+                  />
+                </>
+              )}
           </Card.Title>
           <Card.Subtitle id="Author">{user}</Card.Subtitle>
           <Card.Text id="Beer">{beer}</Card.Text>
