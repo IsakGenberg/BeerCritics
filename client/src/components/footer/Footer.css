@@ -25,7 +25,15 @@
 .footer-logo-subtext {
   padding-left: 10%;
   font-family: var(--brand-font);
-  color: var(--text-color);
   letter-spacing: 1px;
   margin-left: 50px;
+  color: #ba9939;
+}
+.footer-text {
+  color: var(--logo-color);
+  font-weight: bold;
+}
+
+.footer-number {
+  color: var(--logo-color);
 }
