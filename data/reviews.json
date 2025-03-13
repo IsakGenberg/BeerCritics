@@ -1,0 +1,276 @@
+[
+  {
+    "beer": "Heineken",
+    "user": "Daniel",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Crisp and refreshing."
+  },
+  {
+    "beer": "Budweiser",
+    "user": "Hannah",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Not bad, but a bit too light."
+  },
+  {
+    "beer": "Guinness",
+    "user": "Michael",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Rich and full-bodied, perfect stout!"
+  },
+  {
+    "beer": "Stella Artois",
+    "user": "Sarah",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Smooth and easy to drink."
+  },
+  {
+    "beer": "Coors Light",
+    "user": "James",
+    "rating": 2,
+    "date": "2025-01-01",
+    "description": "Too watery for my taste."
+  },
+  {
+    "beer": "Blue Moon",
+    "user": "Emily",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Love the citrus notes!"
+  },
+  {
+    "beer": "Dos Equis",
+    "user": "Matthew",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Decent, but nothing special."
+  },
+  {
+    "beer": "Miller Lite",
+    "user": "Olivia",
+    "rating": 2,
+    "date": "2025-01-01",
+    "description": "Too light for my preference."
+  },
+  {
+    "beer": "Pabst Blue Ribbon",
+    "user": "Ethan",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Classic cheap \"beer\"."
+  },
+  {
+    "beer": "Samuel Adams Boston Lager",
+    "user": "Sophia",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Great flavor and balance."
+  },
+  {
+    "beer": "Sapporo",
+    "user": "Daniel",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Smooth and crisp."
+  },
+  {
+    "beer": "Asahi Super Dry",
+    "user": "Hannah",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Perfectly dry and refreshing."
+  },
+  {
+    "beer": "Tsingtao",
+    "user": "Michael",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Good with Asian food."
+  },
+  {
+    "beer": "Peroni",
+    "user": "Sarah",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Light and refreshing."
+  },
+  {
+    "beer": "Carlsberg",
+    "user": "James",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "A decent European lager."
+  },
+  {
+    "beer": "Amstel",
+    "user": "Emily",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Solid lager, nice balance."
+  },
+  {
+    "beer": "Newcastle Brown Ale",
+    "user": "Matthew",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Rich and malty, love it!"
+  },
+  {
+    "beer": "Yuengling Lager",
+    "user": "Olivia",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Best budget amber lager."
+  },
+  {
+    "beer": "Hoegaarden",
+    "user": "Ethan",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Super refreshing wheat \"beer\"!"
+  },
+  {
+    "beer": "Leffe Blonde",
+    "user": "Sophia",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Sweet, spicy, and smooth."
+  },
+  {
+    "beer": "Heineken",
+    "user": "Michael",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Standard international lager."
+  },
+  {
+    "beer": "Budweiser",
+    "user": "Daniel",
+    "rating": 2,
+    "date": "2025-01-01",
+    "description": "Too plain for me."
+  },
+  {
+    "beer": "Guinness",
+    "user": "Hannah",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "A perfect stout, nothing beats it!"
+  },
+  {
+    "beer": "Stella Artois",
+    "user": "Matthew",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Pretty good, smooth taste."
+  },
+  {
+    "beer": "Coors Light",
+    "user": "Sophia",
+    "rating": 1,
+    "date": "2025-01-01",
+    "description": "Just too bland for me."
+  },
+  {
+    "beer": "Blue Moon",
+    "user": "James",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "One of my favorite wheat beers!"
+  },
+  {
+    "beer": "Dos Equis",
+    "user": "Emily",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Decent Mexican."
+  },
+  {
+    "beer": "Miller Lite",
+    "user": "Ethan",
+    "rating": 2,
+    "date": "2025-01-01",
+    "description": "Way too light for me."
+  },
+  {
+    "beer": "Pabst Blue Ribbon",
+    "user": "Olivia",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Good for the price."
+  },
+  {
+    "beer": "Samuel Adams Boston Lager",
+    "user": "Sarah",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Absolutely love this lager."
+  },
+  {
+    "beer": "Sapporo",
+    "user": "Hannah",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Nice, smooth Japanese beer"
+  },
+  {
+    "beer": "Asahi Super Dry",
+    "user": "Daniel",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Good dry beer."
+  },
+
+  {
+    "beer": "Peroni",
+    "user": "Sophia",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Good with Italian food."
+  },
+  {
+    "beer": "Carlsberg",
+    "user": "Matthew",
+    "rating": 3,
+    "date": "2025-01-01",
+    "description": "Not bad for a pilsner."
+  },
+  {
+    "beer": "Amstel",
+    "user": "Olivia",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Solid beer, nothing too special."
+  },
+  {
+    "beer": "Newcastle Brown Ale",
+    "user": "Ethan",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Malty and delicious!"
+  },
+  {
+    "beer": "Yuengling Lager",
+    "user": "James",
+    "rating": 4,
+    "date": "2025-01-01",
+    "description": "Always a solid choice."
+  },
+  {
+    "beer": "Hoegaarden",
+    "user": "Emily",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "Love this witbier!"
+  },
+  {
+    "beer": "Leffe Blonde",
+    "user": "Sarah",
+    "rating": 5,
+    "date": "2025-01-01",
+    "description": "So good and full of flavor."
+  }
+]
