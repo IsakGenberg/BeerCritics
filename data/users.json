@@ -1,0 +1,42 @@
+[
+  {
+    "username": "Daniel",
+    "password": "$2b$10$zJx2yQW/INjZvkpj74OdqupD4qgtd9F8giLRysVr5s6Z2OfYyql5S"
+  },
+  {
+    "username": "Hannah",
+    "password": "$2b$10$VbY3G1S0y7O8qBBkO93c5qx5//KKQG0RDoD0hwnBLO2kPnCRH9Z02"
+  },
+  {
+    "username": "Michael",
+    "password": "$2b$10$EjW6g4GwwNoXfqXYnBa1YhQqytD4T2eflFv0p7BG6yg2L5fETt8g6"
+  },
+  {
+    "username": "Sarah",
+    "password": "$2b$10$HCPXs0p6s6YAG0Dl4l0xEuPzD7Vmj3NS4bcGXL85tcYknCrApZt3G"
+  },
+  {
+    "username": "James",
+    "password": "$2b$10$ZZ0whg45KlR2.WVG9pnYwW6J9BltCuYTyzjbzF1S4dvgJYbdz2VYy"
+  },
+  {
+    "username": "Emily",
+    "password": "$2b$10$IjTu3yTqOn2DJF0GVyFYbCLs6PE.v7qf5OqK5tPErHp1xEslboJwK"
+  },
+  {
+    "username": "Matthew",
+    "password": "$2b$10$UlAB12z1D4Lfmh7U7X.90kz0Ozx0ln7rf6WJeYZ5HDjmVtswkgcMO"
+  },
+  {
+    "username": "Olivia",
+    "password": "$2b$10$AGodKtwvpsUqYqbwBzPq3DjtMI0qH1dfCvjBdC5rpH9r53zQ73BQS"
+  },
+  {
+    "username": "Ethan",
+    "password": "$2b$10$jlOjoFtf3scJfNzFV/ltCO7pkPpd9onKBwI5Ddd9lXEKqg2vWbmjS"
+  },
+  {
+    "username": "Sophia",
+    "password": "$2b$10$z1cNz3lFLdd93iB8wH8Bd5o6V5MF5xW7CVLN2JlIzOXt74Jwpt02G"
+  }
+]
