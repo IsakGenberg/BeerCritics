@@ -148,3 +148,13 @@ export async function logout(): Promise<void> {
 export async function deleteReview(review: Review): Promise<void> {
   await axios.delete(`${BASE_URL}/review`, { data: review });
 }
+
+/**
+ * Updates a user's username with a new username
+ * @param oldUsername 
+ * @param newUsername 
+ */
+export async function changeUsername(oldUsername : string, newUsername : string) : Promise<void> {
+  await axios.patch(`${BASE_URL}/user`, { oldUsername, newUsername})
+  .then(response => console.log(response.data));
+}
