@@ -4,6 +4,9 @@ import { Beer } from "../model/beer";
 import { Review } from "../model/review";
 import { IReviewService } from "../serviceInterfaces/IReviewService";
 
+/**
+ * Router for get, post, put and delete review endpoints
+ */
 export const reviewRouter = express.Router();
 const reviewService: IReviewService = new ReviewService();
 
@@ -11,6 +14,9 @@ interface ReviewRequest extends Request {
   session: any;
 }
 
+/**
+ * Get all reviews in the database posted by a specific user
+ */
 reviewRouter.get(
   "/myreviews",
   async (req: ReviewRequest, res: Response<Review[] | string>) => {
@@ -27,6 +33,9 @@ reviewRouter.get(
   }
 );
 
+/**
+ * Get all reviews in the database for a specific beer
+ */
 reviewRouter.get(
   "/:name",
   async (req: Request<{ name: string }>, res: Response) => {
@@ -40,6 +49,9 @@ reviewRouter.get(
   }
 );
 
+/**
+ * Add a review to the database
+ */
 reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
   try {
     if (!req.session.username) {
@@ -54,6 +66,9 @@ reviewRouter.post("/", async (req: ReviewRequest, res: Response) => {
   }
 });
 
+/**
+ * Delete a review from the database
+ */
 reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
   try {
     const review: Review = req.body;
@@ -67,6 +82,9 @@ reviewRouter.delete("/", async (req: ReviewRequest, res: Response) => {
   }
 });
 
+/**
+ * Update a review in the database
+ */
 reviewRouter.put("/", async (req: ReviewRequest, res: Response) => {
   try {
     if (!req.session.username) {
