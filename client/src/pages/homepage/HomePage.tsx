@@ -18,12 +18,13 @@ function HomePage() {
     <Container className="homepage">
       <h1 className="text-beer1">Find the best beers here!🍺</h1>
       <SearchBar />
-      <h2 className="text-beer2">Your top rated beers:</h2>
+      <h2 className="text-beer2">Trending Beers 🍺:</h2>
       <Row>
         {sortedBeers.map((beer) => (
           <Col key={beer.name} xs={12} md={6} lg={3} className="mb-4">
             <BeerCard
               imagePath={beer.imagePath}
+              style={beer.style}
               name={beer.name}
               rating={beer.rating}
             />

@@ -31,6 +31,7 @@ function AllBeersPage() {
     <div className="beer-card">
       <BeerCard
         imagePath={beer.imagePath}
+        style={beer.style}
         name={beer.name}
         rating={beer.rating}
       />

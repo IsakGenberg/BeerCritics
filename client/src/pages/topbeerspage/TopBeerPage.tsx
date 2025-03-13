@@ -19,14 +19,16 @@ const sortedBeers = beers.sort((a, b) => b.rating - a.rating);
  *
  * @returns {JSX.Element} A JSX element representing the top beers page.
  */
-function TopBeerPage() {
+function TopBeerPage(): JSX.Element {
   return (
     <Container className="homepage">
+      <h1>Top Beers 🍺</h1>
       <Row>
         {sortedBeers.map((beer) => (
           <Col key={beer.name} xs={12} md={6} lg={3} className="mb-4">
             <BeerCard
               imagePath={beer.imagePath}
+              style={beer.style}
               name={beer.name}
               rating={beer.rating}
             />

@@ -15,3 +15,11 @@
 #EditReviewButton {
   size: 20px;
 }
+
+#Author {
+  font-size: small;
+}
+
+#Beer {
+  font-weight: bolder;
+}
