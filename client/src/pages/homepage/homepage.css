@@ -10,13 +10,22 @@
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  color: #ba9939;
+  color: var(--primary-color);
   margin-top: 1rem;
 }
 .text-beer2 {
   font-size: 2rem;
   font-weight: bold;
   text-align: center;
-  color: #ba9939;
+  color: var(--primary-color);
   margin-top: 3rem;
+}
+
+.about-section {
+  padding: 4rem;
+  text-align: center;
+}
+
+.about-title {
+  color: var(--primary-color);
 }
