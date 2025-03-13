@@ -10,6 +10,7 @@ function LoggedInNavbar() {
   return (
     <Navbar expand="lg" className="navbar">
       <Container fluid>
+
         <Col xs={3}>
           {" "}
           {/* Same width as footer logo */}
