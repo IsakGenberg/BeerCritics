@@ -4,6 +4,7 @@ import "@testing-library/jest-dom";
 import MyNavbar from "../components/navbar/Navbar";
 import axios from "axios";
 import { AuthProvider } from "../authprovider";
+import { BrowserRouter } from "react-router";
 jest.mock("axios");
 
 const mockedAxios = axios as jest.Mocked<typeof axios>;
@@ -16,7 +17,9 @@ describe("MyNavbar Component", () => {
   test("renders the Navbar component", async () => {
     render(
       <AuthProvider>
-        <MyNavbar />
+        <BrowserRouter>
+          <MyNavbar />
+        </BrowserRouter>
       </AuthProvider>
     );
 
@@ -28,7 +31,9 @@ describe("MyNavbar Component", () => {
   test("displays the correct brand name", async () => {
     render(
       <AuthProvider>
-        <MyNavbar />
+        <BrowserRouter>
+          <MyNavbar />
+        </BrowserRouter>
       </AuthProvider>
     );
 
@@ -42,7 +47,9 @@ describe("MyNavbar Component", () => {
 
     render(
       <AuthProvider>
-        <MyNavbar />
+        <BrowserRouter>
+          <MyNavbar />
+        </BrowserRouter>
       </AuthProvider>
     );
 
@@ -62,7 +69,9 @@ describe("MyNavbar Component", () => {
 
     render(
       <AuthProvider>
-        <MyNavbar />
+        <BrowserRouter>
+          <MyNavbar />
+        </BrowserRouter>
       </AuthProvider>
     );
 
