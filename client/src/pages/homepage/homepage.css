@@ -7,9 +7,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 20rem;
   text-align: center;
-  background: url("/beers.png") no-repeat center center/cover;
+  background: url("/beers2.png") no-repeat center center/cover;
 }
 .text-beer1 {
   font-size: 2.5rem;
@@ -46,6 +46,7 @@
   margin-bottom: 3rem;
 }
 .about-text {
-  color: var(--text-color);
+  color: var(--logo-color);
   font-size: medium;
+  font-weight: 500;
 }
