@@ -1,22 +1,81 @@
 .homepage {
-  padding: 2rem 1rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  align-items: center;
+  text-align: center;
+}
+.margin-top {
+  height: 5rem;
+}
+.start {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  height: 30rem;
+  text-align: center;
+  background: url("/beer.png") no-repeat center center/cover;
+  border-radius: 20px;
 }
+
 .text-beer1 {
   font-size: 2.5rem;
   font-weight: bold;
   text-align: center;
-  color: #ba9939;
-  margin-top: 1rem;
+  color: var(--logo-color);
+  margin-top: 9%;
 }
-.text-beer2 {
-  font-size: 2rem;
-  font-weight: bold;
+.trending-beer-text {
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+
+.trending-beers-section {
+  padding-top: 1rem;
   text-align: center;
-  color: #ba9939;
-  margin-top: 3rem;
+  width: 80%;
+  height: 25rem;
+  align-items: center;
+  border-radius: 30px;
+  margin-bottom: 7rem;
+  margin-left: 10%;
+  margin-top: 10rem;
+}
+.carousel {
+  padding: 4rem;
+  text-align: center;
+  width: 100%;
+  height: 12rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.about-section {
+  padding: 4rem;
+  text-align: center;
+  width: 80%;
+  height: 25rem;
+  align-items: center;
+  background-color: var(--background-color);
+  border-radius: 30px;
+  margin-bottom: 7rem;
+  margin-left: 10%;
+  margin-top: 10rem;
+}
+
+.about-title {
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.about-text {
+  color: var(--logo-color);
+  font-size: medium;
+  font-weight: 500;
+}
+
+.line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--primary-color);
+  margin-left: 0;
+  margin-top: 3px;
+  margin-bottom: 10px;
 }
