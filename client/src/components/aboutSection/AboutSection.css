@@ -1,0 +1,23 @@
+.about-section {
+  padding: 4rem;
+  text-align: center;
+  width: 80%;
+  height: 25rem;
+  align-items: center;
+  background-color: var(--background-color);
+  border-radius: 30px;
+  margin-bottom: 7rem;
+  margin-left: 10%;
+  margin-top: 10rem;
+}
+
+.about-title {
+  color: var(--primary-color);
+  margin-top: 0.5rem;
+  margin-bottom: 2rem;
+}
+.about-text {
+  color: var(--logo-color);
+  font-size: medium;
+  font-weight: 500;
+}
