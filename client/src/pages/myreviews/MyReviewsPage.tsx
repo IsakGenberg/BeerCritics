@@ -3,7 +3,7 @@ import { getMyReviews } from "../../api";
 import ReviewCard from "../../components/review/ReviewCard";
 import { Review } from "../../interfaces/review";
 /**
- * 
+ *
  * @returns MyReviewsPage component which displays the reviews written by the logged in user
  */
 const MyReviewsPage: React.FC = () => {
@@ -24,7 +24,7 @@ const MyReviewsPage: React.FC = () => {
   }, []);
 
   return (
-    <div>
+    <div className="container">
       {reviews.length > 0 ? (
         reviews.map((review, index) => (
           <ReviewCard key={index} {...review} user={review.user} />

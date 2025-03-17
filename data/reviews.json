@@ -28,13 +28,6 @@
     "description": "Smooth and easy to drink."
   },
   {
-    "beer": "Coors Light",
-    "user": "James",
-    "rating": 2,
-    "date": "2025-01-01",
-    "description": "Too watery for my taste."
-  },
-  {
     "beer": "Blue Moon",
     "user": "Emily",
     "rating": 4,
@@ -145,13 +138,6 @@
     "rating": 4,
     "date": "2025-01-01",
     "description": "Pretty good, smooth taste."
-  },
-  {
-    "beer": "Coors Light",
-    "user": "Sophia",
-    "rating": 1,
-    "date": "2025-01-01",
-    "description": "Just too bland for me."
   },
   {
     "beer": "Blue Moon",

@@ -27,6 +27,10 @@
   margin-bottom: 2rem;
 }
 
+.beercard-row {
+  padding-bottom: 30px;
+}
+
 .trending-beers-section {
   padding-top: 1rem;
   text-align: center;

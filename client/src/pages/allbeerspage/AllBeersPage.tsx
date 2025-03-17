@@ -40,9 +40,7 @@ function AllBeersPage() {
 
   return (
     <div className="all-beers-page" data-testid="all-beers-page">
-      <p className="beers-page-text">
-        Here are all of the beers that are available in the database.
-      </p>
+      <h1 className="beers-page-text">All Beers 🍺</h1>
       <div className="beer-list">{beersList}</div>
     </div>
   );
