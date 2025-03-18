@@ -2,8 +2,9 @@ import axios from "axios";
 import { useNavigate } from "react-router";
 import { logout } from "../../api";
 import { useAuth } from "../../authcontext";
+import "./LogoutButton.css";
 /**
- * 
+ *
  * @returns A button that logs the user out when clicked.
  */
 function LogoutButton() {
@@ -23,7 +24,11 @@ function LogoutButton() {
       }
     }
   };
-  return <button onClick={handleClick} className="logoutbtn">Logout</button>;
+  return (
+    <button onClick={handleClick} className="logoutbtn">
+      Logout
+    </button>
+  );
 }
 
 export default LogoutButton;

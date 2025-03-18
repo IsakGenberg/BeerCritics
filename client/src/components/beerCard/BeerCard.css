@@ -27,7 +27,8 @@
 #Image {
   display: block;
   margin: auto;
-  max-width: 100%;
+  max-width: 90px;
+  max-height: 80px;
   object-fit: contain;
   align-self: center;
 }

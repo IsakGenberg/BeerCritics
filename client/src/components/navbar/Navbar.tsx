@@ -14,7 +14,7 @@ function MyNavbar() {
         <Navbar.Brand href="/">BeerCritics</Navbar.Brand>
         <Nav>
           <Nav.Link href="/">Home</Nav.Link>
-          <Nav.Link href="#">Top Beers</Nav.Link>
+          <Nav.Link href="/topbeers">Top Beers</Nav.Link>
           <Nav.Link href="/allbeers">All Beers</Nav.Link>
           {isLoggedIn && <Nav.Link href="/user/myreviews">My Reviews</Nav.Link>}
           {!isLoggedIn && (
