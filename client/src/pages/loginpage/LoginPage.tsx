@@ -6,7 +6,7 @@ import { login } from "../../api";
 import { useAuth } from "../../authcontext";
 import axios from "axios";
 /**
- * 
+ *
  * @returns LoginPage component which displays the login form
  */
 function LoginPage() {
