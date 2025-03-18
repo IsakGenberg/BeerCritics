@@ -11,11 +11,15 @@
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   background-color: #fff;
+  margin-top: 5rem;
+  margin-bottom: 5rem;
 }
 
 .register-title {
   text-align: center;
   margin-bottom: 10px;
+  font-size: 1.8rem;
+  font-weight: bold;
 }
 
 .register-form {
@@ -26,8 +30,17 @@
   width: 100%;
   margin-top: 20px;
   background-color: var(--logo-color);
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  padding: 10px;
 }
 
 .register-button:hover {
   background-color: var(--primary-color);
+  border-color: #fff;
 }

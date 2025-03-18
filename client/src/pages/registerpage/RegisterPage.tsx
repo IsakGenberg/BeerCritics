@@ -6,7 +6,7 @@ import "../../api";
 import { registerNewUser } from "../../api";
 import axios from "axios";
 /**
- * 
+ *
  * @returns RegisterPage component which displays the registration form
  */
 function RegisterPage() {
