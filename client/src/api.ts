@@ -65,12 +65,13 @@ export async function registerNewUser(username: string, password: string) {
  *
  * @returns a list of reviews for the current user
  */
-export async function getMyReviews(): Promise<Review[] | undefined> {
+export async function getMyReviews(): Promise<Review[]> {
   try {
     const reviews = await axios.get<Review[]>(`${BASE_URL}/review/myreviews`);
     return reviews.data;
   } catch (e: any) {
     console.log(e);
+    return [];
   }
 }
 
@@ -101,12 +102,13 @@ export async function updateReview(review: Review): Promise<void> {
  */
 export async function getBeerReviews(
   beerName: string
-): Promise<Review[] | undefined> {
+): Promise<Review[]> {
   try {
     const reviews = await axios.get<Review[]>(`${BASE_URL}/review/${beerName}`);
     return reviews.data;
   } catch (e: any) {
     console.log(e);
+    return [];
   }
 }
 

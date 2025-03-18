@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import ReviewButton from "../../components/reviewButton/ReviewButton";
-import ReviewCard from "../../components/review/ReviewCard";
 import { Beer } from "../../interfaces/beer";
 import { getBeer } from "../../api";
 import StarRating from "../../components/review/StarRating";
@@ -10,6 +9,7 @@ import "./BeerPage.css";
 import { getBeerReviews } from "../../api";
 import { Review } from "../../interfaces/review";
 import { useAuth } from "../../authcontext";
+import ReviewList from "../../components/review/ReviewList";
 
 /**
  *
@@ -26,22 +26,6 @@ const BeerPage: React.FC = () => {
   const handleAddReview = (newReview: Review) => {
     setReviews((prevReviews) => [newReview, ...prevReviews]); // Add the new review to the front of the list
   };
-
-  async function loadReviews() {
-    if (name) {
-      const r = await getBeerReviews(name);
-      setReviews(
-        (r ?? []).map((review) => ({
-          ...review,
-          date: new Date(review.date),
-        }))
-      );
-    }
-  }
-
-  useEffect(() => {
-    loadReviews();
-  }, [name]);
 
   async function loadBeer(name: string) {
     const b = await getBeer(name);
@@ -83,16 +67,11 @@ const BeerPage: React.FC = () => {
       </Row>
       <Row className="reviews-section">
         <h2>Reviews</h2>
-        <Col id="review-list">
-          <div className="reviews">
-            {reviews.length > 0 ? (
-              reviews.map((review, index) => (
-                <ReviewCard key={index} {...review} beer={review.beer} />
-              ))
-            ) : (
-              <p>No reviews found.</p>
-            )}
-          </div>
+        <Col>
+          <ReviewList
+            fetchReviews={() => getBeerReviews(name!)}
+            onReviewsFetched={setReviews}
+          />
           {isLoggedIn && (
             <ReviewButton
               beer={beer.name}
