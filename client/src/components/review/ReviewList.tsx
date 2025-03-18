@@ -4,17 +4,10 @@ import { Review } from "../../interfaces/review";
 
 interface ReviewListProps {
   fetchReviews: () => Promise<Review[]>;
-  showBeerName?: boolean;
-  showUserName?: boolean;
   onAddReview?: (review: Review) => void;
 }
 
-const ReviewList: React.FC<ReviewListProps> = ({
-  fetchReviews,
-  showBeerName = false,
-  showUserName = false,
-  onAddReview,
-}) => {
+const ReviewList: React.FC<ReviewListProps> = ({ fetchReviews }) => {
   const [reviews, setReviews] = useState<Review[]>([]);
 
   useEffect(() => {
@@ -37,8 +30,8 @@ const ReviewList: React.FC<ReviewListProps> = ({
           <ReviewCard
             key={index}
             {...review}
-            beer={showBeerName ? review.beer : ""}
-            user={showUserName ? review.user : ""}
+            beer={review.beer}
+            user={review.user}
           />
         ))
       ) : (

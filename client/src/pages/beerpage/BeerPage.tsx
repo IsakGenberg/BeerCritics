@@ -68,7 +68,7 @@ const BeerPage: React.FC = () => {
       <Row className="reviews-section">
         <h2>Reviews</h2>
         <Col>
-          <ReviewList fetchReviews={() => getBeerReviews(name!)} showBeerName={false} />
+          <ReviewList fetchReviews={() => getBeerReviews(name!)} />
           {isLoggedIn && <ReviewButton beer={beer.name} mode="add" />}
           {isLoggedIn && (
             <ReviewButton

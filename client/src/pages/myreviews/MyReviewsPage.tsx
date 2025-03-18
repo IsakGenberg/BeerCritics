@@ -6,7 +6,7 @@ const MyReviewsPage: React.FC = () => {
   return (
     <div>
       <h2>My Reviews</h2>
-      <ReviewList fetchReviews={getMyReviews} showUserName={true} />
+      <ReviewList fetchReviews={getMyReviews} />
     </div>
   );
 };
