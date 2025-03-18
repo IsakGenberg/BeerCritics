@@ -72,7 +72,6 @@ const BeerPage: React.FC = () => {
             fetchReviews={() => getBeerReviews(name!)}
             onReviewsFetched={setReviews}
           />
-          {isLoggedIn && <ReviewButton beer={beer.name} mode="add" />}
           {isLoggedIn && (
             <ReviewButton
               beer={beer.name}
