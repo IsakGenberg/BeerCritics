@@ -12,6 +12,8 @@ function MyAccountPage() {
   const [currentUser, setUser] = useState<string>("User not found");
 
   // Do not allow unauthorized users to reach the page.
+  // Currently a bug that the user isn't fetched fast enough so it
+  // redirects you to login even if you're logged in
   if (!isLoggedIn) {
     navigate("/user/login");
   }
@@ -29,7 +31,6 @@ function MyAccountPage() {
   }
 
   useEffect(() => {
-    checkAuth();
     loadCurrentUser();
   }, []);
 
