@@ -7,6 +7,8 @@ When entering the website, the user is greeted with a homepage consisting of man
 Clicking on a specific beer allows you to see the associated reviews. A user does not need to be logged in, in order to browse beers and view reviews.
 You do need to be logged in however to write a review, and to access "My reviews".
 
+The report can be found in the root folder.
+
 ## Folder Structure
 
 ### client/
