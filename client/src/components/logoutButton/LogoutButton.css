@@ -1,19 +1,21 @@
-.logoutbtn{
-    border-radius: 10%;
-    border-width: 0;
-    width: 10%;
-    height: 10px;
-    background-color: var(--logo-color);
-    color: white;
-    font-size: small;
-    font-weight: 600;
-    
+.logoutbtn {
+  border-radius: 10%;
+  border-width: 0;
+  width: 10%;
+  height: 10px;
+  background-color: var(--background-color);
+  font-weight: 400;
+  color: var(--logo-color);
+  text-decoration: none;
+  font-size: 1.1rem;
+  transition: color 0.2s ease-in-out;
 }
 
-.logoutbtn:hover{
-    background-color: var(--primary-color);
+.logoutbtn:hover {
+  text-decoration: underline;
+  color: #ba9939;
 }
 
-.logoutbtn:active{
-    background-color: var(--logo-color);
+.logoutbtn:active {
+  background-color: var(--background-color);
 }
