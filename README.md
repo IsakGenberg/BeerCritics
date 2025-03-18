@@ -47,9 +47,13 @@ The project report can be found on the canvas page associated with group 25.
 
 ## How do i run the application?
 1) Create a .env file in the root of the server directory.
-2) Add SESSION_SECRET and DATABASE_URL to the env file.
-3) Start Docker Desktop.
-4) Open a powershell terminal and run the following commands
+2) Add SESSION_SECRET and DATABASE_URL to the env file. Set DATABASE_URL = "postgres://radams_favoriter:W665jgMEal9GOW5MAbk7@localhost:5432".
+3) Run the command:
+    ```
+      docker run --env POSTGRES_USER=radams_favoriter --env POSTGRES_PASSWORD=W665jgMEal9GOW5MAbk7 --publish 5432:5432 --name web_apps_db --detach postgres:17
+    ``` 
+4) Start Docker Desktop, and run the container.
+5) Open a powershell terminal and run the following commands
 
    - Navigate to server directory
      ```sh
@@ -63,7 +67,7 @@ The project report can be found on the canvas page associated with group 25.
      ```sh
      npm run dev
      ```
-5) Open a second powershell terminal and run the following commands
+6) Open a second powershell terminal and run the following commands
 
     - Navigate to client directory
        ```sh
@@ -77,4 +81,4 @@ The project report can be found on the canvas page associated with group 25.
      ```sh
      npm run dev
      ```
-6) Navigate to http://localhost:5173/ and you should see the homepage of BeerCritics
+7) Navigate to http://localhost:5173/ and you should see the homepage of BeerCritics
