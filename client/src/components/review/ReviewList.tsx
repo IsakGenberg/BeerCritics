@@ -8,6 +8,12 @@ interface ReviewListProps {
   onReviewsFetched?: (reviews: Review[]) => void;
 }
 
+/**
+ * A list of reviews that fetches reviews from the API and displays them as ReviewCards.
+ * @param ReviewListProps - An object containing the following properties:
+ * - fetchReviews: () => Promise<Review[]> - a function that fetches reviews from an API
+ * - onAddReview?: (review: Review) => void - an optional function that is called when a review is added
+ */
 const ReviewList: React.FC<ReviewListProps> = ({
   fetchReviews,
   onReviewsFetched,
